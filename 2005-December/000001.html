@@ -1,0 +1,1556 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [frog-svn] r19 - in trunk: . src src/frog
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/frog-svn/2005-December/index.html" >
+   <LINK REL="made" HREF="mailto:frog-svn%40lists.berlios.de?Subject=Re%3A%20%5Bfrog-svn%5D%20r19%20-%20in%20trunk%3A%20.%20src%20src/frog&In-Reply-To=%3C200512160807.jBG87kMh008588%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000000.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[frog-svn] r19 - in trunk: . src src/frog</H1>
+    <B>janvier at BerliOS</B> 
+    <A HREF="mailto:frog-svn%40lists.berlios.de?Subject=Re%3A%20%5Bfrog-svn%5D%20r19%20-%20in%20trunk%3A%20.%20src%20src/frog&In-Reply-To=%3C200512160807.jBG87kMh008588%40sheep.berlios.de%3E"
+       TITLE="[frog-svn] r19 - in trunk: . src src/frog">janvier at berlios.de
+       </A><BR>
+    <I>Fri Dec 16 09:07:46 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000000.html">[frog-svn] r18 - in trunk: . autom4te.cache test
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1">[ date ]</a>
+              <a href="thread.html#1">[ thread ]</a>
+              <a href="subject.html#1">[ subject ]</a>
+              <a href="author.html#1">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: janvier
+Date: 2005-12-16 09:07:26 +0100 (Fri, 16 Dec 2005)
+New Revision: 19
+
+Removed:
+   trunk/autom4te.cache/
+Modified:
+   trunk/ChangeLog
+   trunk/src/IPEndpoint.cpp
+   trunk/src/InetAddress.cpp
+   trunk/src/NetworkInterface.cpp
+   trunk/src/Object.cpp
+   trunk/src/frog/ApplicationException.h
+   trunk/src/frog/ArgumentNullException.h
+   trunk/src/frog/ArgumentOutOfBoundsException.h
+   trunk/src/frog/ArithmeticException.h
+   trunk/src/frog/DivideByZeroException.h
+   trunk/src/frog/Endpoint.h
+   trunk/src/frog/Exception.h
+   trunk/src/frog/FormatException.h
+   trunk/src/frog/IOException.h
+   trunk/src/frog/IllegalArgumentException.h
+   trunk/src/frog/InetAddress.h
+   trunk/src/frog/NotImplementedException.h
+   trunk/src/frog/NullPointerException.h
+   trunk/src/frog/OverflowException.h
+   trunk/src/frog/RuntimeException.h
+   trunk/src/frog/SocketException.h
+   trunk/src/frog/SystemException.h
+   trunk/src/frog/UnknownHostException.h
+Log:
+Fixed indentations on source and header files.
+
+
+Modified: trunk/ChangeLog
+===================================================================
+--- trunk/ChangeLog	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/ChangeLog	2005-12-16 08:07:26 UTC (rev 19)
+@@ -1,3 +1,7 @@
++2005-12-16  Janvier D. Anonical &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/frog-svn">janvier at users.berlios.de</A>&gt;
++
++    * Fixed ugly indentation on source and header files.
++
+ 2005-12-07  Janvier D. Anonical &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/frog-svn">janvier at users.berlios.de</A>&gt;
+ 
+     * Added more tests for TimeValue.
+
+Modified: trunk/src/IPEndpoint.cpp
+===================================================================
+--- trunk/src/IPEndpoint.cpp	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/IPEndpoint.cpp	2005-12-16 08:07:26 UTC (rev 19)
+@@ -29,11 +29,11 @@
+     namespace net
+     {
+         //--------------------------------------------------------------
+-        IPEndpoint::IPEndpoint(InetAddress&amp; ipAddress, in_port_t portNo) throw()
+-            : address(ipAddress), port(portNo)
+-            {
+-                setAddressFamily(ipAddress.addressFamily);
+-            }
++        IPEndpoint::IPEndpoint(InetAddress&amp; ipAddress, in_port_t portNo) throw() :
++          address(ipAddress), port(portNo)
++        {
++            setAddressFamily(ipAddress.addressFamily);
++        }
+ 
+         //--------------------------------------------------------------
+         IPEndpoint&amp; IPEndpoint::operator=(const IPEndpoint&amp; ep) throw()
+
+Modified: trunk/src/InetAddress.cpp
+===================================================================
+--- trunk/src/InetAddress.cpp	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/InetAddress.cpp	2005-12-16 08:07:26 UTC (rev 19)
+@@ -31,109 +31,103 @@
+     namespace net
+     {
+         //--------------------------------------------------------------
+-        InetAddress::InetAddress() throw() 
+-            : addressFamily(addressFamily_),
+-            ipv4Compatible(ipv4Compatible_),
+-            ipv4Compatible_(true),
+-            index_(0),
+-            addressFamily_(AddressFamily::Unspecified)
+-            {
+-                memset(address_, 0, sizeof(uint8_t) * MAX_ADDR_SIZE);
+-            }
++        InetAddress::InetAddress() throw() :
++          addressFamily(addressFamily_), ipv4Compatible(ipv4Compatible_),
++          ipv4Compatible_(true), index_(0), addressFamily_(AddressFamily::Unspecified)
++        {
++            memset(address_, 0, sizeof(uint8_t) * MAX_ADDR_SIZE);
++        }
+ 
+         //--------------------------------------------------------------
+-        InetAddress::InetAddress(const InetAddress&amp; addr) throw()
+-            : addressFamily(addressFamily_), ipv4Compatible(ipv4Compatible_)
+-            {
+-                ::memcpy(address_, addr.address_, sizeof(uint8_t) * MAX_ADDR_SIZE);
+-                addressFamily_ = addr.addressFamily_;
+-                ipv4Compatible_ = addr.ipv4Compatible_;
+-                index_ = addr.index_;
+-            }
++        InetAddress::InetAddress(const InetAddress&amp; addr) throw() :
++          addressFamily(addressFamily_), ipv4Compatible(ipv4Compatible_)
++        {
++            ::memcpy(address_, addr.address_, sizeof(uint8_t) * MAX_ADDR_SIZE);
++            addressFamily_ = addr.addressFamily_;
++            ipv4Compatible_ = addr.ipv4Compatible_;
++            index_ = addr.index_;
++        }
+ 
+         //--------------------------------------------------------------
+-        InetAddress::InetAddress(const std::string&amp; ipAddress, uint32_t index)
+-            throw(sys::IllegalArgumentException)
+-            : addressFamily(addressFamily_), ipv4Compatible(ipv4Compatible_)
++        InetAddress::InetAddress(const std::string&amp; ipAddress, uint32_t index) throw(sys::IllegalArgumentException) :
++          addressFamily(addressFamily_), ipv4Compatible(ipv4Compatible_)
++        {
++            // We know that it is not an IPv4 address if it contains
++            // a semicolon.
++            if(ipAddress.find(&quot;:&quot;) == std::string::npos)
+             {
+-                // We know that it is not an IPv4 address if it contains
+-                // a semicolon.
+-                if(ipAddress.find(&quot;:&quot;) == std::string::npos)
+-                {
+-                    struct in_addr inaddr;
+-                    int res;
++                struct in_addr inaddr;
++                int res;
+ #ifdef HAVE_INET_PTON
+-                    res = ::inet_pton(AF_INET, ipAddress.c_str(), &amp;inaddr);
++                res = ::inet_pton(AF_INET, ipAddress.c_str(), &amp;inaddr);
+ #else
+ #ifdef HAVE_INET_ATON
+-                    res = ::inet_aton(ipAddress.c_str(), &amp;inaddr);
++                res = ::inet_aton(ipAddress.c_str(), &amp;inaddr);
+ #else // No choice but to use inet_addr
+-                    if((inaddr = ::inet_addr(ipAddress.c_str())) == -1)
+-                    {
+-                        res = 0;
+-                    }
++                if((inaddr = ::inet_addr(ipAddress.c_str())) == -1)
++                {
++                    res = 0;
++                }
+ #endif
+ #endif
+-                    if(res &lt; 0)
+-                    {
+-                        throw sys::IllegalArgumentException(strerror(errno));
+-                    }
+-                    else if(res == 0)
+-                    {
+-                        throw sys::IllegalArgumentException(&quot;IP address is not valid.&quot;);
+-                    }
+-
+-                    this-&gt;initIPv4(inaddr);
+-                    addressFamily_ = AddressFamily::InterNetwork;
+-                    ipv4Compatible_ = true;
++                if(res &lt; 0)
++                {
++                    throw sys::IllegalArgumentException(strerror(errno));
+                 }
+-                else
++                else if(res == 0)
+                 {
++                    throw sys::IllegalArgumentException(&quot;IP address is not valid.&quot;);
++                }
++
++                this-&gt;initIPv4(inaddr);
++                addressFamily_ = AddressFamily::InterNetwork;
++                ipv4Compatible_ = true;
++            }
++            else
++            {
+ #ifdef HAVE_IPV6_SUPPORT
+-                    struct in6_addr in6addr;
++                struct in6_addr in6addr;
+ #ifdef HAVE_INET_PTON
+-                    int res = ::inet_pton(AF_INET6, ipAddress.c_str(), &amp;in6addr);
++                int res = ::inet_pton(AF_INET6, ipAddress.c_str(), &amp;in6addr);
+ #else
+ #error	enabling IPv6 support without a working inet_pton(); configure without IPv6 support
+ #endif
+-                    if(res &lt; 0)
+-                    {
+-                        throw sys::IllegalArgumentException(strerror(errno));
+-                    }
+-                    else if(res == 0)
+-                    {
+-                        throw sys::IllegalArgumentException(&quot;IP address is not valid.&quot;);
+-                    }
++                if(res &lt; 0)
++                {
++                    throw sys::IllegalArgumentException(strerror(errno));
++                }
++                else if(res == 0)
++                {
++                    throw sys::IllegalArgumentException(&quot;IP address is not valid.&quot;);
++                }
+ 
+-                    this-&gt;initIPv6(in6addr, index);
+-                    addressFamily_ = AddressFamily::InterNetworkV6;
+-                    ipv4Compatible_ = IN6_IS_ADDR_V4COMPAT(&amp;in6addr);
++                this-&gt;initIPv6(in6addr, index);
++                addressFamily_ = AddressFamily::InterNetworkV6;
++                ipv4Compatible_ = IN6_IS_ADDR_V4COMPAT(&amp;in6addr);
+ #else
+-                    throw sys::IllegalArgumentException(&quot;IP address is not valid.&quot;);
++                throw sys::IllegalArgumentException(&quot;IP address is not valid.&quot;);
+ #endif
+-                }
+             }
++        }
+ 
+         //--------------------------------------------------------------
+-        InetAddress::InetAddress(const struct in_addr&amp; ipAddress)
+-            throw(sys::ArgumentOutOfBoundsException)
+-            : addressFamily(addressFamily_), ipv4Compatible(ipv4Compatible_)
+-            {
+-                this-&gt;initIPv4(ipAddress);
+-                addressFamily_ = AddressFamily::InterNetwork;
+-                ipv4Compatible_ = true;
+-            }
++        InetAddress::InetAddress(const struct in_addr&amp; ipAddress) throw(sys::ArgumentOutOfBoundsException) :
++          addressFamily(addressFamily_), ipv4Compatible(ipv4Compatible_)
++        {
++            this-&gt;initIPv4(ipAddress);
++            addressFamily_ = AddressFamily::InterNetwork;
++            ipv4Compatible_ = true;
++        }
+ 
+         //--------------------------------------------------------------
+ #ifdef HAVE_IPV6_SUPPORT
+-        InetAddress::InetAddress(const struct in6_addr&amp; ipAddress, uint32_t index)
+-            throw(sys::ArgumentOutOfBoundsException)
+-            : addressFamily(addressFamily_), ipv4Compatible(ipv4Compatible_)
+-            {
+-                this-&gt;initIPv6(ipAddress, index);
+-                addressFamily_ = AddressFamily::InterNetworkV6;
+-                ipv4Compatible_ = IN6_IS_ADDR_V4COMPAT(&amp;ipAddress);
+-            }
++        InetAddress::InetAddress(const struct in6_addr&amp; ipAddress, uint32_t index) throw(sys::ArgumentOutOfBoundsException) :
++          addressFamily(addressFamily_), ipv4Compatible(ipv4Compatible_)
++        {
++            this-&gt;initIPv6(ipAddress, index);
++            addressFamily_ = AddressFamily::InterNetworkV6;
++            ipv4Compatible_ = IN6_IS_ADDR_V4COMPAT(&amp;ipAddress);
++        }
+ #endif
+ 
+         //--------------------------------------------------------------
+@@ -402,46 +396,44 @@
+         }
+ 
+         //--------------------------------------------------------------
+-        void InetAddress::initIPv4(const struct in_addr&amp; ipAddress)
+-            throw(sys::ArgumentOutOfBoundsException)
++        void InetAddress::initIPv4(const struct in_addr&amp; ipAddress) throw(sys::ArgumentOutOfBoundsException)
++        {
++            if(ipAddress.s_addr &gt; 0xFFFFFFFFU)
+             {
+-                if(ipAddress.s_addr &gt; 0xFFFFFFFFU)
+-                {
+-                    throw sys::ArgumentOutOfBoundsException(&quot;IP address is out of range.&quot;);
+-                }
++                throw sys::ArgumentOutOfBoundsException(&quot;IP address is out of range.&quot;);
++            }
+ 
+-                uint8_t addr[MAX_ADDR_SIZE];
+-                ::memset(addr, 0, sizeof(uint8_t) * MAX_ADDR_SIZE);
+-                ::memcpy(addr, &amp;ipAddress.s_addr, sizeof(ipAddress.s_addr));
++            uint8_t addr[MAX_ADDR_SIZE];
++            ::memset(addr, 0, sizeof(uint8_t) * MAX_ADDR_SIZE);
++            ::memcpy(addr, &amp;ipAddress.s_addr, sizeof(ipAddress.s_addr));
+ 
+ 
+-                ::memset(address_, 0, sizeof(uint8_t) * MAX_ADDR_SIZE);
+-                ::memcpy(address_ + IPV4_OFFSET, &amp;ipAddress.s_addr, sizeof(ipAddress.s_addr));
++            ::memset(address_, 0, sizeof(uint8_t) * MAX_ADDR_SIZE);
++            ::memcpy(address_ + IPV4_OFFSET, &amp;ipAddress.s_addr, sizeof(ipAddress.s_addr));
+ 
+-                index_ = 0;
+-            }
++            index_ = 0;
++        }
+ 
+         //--------------------------------------------------------------
+ #ifdef HAVE_IPV6_SUPPORT
+-        void InetAddress::initIPv6(const struct in6_addr&amp; ipAddress, uint32_t index)
+-            throw(sys::ArgumentOutOfBoundsException)
++        void InetAddress::initIPv6(const struct in6_addr&amp; ipAddress, uint32_t index) throw(sys::ArgumentOutOfBoundsException)
++        {
++            uint8_t addr[MAX_ADDR_SIZE];
++            ::memset(addr, 0, sizeof(uint8_t) * MAX_ADDR_SIZE);
++            ::memcpy(addr, &amp;ipAddress.s6_addr, sizeof(ipAddress.s6_addr));
++
++            for(int i= 0; i &lt; MAX_ADDR_SIZE; ++i)
+             {
+-                uint8_t addr[MAX_ADDR_SIZE];
+-                ::memset(addr, 0, sizeof(uint8_t) * MAX_ADDR_SIZE);
+-                ::memcpy(addr, &amp;ipAddress.s6_addr, sizeof(ipAddress.s6_addr));
++                if(addr[i] &gt; 255U)
++                    throw sys::ArgumentOutOfBoundsException(&quot;IP address is out of range.&quot;);
++            }
+ 
+-                for(int i= 0; i &lt; MAX_ADDR_SIZE; ++i)
+-                {
+-                    if(addr[i] &gt; 255U)
+-                        throw sys::ArgumentOutOfBoundsException(&quot;IP address is out of range.&quot;);
+-                }
+ 
++            ::memset(address_, 0, sizeof(uint8_t) * MAX_ADDR_SIZE);
++            ::memcpy(address_, &amp;ipAddress.s6_addr, sizeof(ipAddress.s6_addr));
+ 
+-                ::memset(address_, 0, sizeof(uint8_t) * MAX_ADDR_SIZE);
+-                ::memcpy(address_, &amp;ipAddress.s6_addr, sizeof(ipAddress.s6_addr));
+-
+-                index_ = index;
+-            }
++            index_ = index;
++        }
+ #endif
+ 
+         //--------------------------------------------------------------
+
+Modified: trunk/src/NetworkInterface.cpp
+===================================================================
+--- trunk/src/NetworkInterface.cpp	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/NetworkInterface.cpp	2005-12-16 08:07:26 UTC (rev 19)
+@@ -68,18 +68,16 @@
+ 
+ 
+         //--------------------------------------------------------------
+-        NetworkInterface NetworkInterface::getByInetAddress(const InetAddress&amp; addr)
+-            throw(SocketException)
+-            {
+-                return NetworkInterface::find(&amp;addr);
+-            }
++        NetworkInterface NetworkInterface::getByInetAddress(const InetAddress&amp; addr) throw(SocketException)
++        {
++            return NetworkInterface::find(&amp;addr);
++        }
+ 
+         //--------------------------------------------------------------
+-        NetworkInterface NetworkInterface::getByName(const std::string&amp; intfaceName)
+-            throw(SocketException)
+-            {
+-                return NetworkInterface::find(NULL, intfaceName);
+-            }
++        NetworkInterface NetworkInterface::getByName(const std::string&amp; intfaceName) throw(SocketException)
++        {
++            return NetworkInterface::find(NULL, intfaceName);
++        }
+ 
+         //--------------------------------------------------------------
+         NetworkInterface::~NetworkInterface() throw()
+@@ -87,14 +85,14 @@
+         }
+ 
+         //--------------------------------------------------------------
+-        NetworkInterface::NetworkInterface(const NetworkInterface&amp; netInterface) throw()
+-            : name(name_), displayName(displayName_)
+-            {
+-                name_ = netInterface.name_;
+-                displayName_ = netInterface.displayName_;
+-                addressList_ = netInterface.addressList_;
+-                intfaceIndex_ = netInterface.intfaceIndex_;
+-            }
++        NetworkInterface::NetworkInterface(const NetworkInterface&amp; netInterface) throw() :
++          name(name_), displayName(displayName_)
++        {
++            name_ = netInterface.name_;
++            displayName_ = netInterface.displayName_;
++            addressList_ = netInterface.addressList_;
++            intfaceIndex_ = netInterface.intfaceIndex_;
++        }
+ 
+         //--------------------------------------------------------------
+         NetworkInterface&amp; NetworkInterface::operator=(const NetworkInterface&amp; netInterface) throw()
+@@ -138,293 +136,292 @@
+         }
+ 
+         //--------------------------------------------------------------
+-        NetworkInterface NetworkInterface::find(const InetAddress* addr, const std::string name)
+-            throw(SocketException)
+-            {
++        NetworkInterface NetworkInterface::find(const InetAddress* addr, const std::string name) throw(SocketException)
++        {
+ #ifdef HAVE_IFADDRS_H
+-                NetworkInterface netInterface;
+-                struct ifaddrs* intfaceAddr;
++            NetworkInterface netInterface;
++            struct ifaddrs* intfaceAddr;
+ 
+-                if(::getifaddrs(&amp;intfaceAddr) == -1)
++            if(::getifaddrs(&amp;intfaceAddr) == -1)
++            {
++                throw SocketException(::strerror(errno));
++            }
++
++            InetAddress* addr_p      = NULL;
++            InetAddress* netmask_p   = NULL;
++            InetAddress* broadcast_p = NULL;
++            uint32_t interfaceIndex = 0;
++
++            while(intfaceAddr)
++            {
++                if((intfaceAddr-&gt;ifa_addr-&gt;sa_family != AF_INET) 
++#ifdef HAVE_IPV6_SUPPORT
++                        &amp;&amp; (intfaceAddr-&gt;ifa_addr-&gt;sa_family != AF_INET6)
++#endif
++                        || ((intfaceAddr-&gt;ifa_flags &amp; IFF_UP) == 0) // Ignore if interface is not up
++                        || (!(intfaceAddr-&gt;ifa_addr))) // Ignore if we do not have an IP address
+                 {
+-                    throw SocketException(::strerror(errno));
++                    intfaceAddr = intfaceAddr-&gt;ifa_next;
++                    continue;
+                 }
+ 
+-                InetAddress* addr_p      = NULL;
+-                InetAddress* netmask_p   = NULL;
+-                InetAddress* broadcast_p = NULL;
+-                uint32_t interfaceIndex = 0;
++                interfaceIndex = if_nametoindex(intfaceAddr-&gt;ifa_name);
+ 
+-                while(intfaceAddr)
++                if(intfaceAddr-&gt;ifa_addr-&gt;sa_family == AF_INET)
+                 {
+-                    if((intfaceAddr-&gt;ifa_addr-&gt;sa_family != AF_INET) 
+-#ifdef HAVE_IPV6_SUPPORT
+-                            &amp;&amp; (intfaceAddr-&gt;ifa_addr-&gt;sa_family != AF_INET6)
+-#endif
+-                            || ((intfaceAddr-&gt;ifa_flags &amp; IFF_UP) == 0) // Ignore if interface is not up
+-                            || (!(intfaceAddr-&gt;ifa_addr))) // Ignore if we do not have an IP address
+-                    {
+-                        intfaceAddr = intfaceAddr-&gt;ifa_next;
+-                        continue;
+-                    }
++                    struct sockaddr_in* sockaddr;
+ 
+-                    interfaceIndex = if_nametoindex(intfaceAddr-&gt;ifa_name);
++                    sockaddr = reinterpret_cast&lt;struct sockaddr_in*&gt;(intfaceAddr-&gt;ifa_addr);
++                    addr_p = new InetAddress(sockaddr-&gt;sin_addr);
+ 
+-                    if(intfaceAddr-&gt;ifa_addr-&gt;sa_family == AF_INET)
++                    if(intfaceAddr-&gt;ifa_netmask)
+                     {
+-                        struct sockaddr_in* sockaddr;
++                        sockaddr = reinterpret_cast&lt;struct sockaddr_in*&gt;(intfaceAddr-&gt;ifa_netmask);
++                        netmask_p = new InetAddress(sockaddr-&gt;sin_addr);
++                    }
+ 
+-                        sockaddr = reinterpret_cast&lt;struct sockaddr_in*&gt;(intfaceAddr-&gt;ifa_addr);
+-                        addr_p = new InetAddress(sockaddr-&gt;sin_addr);
+-
+-                        if(intfaceAddr-&gt;ifa_netmask)
+-                        {
+-                            sockaddr = reinterpret_cast&lt;struct sockaddr_in*&gt;(intfaceAddr-&gt;ifa_netmask);
+-                            netmask_p = new InetAddress(sockaddr-&gt;sin_addr);
+-                        }
+-
+-                        if(intfaceAddr-&gt;ifa_broadaddr)
+-                        {
+-                            sockaddr = reinterpret_cast&lt;struct sockaddr_in*&gt;(intfaceAddr-&gt;ifa_broadaddr);
+-                            broadcast_p = new InetAddress(sockaddr-&gt;sin_addr);
+-                        }
++                    if(intfaceAddr-&gt;ifa_broadaddr)
++                    {
++                        sockaddr = reinterpret_cast&lt;struct sockaddr_in*&gt;(intfaceAddr-&gt;ifa_broadaddr);
++                        broadcast_p = new InetAddress(sockaddr-&gt;sin_addr);
+                     }
++                }
+ #ifdef HAVE_IPV6_SUPPORT
+-                    else if(intfaceAddr-&gt;ifa_addr-&gt;sa_family == AF_INET6)
+-                    {
+-                        struct sockaddr_in6* sockaddr6;
++                else if(intfaceAddr-&gt;ifa_addr-&gt;sa_family == AF_INET6)
++                {
++                    struct sockaddr_in6* sockaddr6;
+ 
+-                        sockaddr6 = reinterpret_cast&lt;struct sockaddr_in6*&gt;(intfaceAddr-&gt;ifa_addr);
+-                        addr_p = new InetAddress(sockaddr6-&gt;sin6_addr, interfaceIndex);
++                    sockaddr6 = reinterpret_cast&lt;struct sockaddr_in6*&gt;(intfaceAddr-&gt;ifa_addr);
++                    addr_p = new InetAddress(sockaddr6-&gt;sin6_addr, interfaceIndex);
+ 
+-                        if(intfaceAddr-&gt;ifa_netmask)
+-                        {
+-                            sockaddr6 = reinterpret_cast&lt;struct sockaddr_in6*&gt;(intfaceAddr-&gt;ifa_netmask);
+-                            netmask_p = new InetAddress(sockaddr6-&gt;sin6_addr);
+-                        }
++                    if(intfaceAddr-&gt;ifa_netmask)
++                    {
++                        sockaddr6 = reinterpret_cast&lt;struct sockaddr_in6*&gt;(intfaceAddr-&gt;ifa_netmask);
++                        netmask_p = new InetAddress(sockaddr6-&gt;sin6_addr);
++                    }
+ 
+-                        if(intfaceAddr-&gt;ifa_broadaddr)
+-                        {
+-                            sockaddr6 = reinterpret_cast&lt;struct sockaddr_in6*&gt;(intfaceAddr-&gt;ifa_broadaddr);
+-                            broadcast_p = new InetAddress(sockaddr6-&gt;sin6_addr);
+-                        }
++                    if(intfaceAddr-&gt;ifa_broadaddr)
++                    {
++                        sockaddr6 = reinterpret_cast&lt;struct sockaddr_in6*&gt;(intfaceAddr-&gt;ifa_broadaddr);
++                        broadcast_p = new InetAddress(sockaddr6-&gt;sin6_addr);
+                     }
++                }
+ #endif
+ 
+-                    bool addrMatch = false;
+-                    bool nameMatch = false;
++                bool addrMatch = false;
++                bool nameMatch = false;
+ 
+-                    if(addr)
+-                        addrMatch = (*addr_p == *addr);
+-                    if(name.length() &gt; 0)
+-                        nameMatch = (name == std::string(intfaceAddr-&gt;ifa_name));
++                if(addr)
++                    addrMatch = (*addr_p == *addr);
++                if(name.length() &gt; 0)
++                    nameMatch = (name == std::string(intfaceAddr-&gt;ifa_name));
+ 
+-                    if(addrMatch || nameMatch)
+-                    {
+-                        netInterface.name_ = std::string(intfaceAddr-&gt;ifa_name);
+-                        netInterface.displayName_ = std::string(intfaceAddr-&gt;ifa_name);
++                if(addrMatch || nameMatch)
++                {
++                    netInterface.name_ = std::string(intfaceAddr-&gt;ifa_name);
++                    netInterface.displayName_ = std::string(intfaceAddr-&gt;ifa_name);
+ 
+-                        NetworkInterface::InterfaceAddress addrs;
+-                        memset(&amp;addrs, 0, sizeof(NetworkInterface::InterfaceAddress));
++                    NetworkInterface::InterfaceAddress addrs;
++                    memset(&amp;addrs, 0, sizeof(NetworkInterface::InterfaceAddress));
+ 
+-                        addrs.unicast = *addr_p;
++                    addrs.unicast = *addr_p;
+ 
+-                        if(netmask_p) 
+-                            addrs.netmask = *netmask_p;
+-                        if(broadcast_p)
+-                            addrs.broadcast = *broadcast_p;
++                    if(netmask_p) 
++                        addrs.netmask = *netmask_p;
++                    if(broadcast_p)
++                        addrs.broadcast = *broadcast_p;
+ 
+-                        netInterface.intfaceIndex_ = interfaceIndex;
++                    netInterface.intfaceIndex_ = interfaceIndex;
+ 
+-                        netInterface.addressList_.push_back(addrs);
+-                    }
++                    netInterface.addressList_.push_back(addrs);
++                }
+ 
+-                    if(addr_p)
+-                    {
+-                        delete addr_p;
+-                        addr_p = NULL;
+-                    }
++                if(addr_p)
++                {
++                    delete addr_p;
++                    addr_p = NULL;
++                }
+ 
+-                    if(netmask_p)
+-                    {
+-                        delete netmask_p;
+-                        netmask_p = NULL;
+-                    }
++                if(netmask_p)
++                {
++                    delete netmask_p;
++                    netmask_p = NULL;
++                }
+ 
+-                    if(broadcast_p)
+-                    {
+-                        delete broadcast_p;
+-                        broadcast_p = NULL;
+-                    }
+-
+-                    intfaceAddr = intfaceAddr-&gt;ifa_next;
++                if(broadcast_p)
++                {
++                    delete broadcast_p;
++                    broadcast_p = NULL;
+                 }
+ 
+-                ::freeifaddrs(intfaceAddr);
++                intfaceAddr = intfaceAddr-&gt;ifa_next;
++            }
+ 
+-                return netInterface;
++            ::freeifaddrs(intfaceAddr);
++
++            return netInterface;
+ #else
+-                // No ::getifaddrs()
+-                int sockfd;
+-                int len, lastLen, flags;
+-                char* buf = frog::nullptr;
+-                char* ptr = frog::nullptr;
+-                struct ifconf ifc;
+-                struct ifreq* ifr;
+-                struct ifreq ifrcopy;
+-                struct sockaddr_in* sinptr;
++            // No ::getifaddrs()
++            int sockfd;
++            int len, lastLen, flags;
++            char* buf = frog::nullptr;
++            char* ptr = frog::nullptr;
++            struct ifconf ifc;
++            struct ifreq* ifr;
++            struct ifreq ifrcopy;
++            struct sockaddr_in* sinptr;
+ 
+-                NetworkInterface netInterface;
+-                uint32_t interfaceIndex = 0;
++            NetworkInterface netInterface;
++            uint32_t interfaceIndex = 0;
+ 
+-                if((sockfd = ::socket(AF_INET, SOCK_DGRAM, 0)) == -1)
+-                {
+-                    throw SocketException(::strerror(errno));
+-                }
++            if((sockfd = ::socket(AF_INET, SOCK_DGRAM, 0)) == -1)
++            {
++                throw SocketException(::strerror(errno));
++            }
+ 
+-                lastLen = 0;
+-                len = 100 * sizeof(struct ifreq); // Initial buffer guess
+-                for(;;)
++            lastLen = 0;
++            len = 100 * sizeof(struct ifreq); // Initial buffer guess
++            for(;;)
++            {
++                buf = new char[len];
++                ifc.ifc_len = len;
++                ifc.ifc_buf = buf;
++                if(::ioctl(sockfd, SIOCGIFCONF, &amp;ifc) &lt; 0)
+                 {
+-                    buf = new char[len];
+-                    ifc.ifc_len = len;
+-                    ifc.ifc_buf = buf;
+-                    if(::ioctl(sockfd, SIOCGIFCONF, &amp;ifc) &lt; 0)
++                    if(errno != EINVAL || lastLen != 0)
+                     {
+-                        if(errno != EINVAL || lastLen != 0)
+-                        {
+-                            delete[] buf;
+-                            buf = frog::nullptr;
+-                            throw SocketException(::strerror(errno));
+-                        }
++                        delete[] buf;
++                        buf = frog::nullptr;
++                        throw SocketException(::strerror(errno));
+                     }
+-                    else
+-                    {
+-                        if(ifc.ifc_len == lastLen)
+-                            break; // Success, len has not changed
+-                        lastLen = ifc.ifc_len;
+-                    }
+-                    len  += 10 * sizeof(struct ifreq); // Increment
+-                    delete[] buf;
+-                    buf = frog::nullptr;
+                 }
++                else
++                {
++                    if(ifc.ifc_len == lastLen)
++                        break; // Success, len has not changed
++                    lastLen = ifc.ifc_len;
++                }
++                len  += 10 * sizeof(struct ifreq); // Increment
++                delete[] buf;
++                buf = frog::nullptr;
++            }
+ 
+-                InetAddress* addr_p = NULL;
+-                InetAddress* netmask_p = NULL;
+-                InetAddress* broadcast_p = NULL;
++            InetAddress* addr_p = NULL;
++            InetAddress* netmask_p = NULL;
++            InetAddress* broadcast_p = NULL;
+ 
+-                for(ptr = buf; ptr &lt; buf + ifc.ifc_len; )
++            for(ptr = buf; ptr &lt; buf + ifc.ifc_len; )
++            {
++                ifr = reinterpret_cast&lt;struct ifreq*&gt;(ptr);
++                switch(ifr-&gt;ifr_addr.sa_family)
+                 {
+-                    ifr = reinterpret_cast&lt;struct ifreq*&gt;(ptr);
+-                    switch(ifr-&gt;ifr_addr.sa_family)
+-                    {
+-                      case AF_INET:
+-                          len = sizeof(struct sockaddr);
+-                          break;
+-                      default:
+-                          break;
+-                    }
+-                    ptr += sizeof(ifr-&gt;ifr_name) + len; // For next one in buffer
++                  case AF_INET:
++                      len = sizeof(struct sockaddr);
++                      break;
++                  default:
++                      break;
++                }
++                ptr += sizeof(ifr-&gt;ifr_name) + len; // For next one in buffer
+ 
+-                    if(ifr-&gt;ifr_addr.sa_family != AF_INET)
+-                        continue;
++                if(ifr-&gt;ifr_addr.sa_family != AF_INET)
++                    continue;
+ 
+-                    ifrcopy = *ifr;
+-                    if((::ioctl(sockfd, SIOCGIFFLAGS, &amp;ifrcopy)) == -1)
+-                    {
+-                        throw SocketException(::strerror(errno));
+-                    }
+-                    flags = ifrcopy.ifr_flags;
+-                    if((flags &amp; IFF_UP) == 0)
+-                        continue; // Ignore if interface is not up
++                ifrcopy = *ifr;
++                if((::ioctl(sockfd, SIOCGIFFLAGS, &amp;ifrcopy)) == -1)
++                {
++                    throw SocketException(::strerror(errno));
++                }
++                flags = ifrcopy.ifr_flags;
++                if((flags &amp; IFF_UP) == 0)
++                    continue; // Ignore if interface is not up
+ 
+-                    sinptr = reinterpret_cast&lt;struct sockaddr_in*&gt;(&amp;ifr-&gt;ifr_addr);
+-                    addr_p = new InetAddress(sinptr-&gt;sin_addr);
++                sinptr = reinterpret_cast&lt;struct sockaddr_in*&gt;(&amp;ifr-&gt;ifr_addr);
++                addr_p = new InetAddress(sinptr-&gt;sin_addr);
+ 
+-                    if((::ioctl(sockfd, SIOCGIFNETMASK, &amp;ifrcopy)) == -1)
+-                    {
+-                        throw SocketException(::strerror(errno));
+-                    }
++                if((::ioctl(sockfd, SIOCGIFNETMASK, &amp;ifrcopy)) == -1)
++                {
++                    throw SocketException(::strerror(errno));
++                }
+ #if defined(__linux__)
+-                    sinptr = reinterpret_cast&lt;struct sockaddr_in*&gt;(&amp;ifrcopy.ifr_netmask);
++                sinptr = reinterpret_cast&lt;struct sockaddr_in*&gt;(&amp;ifrcopy.ifr_netmask);
+ #else
+-                    sinptr = reinterpret_cast&lt;struct sockaddr_in*&gt;(&amp;ifrcopy.ifr_enaddr);
++                sinptr = reinterpret_cast&lt;struct sockaddr_in*&gt;(&amp;ifrcopy.ifr_enaddr);
+ #endif
+-                    netmask_p = new InetAddress(sinptr-&gt;sin_addr);
++                netmask_p = new InetAddress(sinptr-&gt;sin_addr);
+ 
+-                    if(flags &amp; IFF_BROADCAST)
++                if(flags &amp; IFF_BROADCAST)
++                {
++                    if((::ioctl(sockfd, SIOCGIFBRDADDR, &amp;ifrcopy)) == -1)
+                     {
+-                        if((::ioctl(sockfd, SIOCGIFBRDADDR, &amp;ifrcopy)) == -1)
+-                        {
+-                            throw SocketException(::strerror(errno));
+-                        }
+-                        sinptr = reinterpret_cast&lt;struct sockaddr_in*&gt;(&amp;ifrcopy.ifr_broadaddr);
+-                        broadcast_p = new InetAddress(sinptr-&gt;sin_addr);
+-                    }
+-
+-                    if((::ioctl(sockfd, SIOCGIFINDEX, &amp;ifrcopy)) == -1)
+-                    {
+                         throw SocketException(::strerror(errno));
+                     }
++                    sinptr = reinterpret_cast&lt;struct sockaddr_in*&gt;(&amp;ifrcopy.ifr_broadaddr);
++                    broadcast_p = new InetAddress(sinptr-&gt;sin_addr);
++                }
+ 
++                if((::ioctl(sockfd, SIOCGIFINDEX, &amp;ifrcopy)) == -1)
++                {
++                    throw SocketException(::strerror(errno));
++                }
++
+ #if defined(__linux__)
+-                    interfaceIndex = ifrcopy.ifr_ifindex;
++                interfaceIndex = ifrcopy.ifr_ifindex;
+ #else
+-                    interfaceIndex = ifrcopy.ifr_index;
++                interfaceIndex = ifrcopy.ifr_index;
+ #endif
+ 
+-                    bool addrMatch = false;
+-                    bool nameMatch = false;
++                bool addrMatch = false;
++                bool nameMatch = false;
+ 
+-                    if(addr)
+-                        addrMatch = (*addr_p == *addr);
+-                    if(name.length() &gt; 0)
+-                        nameMatch = (name == std::string(ifr-&gt;ifr_name));
++                if(addr)
++                    addrMatch = (*addr_p == *addr);
++                if(name.length() &gt; 0)
++                    nameMatch = (name == std::string(ifr-&gt;ifr_name));
+ 
+-                    if(addrMatch || nameMatch)
+-                    {
+-                        netInterface.name_ = std::string(ifr-&gt;ifr_name);
+-                        netInterface.displayName_ = std::string(ifr-&gt;ifr_name);
++                if(addrMatch || nameMatch)
++                {
++                    netInterface.name_ = std::string(ifr-&gt;ifr_name);
++                    netInterface.displayName_ = std::string(ifr-&gt;ifr_name);
+ 
+-                        NetworkInterface::InterfaceAddress addrs;
+-                        memset(&amp;addrs, 0, sizeof(NetworkInterface::InterfaceAddress));
++                    NetworkInterface::InterfaceAddress addrs;
++                    memset(&amp;addrs, 0, sizeof(NetworkInterface::InterfaceAddress));
+ 
+-                        addrs.unicast = *addr_p;
++                    addrs.unicast = *addr_p;
+ 
+-                        if(netmask_p) 
+-                            addrs.netmask = *netmask_p;
+-                        if(broadcast_p)
+-                            addrs.broadcast = *broadcast_p;
++                    if(netmask_p) 
++                        addrs.netmask = *netmask_p;
++                    if(broadcast_p)
++                        addrs.broadcast = *broadcast_p;
+ 
+-                        netInterface.intfaceIndex_ = interfaceIndex;
++                    netInterface.intfaceIndex_ = interfaceIndex;
+ 
+-                        netInterface.addressList_.push_back(addrs);
+-                    }
++                    netInterface.addressList_.push_back(addrs);
++                }
+ 
+-                    if(addr_p)
+-                    {
+-                        delete addr_p;
+-                        addr_p =NULL;
+-                    }
++                if(addr_p)
++                {
++                    delete addr_p;
++                    addr_p =NULL;
++                }
+ 
+-                    if(netmask_p)
+-                    {
+-                        delete netmask_p;
+-                        netmask_p =NULL;
+-                    }
++                if(netmask_p)
++                {
++                    delete netmask_p;
++                    netmask_p =NULL;
++                }
+ 
+-                    if(broadcast_p)
+-                    {
+-                        delete broadcast_p;
+-                        broadcast_p =NULL;
+-                    }
++                if(broadcast_p)
++                {
++                    delete broadcast_p;
++                    broadcast_p =NULL;
+                 }
+-                delete[] buf;
+-                buf = frog::nullptr;
++            }
++            delete[] buf;
++            buf = frog::nullptr;
+ 
+-                return netInterface;
++            return netInterface;
+ #endif
+-            }
++        }
+ 
+         //--------------------------------------------------------------
+         std::vector&lt;NetworkInterface&gt; NetworkInterface::findAll() throw(SocketException)
+
+Modified: trunk/src/Object.cpp
+===================================================================
+--- trunk/src/Object.cpp	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/Object.cpp	2005-12-16 08:07:26 UTC (rev 19)
+@@ -27,10 +27,10 @@
+ namespace frog
+ {
+     //--------------------------------------------------------------
+-    Object::Object() throw()
+-        : hash_(0)
+-        {
+-        }
++    Object::Object() throw() :
++      hash_(0)
++    {
++    }
+ 
+     //--------------------------------------------------------------
+     Object::~Object() throw()
+
+Modified: trunk/src/frog/ApplicationException.h
+===================================================================
+--- trunk/src/frog/ApplicationException.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/ApplicationException.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -64,22 +64,22 @@
+               /**
+                * Constructs a new exception.
+                */
+-              explicit ApplicationException() throw()
+-                  : Exception(&quot;ApplicationException&quot;) {}
++              explicit ApplicationException() throw() :
++                Exception(&quot;ApplicationException&quot;) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit ApplicationException(const std::string&amp; description) throw()
+-                  : Exception(description) {}
++              explicit ApplicationException(const std::string&amp; description) throw() :
++                Exception(description) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit ApplicationException(const char* description) throw()
+-                  : Exception(description) {}
++              explicit ApplicationException(const char* description) throw() :
++                Exception(description) {}
+               /**
+                * Does nothing.
+                */
+
+Modified: trunk/src/frog/ArgumentNullException.h
+===================================================================
+--- trunk/src/frog/ArgumentNullException.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/ArgumentNullException.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -60,24 +60,22 @@
+               /**
+                * Constructs a new exception.
+                */
+-              explicit ArgumentNullException() throw()
+-                  : IllegalArgumentException(&quot;ArgumentNullException&quot;) {}
++              explicit ArgumentNullException() throw() :
++                IllegalArgumentException(&quot;ArgumentNullException&quot;) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit ArgumentNullException(const std::string&amp; description)
+-                  throw()
+-                  : IllegalArgumentException(description) {}
++              explicit ArgumentNullException(const std::string&amp; description) throw() :
++                IllegalArgumentException(description) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit ArgumentNullException(const char* description)
+-                  throw()
+-                  : IllegalArgumentException(description) {}
++              explicit ArgumentNullException(const char* description) throw() :
++                IllegalArgumentException(description) {}
+               /**
+                * Does nothing.
+                */
+
+Modified: trunk/src/frog/ArgumentOutOfBoundsException.h
+===================================================================
+--- trunk/src/frog/ArgumentOutOfBoundsException.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/ArgumentOutOfBoundsException.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -60,24 +60,22 @@
+               /**
+                * Constructs a new exception.
+                */
+-              explicit ArgumentOutOfBoundsException() throw()
+-                  : IllegalArgumentException(&quot;ArgumentOutOfBoundsException&quot;) {}
++              explicit ArgumentOutOfBoundsException() throw() :
++                IllegalArgumentException(&quot;ArgumentOutOfBoundsException&quot;) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit ArgumentOutOfBoundsException(const std::string&amp; description)
+-                  throw()
+-                  : IllegalArgumentException(description) {}
++              explicit ArgumentOutOfBoundsException(const std::string&amp; description) throw() :
++                IllegalArgumentException(description) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit ArgumentOutOfBoundsException(const char* description)
+-                  throw()
+-                  : IllegalArgumentException(description) {}
++              explicit ArgumentOutOfBoundsException(const char* description) throw() :
++                IllegalArgumentException(description) {}
+ 
+               /**
+                * Does nothing.
+
+Modified: trunk/src/frog/ArithmeticException.h
+===================================================================
+--- trunk/src/frog/ArithmeticException.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/ArithmeticException.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -60,22 +60,22 @@
+               /**
+                * Constructs a new exception.
+                */
+-              explicit ArithmeticException() throw()
+-                  : SystemException(&quot;ArithmeticException&quot;) {}
++              explicit ArithmeticException() throw() :
++                SystemException(&quot;ArithmeticException&quot;) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit ArithmeticException(const std::string&amp; description) throw()
+-                  : SystemException(description) {}
++              explicit ArithmeticException(const std::string&amp; description) throw() :
++                SystemException(description) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit ArithmeticException(const char* description) throw()
+-                  : SystemException(description) {}
++              explicit ArithmeticException(const char* description) throw() :
++                SystemException(description) {}
+               /**
+                * Does nothing.
+                */
+
+Modified: trunk/src/frog/DivideByZeroException.h
+===================================================================
+--- trunk/src/frog/DivideByZeroException.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/DivideByZeroException.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -56,22 +56,22 @@
+               /**
+                * Constructs a new exception.
+                */
+-              explicit DivideByZeroException() throw()
+-                  : ArithmeticException(&quot;DivideByZeroException&quot;) {}
++              explicit DivideByZeroException() throw() :
++                ArithmeticException(&quot;DivideByZeroException&quot;) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit DivideByZeroException(const std::string&amp; description) throw()
+-                  : ArithmeticException(description) {}
++              explicit DivideByZeroException(const std::string&amp; description) throw() :
++                ArithmeticException(description) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit DivideByZeroException(const char* description) throw()
+-                  : ArithmeticException(description) {}
++              explicit DivideByZeroException(const char* description) throw() :
++                ArithmeticException(description) {}
+               /**
+                * Does nothing.
+                */
+
+Modified: trunk/src/frog/Endpoint.h
+===================================================================
+--- trunk/src/frog/Endpoint.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/Endpoint.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -75,8 +75,9 @@
+                * Default constructor. The address family is set
+                * to AddressFamily::Unspecified.
+                */
+-              Endpoint() : addressFamily(addressFamily_),
+-                           addressFamily_(AddressFamily::Unspecified) { }
++              Endpoint() :
++                addressFamily(addressFamily_),
++                addressFamily_(AddressFamily::Unspecified) { }
+ 
+               /**
+                * Sets the address family.
+
+Modified: trunk/src/frog/Exception.h
+===================================================================
+--- trunk/src/frog/Exception.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/Exception.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -85,22 +85,21 @@
+               /**
+                * Constructs a new exception.
+                */
+-              explicit Exception() throw()
+-                  : description_(&quot;Exception&quot;) {}
++              explicit Exception() throw() : description_(&quot;Exception&quot;) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit Exception(const std::string&amp; description) throw()
+-                  : description_(description) {}
++              explicit Exception(const std::string&amp; description) throw() :
++                description_(description) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit Exception(const char* description) throw()
+-                  : description_(std::string(description)) {}
++              explicit Exception(const char* description) throw() :
++                description_(std::string(description)) {}
+ 
+               /**
+                * Does nothing.
+
+Modified: trunk/src/frog/FormatException.h
+===================================================================
+--- trunk/src/frog/FormatException.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/FormatException.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -57,22 +57,21 @@
+               /**
+                * Constructs a new exception.
+                */
+-              explicit FormatException() throw()
+-                  : RuntimeException(&quot;FormatException&quot;) {}
++              explicit FormatException() throw() : RuntimeException(&quot;FormatException&quot;) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit FormatException(const std::string&amp; description) throw()
+-                  : RuntimeException(description) {}
++              explicit FormatException(const std::string&amp; description) throw() :
++                RuntimeException(description) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit FormatException(const char* description) throw()
+-                  : RuntimeException(description) {}
++              explicit FormatException(const char* description) throw() :
++                RuntimeException(description) {}
+               /**
+                * Does nothing.
+                */
+
+Modified: trunk/src/frog/IOException.h
+===================================================================
+--- trunk/src/frog/IOException.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/IOException.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -63,22 +63,21 @@
+               /**
+                * Constructs a new exception.
+                */
+-              explicit IOException() throw()
+-                  : SystemException(&quot;IOException&quot;) {}
++              explicit IOException() throw() : SystemException(&quot;IOException&quot;) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit IOException(const std::string&amp; description) throw()
+-                  : SystemException(description) {}
++              explicit IOException(const std::string&amp; description) throw() :
++                SystemException(description) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit IOException(const char* description) throw()
+-                  : SystemException(description) {}
++              explicit IOException(const char* description) throw() :
++                SystemException(description) {}
+               /**
+                * Does nothing.
+                */
+
+Modified: trunk/src/frog/IllegalArgumentException.h
+===================================================================
+--- trunk/src/frog/IllegalArgumentException.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/IllegalArgumentException.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -61,22 +61,22 @@
+               /**
+                * Constructs a new exception.
+                */
+-              explicit IllegalArgumentException() throw()
+-                  : RuntimeException(&quot;IllegalArgumentException&quot;) {}
++              explicit IllegalArgumentException() throw() :
++                RuntimeException(&quot;IllegalArgumentException&quot;) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit IllegalArgumentException(const std::string&amp; description) throw()
+-                  : RuntimeException(description) {}
++              explicit IllegalArgumentException(const std::string&amp; description) throw() :
++                RuntimeException(description) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit IllegalArgumentException(const char* description) throw()
+-                  : RuntimeException(description) {}
++              explicit IllegalArgumentException(const char* description) throw() :
++                RuntimeException(description) {}
+               /**
+                * Does nothing.
+                */
+
+Modified: trunk/src/frog/InetAddress.h
+===================================================================
+--- trunk/src/frog/InetAddress.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/InetAddress.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -87,7 +87,8 @@
+                * @exception frog::sys::ArgumentOutOfBoundsException Thrown when
+                * the IP address is out of range.
+                */
+-              InetAddress(const struct in_addr&amp; ipAddress) throw(sys::ArgumentOutOfBoundsException);
++              InetAddress(const struct in_addr&amp; ipAddress)
++                  throw(sys::ArgumentOutOfBoundsException);
+ 
+ #ifdef HAVE_IPV6_SUPPORT
+               /**
+@@ -98,7 +99,8 @@
+                * @exception frog::sys::ArgumentOutOfBoundsException Thrown when
+                * the IP address is out of range.
+                */
+-              InetAddress(const struct in6_addr&amp; ipAddress, uint32_t index = 0) throw(sys::ArgumentOutOfBoundsException);
++              InetAddress(const struct in6_addr&amp; ipAddress, uint32_t index = 0)
++                  throw(sys::ArgumentOutOfBoundsException);
+ #endif
+ 
+               /**
+
+Modified: trunk/src/frog/NotImplementedException.h
+===================================================================
+--- trunk/src/frog/NotImplementedException.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/NotImplementedException.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -57,22 +57,22 @@
+               /**
+                * Constructs a new exception.
+                */
+-              explicit NotImplementedException() throw()
+-                  : SystemException(&quot;NotImplementedException&quot;) {}
++              explicit NotImplementedException() throw() :
++                SystemException(&quot;NotImplementedException&quot;) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit NotImplementedException(const std::string&amp; description) throw()
+-                  : SystemException(description) {}
++              explicit NotImplementedException(const std::string&amp; description) throw() :
++                SystemException(description) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit NotImplementedException(const char* description) throw()
+-                  : SystemException(description) {}
++              explicit NotImplementedException(const char* description) throw() :
++                SystemException(description) {}
+               /**
+                * Does nothing.
+                */
+
+Modified: trunk/src/frog/NullPointerException.h
+===================================================================
+--- trunk/src/frog/NullPointerException.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/NullPointerException.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -56,22 +56,22 @@
+               /**
+                * Constructs a new exception.
+                */
+-              explicit NullPointerException() throw()
+-                  : RuntimeException(&quot;NullPointerException&quot;) {}
++              explicit NullPointerException() throw() :
++                RuntimeException(&quot;NullPointerException&quot;) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit NullPointerException(const std::string&amp; description) throw()
+-                  : RuntimeException(description) {}
++              explicit NullPointerException(const std::string&amp; description) throw() :
++                RuntimeException(description) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit NullPointerException(const char* description) throw()
+-                  : RuntimeException(description) {}
++              explicit NullPointerException(const char* description) throw() :
++                RuntimeException(description) {}
+               /**
+                * Does nothing.
+                */
+
+Modified: trunk/src/frog/OverflowException.h
+===================================================================
+--- trunk/src/frog/OverflowException.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/OverflowException.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -56,22 +56,22 @@
+               /**
+                * Constructs a new exception.
+                */
+-              explicit OverflowException() throw()
+-                  : ArithmeticException(&quot;OverflowException&quot;) {}
++              explicit OverflowException() throw() :
++                ArithmeticException(&quot;OverflowException&quot;) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit OverflowException(const std::string&amp; description) throw()
+-                  : ArithmeticException(description) {}
++              explicit OverflowException(const std::string&amp; description) throw() :
++                ArithmeticException(description) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit OverflowException(const char* description) throw()
+-                  : ArithmeticException(description) {}
++              explicit OverflowException(const char* description) throw() :
++                ArithmeticException(description) {}
+ 
+               /**
+                * Does nothing.
+
+Modified: trunk/src/frog/RuntimeException.h
+===================================================================
+--- trunk/src/frog/RuntimeException.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/RuntimeException.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -61,22 +61,22 @@
+               /**
+                * Constructs a new exception.
+                */
+-              explicit RuntimeException() throw()
+-                  : SystemException(&quot;RuntimeException&quot;) {}
++              explicit RuntimeException() throw() :
++                SystemException(&quot;RuntimeException&quot;) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit RuntimeException(const std::string&amp; description) throw()
+-                  : SystemException(description) {}
++              explicit RuntimeException(const std::string&amp; description) throw() :
++                SystemException(description) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit RuntimeException(const char* description) throw()
+-                  : SystemException(description) {}
++              explicit RuntimeException(const char* description) throw() :
++                SystemException(description) {}
+               /**
+                * Does nothing.
+                */
+
+Modified: trunk/src/frog/SocketException.h
+===================================================================
+--- trunk/src/frog/SocketException.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/SocketException.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -58,22 +58,22 @@
+               /**
+                * Constructs a new exception.
+                */
+-              explicit SocketException() throw()
+-                  : sys::IOException(&quot;SocketException&quot;) {}
++              explicit SocketException() throw() :
++                sys::IOException(&quot;SocketException&quot;) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit SocketException(const std::string&amp; description) throw()
+-                  : sys::IOException(description) {}
++              explicit SocketException(const std::string&amp; description) throw() :
++                sys::IOException(description) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit SocketException(const char* description) throw()
+-                  : sys::IOException(description) {}
++              explicit SocketException(const char* description) throw() :
++                sys::IOException(description) {}
+               /**
+                * Does nothing.
+                */
+
+Modified: trunk/src/frog/SystemException.h
+===================================================================
+--- trunk/src/frog/SystemException.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/SystemException.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -68,22 +68,22 @@
+               /**
+                * Constructs a new exception.
+                */
+-              explicit SystemException() throw()
+-                  : Exception(&quot;SystemException&quot;) {}
++              explicit SystemException() throw() :
++                Exception(&quot;SystemException&quot;) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit SystemException(const std::string&amp; description) throw()
+-                  : Exception(description) {}
++              explicit SystemException(const std::string&amp; description) throw() :
++                Exception(description) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit SystemException(const char* description) throw()
+-                  : Exception(description) {}
++              explicit SystemException(const char* description) throw() :
++                Exception(description) {}
+               /**
+                * Does nothing.
+                */
+
+Modified: trunk/src/frog/UnknownHostException.h
+===================================================================
+--- trunk/src/frog/UnknownHostException.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/UnknownHostException.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -58,22 +58,22 @@
+               /**
+                * Constructs a new exception.
+                */
+-              explicit UnknownHostException() throw()
+-                  : sys::IOException(&quot;UnknownHostException&quot;) {}
++              explicit UnknownHostException() throw() :
++                sys::IOException(&quot;UnknownHostException&quot;) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit UnknownHostException(const std::string&amp; description) throw()
+-                  : sys::IOException(description) {}
++              explicit UnknownHostException(const std::string&amp; description) throw() :
++                sys::IOException(description) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit UnknownHostException(const char* description) throw()
+-                  : sys::IOException(description) {}
++              explicit UnknownHostException(const char* description) throw() :
++                sys::IOException(description) {}
+               /**
+                * Does nothing.
+                */
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000000.html">[frog-svn] r18 - in trunk: . autom4te.cache test
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1">[ date ]</a>
+              <a href="thread.html#1">[ thread ]</a>
+              <a href="subject.html#1">[ subject ]</a>
+              <a href="author.html#1">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/frog-svn">More information about the frog-svn
+mailing list</a><br>
+</body></html>

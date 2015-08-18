@@ -1,0 +1,3602 @@
+From janvier at berlios.de  Wed Dec  7 11:32:38 2005
+From: janvier at berlios.de (janvier at BerliOS)
+Date: Wed, 7 Dec 2005 11:32:38 +0100
+Subject: [frog-svn] r18 - in trunk: . autom4te.cache test
+Message-ID: <200512071032.jB7AWcod005365@sheep.berlios.de>
+
+Author: janvier
+Date: 2005-12-07 11:32:37 +0100 (Wed, 07 Dec 2005)
+New Revision: 18
+
+Modified:
+   trunk/ChangeLog
+   trunk/autom4te.cache/requests
+   trunk/test/TimeValueTest.h
+Log:
+Added more tests for TimeValue.
+
+
+Modified: trunk/ChangeLog
+===================================================================
+--- trunk/ChangeLog	2005-12-06 10:11:29 UTC (rev 17)
++++ trunk/ChangeLog	2005-12-07 10:32:37 UTC (rev 18)
+@@ -1,3 +1,7 @@
++2005-12-07  Janvier D. Anonical <janvier at users.berlios.de>
++
++    * Added more tests for TimeValue.
++
+ 2005-12-06  Janvier D. Anonical <janvier at users.berlios.de>
+ 
+     * Added m4/cpppunit.m4.
+
+Modified: trunk/autom4te.cache/requests
+===================================================================
+--- trunk/autom4te.cache/requests	2005-12-06 10:11:29 UTC (rev 17)
++++ trunk/autom4te.cache/requests	2005-12-07 10:32:37 UTC (rev 18)
+@@ -16,19 +16,19 @@
+                       {
+                         'm4_pattern_forbid' => 1,
+                         'AC_CONFIG_LIBOBJ_DIR' => 1,
++                        'AC_C_VOLATILE' => 1,
+                         'AC_TYPE_OFF_T' => 1,
+-                        'AC_C_VOLATILE' => 1,
+                         'AC_FUNC_CLOSEDIR_VOID' => 1,
+                         'AC_REPLACE_FNMATCH' => 1,
+                         'AC_PROG_LIBTOOL' => 1,
+                         'AC_FUNC_STAT' => 1,
++                        'AC_FUNC_WAIT3' => 1,
+                         'AC_HEADER_TIME' => 1,
+-                        'AC_FUNC_WAIT3' => 1,
++                        'AC_FUNC_LSTAT' => 1,
++                        'AC_STRUCT_TM' => 1,
+                         'AM_AUTOMAKE_VERSION' => 1,
+-                        'AC_STRUCT_TM' => 1,
+-                        'AC_FUNC_LSTAT' => 1,
++                        'AC_FUNC_GETMNTENT' => 1,
+                         'AC_TYPE_MODE_T' => 1,
+-                        'AC_FUNC_GETMNTENT' => 1,
+                         'AC_FUNC_STRTOD' => 1,
+                         'AC_CHECK_HEADERS' => 1,
+                         'AC_FUNC_STRNLEN' => 1,
+@@ -39,8 +39,8 @@
+                         'AC_PROG_AWK' => 1,
+                         '_m4_warn' => 1,
+                         'AC_HEADER_STDC' => 1,
++                        'AC_PREREQ' => 1,
+                         'AC_HEADER_MAJOR' => 1,
+-                        'AC_PREREQ' => 1,
+                         'AC_FUNC_ERROR_AT_LINE' => 1,
+                         'AC_PROG_GCC_TRADITIONAL' => 1,
+                         'AC_LIBSOURCE' => 1,
+@@ -48,17 +48,17 @@
+                         'AC_STRUCT_ST_BLOCKS' => 1,
+                         'AC_TYPE_SIGNAL' => 1,
+                         'AC_TYPE_UID_T' => 1,
++                        'AC_PROG_MAKE_SET' => 1,
+                         'AC_CONFIG_AUX_DIR' => 1,
+-                        'AC_PROG_MAKE_SET' => 1,
++                        'm4_pattern_allow' => 1,
+                         'sinclude' => 1,
+-                        'm4_pattern_allow' => 1,
+                         'AC_DEFINE_TRACE_LITERAL' => 1,
+                         'AC_FUNC_STRERROR_R' => 1,
+                         'AC_PROG_CC' => 1,
++                        'AC_FUNC_FORK' => 1,
+                         'AC_DECL_SYS_SIGLIST' => 1,
+-                        'AC_FUNC_FORK' => 1,
++                        'AC_FUNC_STRCOLL' => 1,
+                         'AC_FUNC_VPRINTF' => 1,
+-                        'AC_FUNC_STRCOLL' => 1,
+                         'AC_PROG_YACC' => 1,
+                         'AC_INIT' => 1,
+                         'AC_STRUCT_TIMEZONE' => 1,
+@@ -80,34 +80,34 @@
+                         'AM_MAINTAINER_MODE' => 1,
+                         'AC_FUNC_UTIME_NULL' => 1,
+                         'AC_FUNC_SELECT_ARGTYPES' => 1,
++                        'AC_HEADER_STAT' => 1,
+                         'AC_FUNC_STRFTIME' => 1,
+-                        'AC_HEADER_STAT' => 1,
+                         'AC_HEADER_STDBOOL' => 1,
++                        'AC_PROG_CPP' => 1,
+                         'AC_C_INLINE' => 1,
+-                        'AC_PROG_CPP' => 1,
++                        'AC_PROG_LEX' => 1,
++                        'AC_C_CONST' => 1,
+                         'AC_TYPE_PID_T' => 1,
+-                        'AC_C_CONST' => 1,
+-                        'AC_PROG_LEX' => 1,
+                         'AC_CONFIG_FILES' => 1,
+                         'include' => 1,
+                         'AC_FUNC_SETVBUF_REVERSED' => 1,
+                         'AC_PROG_INSTALL' => 1,
+                         'AM_GNU_GETTEXT' => 1,
++                        'AC_FUNC_OBSTACK' => 1,
+                         'AC_CHECK_LIB' => 1,
+-                        'AC_FUNC_OBSTACK' => 1,
+                         'AC_FUNC_MALLOC' => 1,
+                         'AC_FUNC_GETGROUPS' => 1,
+                         'AC_FUNC_GETLOADAVG' => 1,
+                         'AH_OUTPUT' => 1,
+                         'AC_FUNC_FSEEKO' => 1,
+                         'AM_PROG_CC_C_O' => 1,
++                        'AC_FUNC_MKTIME' => 1,
++                        'AC_CANONICAL_SYSTEM' => 1,
+                         'AM_CONDITIONAL' => 1,
+-                        'AC_CANONICAL_SYSTEM' => 1,
+-                        'AC_FUNC_MKTIME' => 1,
+                         'AC_CONFIG_HEADERS' => 1,
+                         'AC_HEADER_SYS_WAIT' => 1,
++                        'AC_PROG_LN_S' => 1,
+                         'AC_FUNC_MEMCMP' => 1,
+-                        'AC_PROG_LN_S' => 1,
+                         'm4_include' => 1,
+                         'AC_HEADER_DIRENT' => 1,
+                         'AC_CHECK_FUNCS' => 1
+@@ -144,22 +144,22 @@
+                       {
+                         'AM_ENABLE_STATIC' => 1,
+                         'AC_LIBTOOL_LANG_RC_CONFIG' => 1,
++                        'AC_TYPE_OFF_T' => 1,
+                         'AC_C_VOLATILE' => 1,
+-                        'AC_TYPE_OFF_T' => 1,
++                        'AC_FUNC_CLOSEDIR_VOID' => 1,
+                         '_LT_AC_SHELL_INIT' => 1,
+-                        'AC_FUNC_CLOSEDIR_VOID' => 1,
+                         'AC_REPLACE_FNMATCH' => 1,
+                         'AC_DEFUN' => 1,
++                        '_LT_AC_LANG_CXX_CONFIG' => 1,
+                         'AC_PROG_LIBTOOL' => 1,
+-                        '_LT_AC_LANG_CXX_CONFIG' => 1,
++                        'AC_FUNC_STAT' => 1,
+                         'AM_PROG_MKDIR_P' => 1,
+-                        'AC_FUNC_STAT' => 1,
+                         'AC_FUNC_WAIT3' => 1,
++                        'AC_STRUCT_TM' => 1,
++                        'AC_FUNC_LSTAT' => 1,
+                         'AM_AUTOMAKE_VERSION' => 1,
+-                        'AC_FUNC_LSTAT' => 1,
+-                        'AC_STRUCT_TM' => 1,
++                        'AC_FUNC_STRTOD' => 1,
+                         'AC_CHECK_HEADERS' => 1,
+-                        'AC_FUNC_STRTOD' => 1,
+                         'AM_MISSING_PROG' => 1,
+                         'AC_FUNC_STRNLEN' => 1,
+                         'AC_LIBTOOL_PROG_LD_HARDCODE_LIBPATH' => 1,
+@@ -174,28 +174,28 @@
+                         'AM_SANITY_CHECK' => 1,
+                         'AC_LIBTOOL_PROG_COMPILER_PIC' => 1,
+                         'AC_LIBTOOL_LANG_GCJ_CONFIG' => 1,
++                        '_LT_AC_CHECK_DLFCN' => 1,
+                         'AC_LIBTOOL_SYS_GLOBAL_SYMBOL_PIPE' => 1,
+-                        '_LT_AC_CHECK_DLFCN' => 1,
+                         '_AM_PROG_TAR' => 1,
+                         'AC_LIBTOOL_GCJ' => 1,
+                         'AC_PROG_GCC_TRADITIONAL' => 1,
+                         'AC_LIBSOURCE' => 1,
+                         'AC_STRUCT_ST_BLOCKS' => 1,
++                        'AC_LIBTOOL_CONFIG' => 1,
+                         '_LT_AC_LANG_F77' => 1,
+-                        'AC_LIBTOOL_CONFIG' => 1,
++                        'AC_CONFIG_AUX_DIR' => 1,
+                         'AC_PROG_MAKE_SET' => 1,
+-                        'AC_CONFIG_AUX_DIR' => 1,
+                         'sinclude' => 1,
+                         'AM_DISABLE_SHARED' => 1,
++                        'AM_PROG_LIBTOOL' => 1,
+                         '_LT_AC_LANG_CXX' => 1,
+-                        'AM_PROG_LIBTOOL' => 1,
++                        'AM_PROG_LD' => 1,
+                         '_LT_AC_FILE_LTDLL_C' => 1,
+-                        'AM_PROG_LD' => 1,
+                         'AC_FUNC_STRERROR_R' => 1,
++                        'AC_FUNC_FORK' => 1,
+                         'AC_DECL_SYS_SIGLIST' => 1,
+-                        'AC_FUNC_FORK' => 1,
++                        'AC_FUNC_VPRINTF' => 1,
+                         'AU_DEFUN' => 1,
+-                        'AC_FUNC_VPRINTF' => 1,
+                         'AC_PROG_NM' => 1,
+                         'AC_LIBTOOL_DLOPEN' => 1,
+                         'AM_PATH_CPPUNIT' => 1,
+@@ -208,9 +208,9 @@
+                         'AC_FUNC_ALLOCA' => 1,
+                         '_AM_SET_OPTION' => 1,
+                         'AC_CANONICAL_HOST' => 1,
++                        'AC_PROG_RANLIB' => 1,
++                        'AC_LIBTOOL_LANG_CXX_CONFIG' => 1,
+                         'AC_LIBTOOL_PROG_CC_C_O' => 1,
+-                        'AC_LIBTOOL_LANG_CXX_CONFIG' => 1,
+-                        'AC_PROG_RANLIB' => 1,
+                         'AC_FUNC_SETPGRP' => 1,
+                         'AC_CONFIG_SUBDIRS' => 1,
+                         'AC_FUNC_MMAP' => 1,
+@@ -222,43 +222,43 @@
+                         'AC_FUNC_UTIME_NULL' => 1,
+                         'AC_FUNC_SELECT_ARGTYPES' => 1,
+                         '_LT_AC_LANG_GCJ' => 1,
++                        'AC_HEADER_STAT' => 1,
+                         'AC_FUNC_STRFTIME' => 1,
+-                        'AC_HEADER_STAT' => 1,
+                         'AC_C_INLINE' => 1,
+                         'AC_LIBTOOL_RC' => 1,
++                        'AC_DISABLE_FAST_INSTALL' => 1,
+                         '_LT_AC_PROG_ECHO_BACKSLASH' => 1,
+-                        'AC_DISABLE_FAST_INSTALL' => 1,
+                         'AC_CONFIG_FILES' => 1,
++                        'include' => 1,
++                        '_LT_AC_SYS_LIBPATH_AIX' => 1,
+                         '_LT_AC_TRY_DLOPEN_SELF' => 1,
+-                        '_LT_AC_SYS_LIBPATH_AIX' => 1,
+-                        'include' => 1,
+                         'LT_AC_PROG_SED' => 1,
+                         'AM_ENABLE_SHARED' => 1,
+                         'AM_GNU_GETTEXT' => 1,
+                         '_LT_AC_LANG_GCJ_CONFIG' => 1,
++                        'AC_FUNC_OBSTACK' => 1,
++                        'AC_CHECK_LIB' => 1,
+                         'AC_ENABLE_SHARED' => 1,
+-                        'AC_CHECK_LIB' => 1,
+-                        'AC_FUNC_OBSTACK' => 1,
+                         'AC_FUNC_MALLOC' => 1,
+                         'AC_FUNC_GETGROUPS' => 1,
+                         'AC_FUNC_GETLOADAVG' => 1,
++                        'AC_FUNC_FSEEKO' => 1,
++                        'AC_ENABLE_STATIC' => 1,
+                         'AC_LIBTOOL_SYS_HARD_LINK_LOCKS' => 1,
+-                        'AC_ENABLE_STATIC' => 1,
+-                        'AC_FUNC_FSEEKO' => 1,
++                        'AM_PROG_CC_C_O' => 1,
+                         '_LT_AC_TAGVAR' => 1,
+-                        'AM_PROG_CC_C_O' => 1,
+                         'AC_LIBTOOL_LANG_F77_CONFIG' => 1,
++                        'AC_FUNC_MKTIME' => 1,
+                         'AM_CONDITIONAL' => 1,
+-                        'AC_FUNC_MKTIME' => 1,
+                         'AC_HEADER_SYS_WAIT' => 1,
++                        'AC_PROG_LN_S' => 1,
+                         'AC_FUNC_MEMCMP' => 1,
+-                        'AC_PROG_LN_S' => 1,
++                        'm4_include' => 1,
+                         'AM_PROG_INSTALL_SH' => 1,
+-                        'm4_include' => 1,
++                        'AC_HEADER_DIRENT' => 1,
+                         'AC_PROG_EGREP' => 1,
+-                        'AC_HEADER_DIRENT' => 1,
++                        '_AC_AM_CONFIG_HEADER_HOOK' => 1,
+                         'AC_PATH_MAGIC' => 1,
+-                        '_AC_AM_CONFIG_HEADER_HOOK' => 1,
+                         'AM_MAKE_INCLUDE' => 1,
+                         '_LT_AC_TAGCONFIG' => 1,
+                         'm4_pattern_forbid' => 1,
+@@ -269,44 +269,44 @@
+                         'AC_LIBTOOL_WIN32_DLL' => 1,
+                         'AC_PROG_LD_RELOAD_FLAG' => 1,
+                         'AC_HEADER_TIME' => 1,
+-                        'AM_MISSING_HAS_RUN' => 1,
+                         'AC_FUNC_GETMNTENT' => 1,
+                         'AC_TYPE_MODE_T' => 1,
++                        'AM_MISSING_HAS_RUN' => 1,
++                        'm4_sinclude' => 1,
+                         'AC_LIBTOOL_DLOPEN_SELF' => 1,
+-                        'm4_sinclude' => 1,
+                         'AC_PATH_X' => 1,
+                         'AC_LIBTOOL_PROG_LD_SHLIBS' => 1,
+                         'AC_HEADER_STDC' => 1,
+                         'AC_LIBTOOL_LINKER_OPTION' => 1,
++                        'AC_LIBTOOL_CXX' => 1,
+                         'LT_AC_PROG_RC' => 1,
+-                        'AC_LIBTOOL_CXX' => 1,
+                         'LT_AC_PROG_GCJ' => 1,
+                         'AC_FUNC_ERROR_AT_LINE' => 1,
++                        'AM_DEP_TRACK' => 1,
++                        '_LT_AC_PROG_CXXCPP' => 1,
+                         'AM_DISABLE_STATIC' => 1,
+-                        '_LT_AC_PROG_CXXCPP' => 1,
+-                        'AM_DEP_TRACK' => 1,
++                        'AC_FUNC_MBRTOWC' => 1,
+                         '_AC_PROG_LIBTOOL' => 1,
+-                        'AC_FUNC_MBRTOWC' => 1,
+                         'AC_TYPE_SIGNAL' => 1,
++                        'AC_TYPE_UID_T' => 1,
+                         '_AM_IF_OPTION' => 1,
+-                        'AC_TYPE_UID_T' => 1,
+                         'AC_PATH_TOOL_PREFIX' => 1,
++                        'AC_LIBTOOL_F77' => 1,
+                         'm4_pattern_allow' => 1,
+-                        'AC_LIBTOOL_F77' => 1,
+                         'AM_SET_LEADING_DOT' => 1,
+                         'AC_DEFINE_TRACE_LITERAL' => 1,
+                         '_AM_DEPENDENCIES' => 1,
+                         'AC_LIBTOOL_LANG_C_CONFIG' => 1,
++                        'AC_PROG_CC' => 1,
+                         '_LT_AC_SYS_COMPILER' => 1,
+-                        'AC_PROG_CC' => 1,
+                         'AM_PROG_NM' => 1,
+                         'AC_FUNC_STRCOLL' => 1,
+                         'AC_PROG_YACC' => 1,
+                         'AC_LIBLTDL_CONVENIENCE' => 1,
+                         'AC_DEPLIBS_CHECK_METHOD' => 1,
++                        'AM_SET_CURRENT_AUTOMAKE_VERSION' => 1,
++                        'AC_LIBLTDL_INSTALLABLE' => 1,
+                         'AC_FUNC_CHOWN' => 1,
+-                        'AC_LIBLTDL_INSTALLABLE' => 1,
+-                        'AM_SET_CURRENT_AUTOMAKE_VERSION' => 1,
+                         'AC_LIBTOOL_SYS_DYNAMIC_LINKER' => 1,
+                         'AC_FUNC_GETPGRP' => 1,
+                         'AM_INIT_AUTOMAKE' => 1,
+@@ -317,26 +317,26 @@
+                         '_LT_AC_LOCK' => 1,
+                         '_LT_AC_LANG_RC_CONFIG' => 1,
+                         'AC_PROG_CPP' => 1,
++                        'AC_TYPE_PID_T' => 1,
++                        'AC_PROG_LEX' => 1,
+                         'AC_C_CONST' => 1,
+-                        'AC_PROG_LEX' => 1,
+-                        'AC_TYPE_PID_T' => 1,
+                         'AC_LIBTOOL_POSTDEP_PREDEP' => 1,
+                         'AC_FUNC_SETVBUF_REVERSED' => 1,
++                        'AC_PROG_INSTALL' => 1,
+                         'AM_AUX_DIR_EXPAND' => 1,
+-                        'AC_PROG_INSTALL' => 1,
++                        'AC_LIBTOOL_PROG_COMPILER_NO_RTTI' => 1,
+                         '_LT_AC_LANG_F77_CONFIG' => 1,
+-                        'AC_LIBTOOL_PROG_COMPILER_NO_RTTI' => 1,
+                         '_AM_SET_OPTIONS' => 1,
++                        'AM_RUN_LOG' => 1,
+                         '_AM_OUTPUT_DEPENDENCY_COMMANDS' => 1,
+-                        'AM_RUN_LOG' => 1,
+                         'AC_LIBTOOL_PICMODE' => 1,
+                         'AH_OUTPUT' => 1,
+                         'AC_CHECK_LIBM' => 1,
+                         'AC_LIBTOOL_SYS_LIB_STRIP' => 1,
+                         '_AM_MANGLE_OPTION' => 1,
+                         'AC_CANONICAL_SYSTEM' => 1,
++                        'AC_CONFIG_HEADERS' => 1,
+                         'AC_LIBTOOL_SYS_MAX_CMD_LEN' => 1,
+-                        'AC_CONFIG_HEADERS' => 1,
+                         'AM_SET_DEPDIR' => 1,
+                         'AC_CHECK_FUNCS' => 1
+                       }
+@@ -357,21 +357,21 @@
+                         'm4_pattern_forbid' => 1,
+                         'AC_CANONICAL_TARGET' => 1,
+                         'AC_CONFIG_LIBOBJ_DIR' => 1,
++                        'AC_C_VOLATILE' => 1,
+                         'AC_TYPE_OFF_T' => 1,
+-                        'AC_C_VOLATILE' => 1,
+                         'AC_FUNC_CLOSEDIR_VOID' => 1,
+                         'AC_REPLACE_FNMATCH' => 1,
+                         'AC_PROG_LIBTOOL' => 1,
+                         'AC_FUNC_STAT' => 1,
++                        'AC_FUNC_WAIT3' => 1,
+                         'AC_HEADER_TIME' => 1,
+-                        'AC_FUNC_WAIT3' => 1,
++                        'AC_FUNC_LSTAT' => 1,
++                        'AC_STRUCT_TM' => 1,
+                         'AM_AUTOMAKE_VERSION' => 1,
+-                        'AC_STRUCT_TM' => 1,
+-                        'AC_FUNC_LSTAT' => 1,
++                        'AC_FUNC_GETMNTENT' => 1,
+                         'AC_TYPE_MODE_T' => 1,
+-                        'AC_FUNC_GETMNTENT' => 1,
++                        'AC_FUNC_STRTOD' => 1,
+                         'AC_CHECK_HEADERS' => 1,
+-                        'AC_FUNC_STRTOD' => 1,
+                         'AC_FUNC_STRNLEN' => 1,
+                         'm4_sinclude' => 1,
+                         'AC_PROG_CXX' => 1,
+@@ -380,27 +380,27 @@
+                         'AC_PROG_AWK' => 1,
+                         '_m4_warn' => 1,
+                         'AC_HEADER_STDC' => 1,
++                        'AC_PREREQ' => 1,
+                         'AC_HEADER_MAJOR' => 1,
+-                        'AC_PREREQ' => 1,
+                         'AC_FUNC_ERROR_AT_LINE' => 1,
+                         'AC_PROG_GCC_TRADITIONAL' => 1,
+                         'AC_LIBSOURCE' => 1,
+                         'AC_FUNC_MBRTOWC' => 1,
+                         'AC_STRUCT_ST_BLOCKS' => 1,
++                        'AC_CANONICAL_BUILD' => 1,
+                         'AC_TYPE_SIGNAL' => 1,
+-                        'AC_CANONICAL_BUILD' => 1,
+                         'AC_TYPE_UID_T' => 1,
++                        'AC_PROG_MAKE_SET' => 1,
+                         'AC_CONFIG_AUX_DIR' => 1,
+-                        'AC_PROG_MAKE_SET' => 1,
++                        'm4_pattern_allow' => 1,
+                         'sinclude' => 1,
+-                        'm4_pattern_allow' => 1,
+                         'AC_DEFINE_TRACE_LITERAL' => 1,
+                         'AC_FUNC_STRERROR_R' => 1,
+                         'AC_PROG_CC' => 1,
++                        'AC_FUNC_FORK' => 1,
+                         'AC_DECL_SYS_SIGLIST' => 1,
+-                        'AC_FUNC_FORK' => 1,
++                        'AC_FUNC_STRCOLL' => 1,
+                         'AC_FUNC_VPRINTF' => 1,
+-                        'AC_FUNC_STRCOLL' => 1,
+                         'AC_PROG_YACC' => 1,
+                         'AC_INIT' => 1,
+                         'AC_STRUCT_TIMEZONE' => 1,
+@@ -416,42 +416,42 @@
+                         'AC_FUNC_MMAP' => 1,
+                         'AC_FUNC_REALLOC' => 1,
+                         'AC_TYPE_SIZE_T' => 1,
++                        'AC_CONFIG_LINKS' => 1,
+                         'AC_CHECK_TYPES' => 1,
+-                        'AC_CONFIG_LINKS' => 1,
+                         'LT_SUPPORTED_TAG' => 1,
+                         'AC_CHECK_MEMBERS' => 1,
+                         'AM_MAINTAINER_MODE' => 1,
+                         'AC_FUNC_UTIME_NULL' => 1,
+                         'AC_FUNC_SELECT_ARGTYPES' => 1,
++                        'AC_HEADER_STAT' => 1,
+                         'AC_FUNC_STRFTIME' => 1,
+-                        'AC_HEADER_STAT' => 1,
+                         'AC_HEADER_STDBOOL' => 1,
++                        'AC_PROG_CPP' => 1,
+                         'AC_C_INLINE' => 1,
+-                        'AC_PROG_CPP' => 1,
++                        'AM_ENABLE_MULTILIB' => 1,
++                        'AC_PROG_LEX' => 1,
++                        'AC_C_CONST' => 1,
+                         'AC_TYPE_PID_T' => 1,
+-                        'AC_C_CONST' => 1,
+-                        'AC_PROG_LEX' => 1,
+-                        'AM_ENABLE_MULTILIB' => 1,
+                         'AC_CONFIG_FILES' => 1,
+                         'include' => 1,
+                         'AC_FUNC_SETVBUF_REVERSED' => 1,
+                         'AC_PROG_INSTALL' => 1,
+                         'AM_GNU_GETTEXT' => 1,
++                        'AC_FUNC_OBSTACK' => 1,
+                         'AC_CHECK_LIB' => 1,
+-                        'AC_FUNC_OBSTACK' => 1,
+                         'AC_FUNC_MALLOC' => 1,
+                         'AC_FUNC_GETGROUPS' => 1,
+                         'AC_FUNC_GETLOADAVG' => 1,
+                         'AH_OUTPUT' => 1,
+                         'AC_FUNC_FSEEKO' => 1,
+                         'AM_PROG_CC_C_O' => 1,
++                        'AC_FUNC_MKTIME' => 1,
++                        'AC_CANONICAL_SYSTEM' => 1,
+                         'AM_CONDITIONAL' => 1,
+-                        'AC_CANONICAL_SYSTEM' => 1,
+-                        'AC_FUNC_MKTIME' => 1,
+                         'AC_CONFIG_HEADERS' => 1,
+                         'AC_HEADER_SYS_WAIT' => 1,
++                        'AC_PROG_LN_S' => 1,
+                         'AC_FUNC_MEMCMP' => 1,
+-                        'AC_PROG_LN_S' => 1,
+                         'm4_include' => 1,
+                         'AC_HEADER_DIRENT' => 1,
+                         'AC_CHECK_FUNCS' => 1
+@@ -489,22 +489,22 @@
+                       {
+                         'AM_ENABLE_STATIC' => 1,
+                         'AC_LIBTOOL_LANG_RC_CONFIG' => 1,
++                        'AC_C_VOLATILE' => 1,
+                         'AC_TYPE_OFF_T' => 1,
+-                        'AC_C_VOLATILE' => 1,
++                        '_LT_AC_SHELL_INIT' => 1,
+                         'AC_FUNC_CLOSEDIR_VOID' => 1,
+-                        '_LT_AC_SHELL_INIT' => 1,
+                         'AC_REPLACE_FNMATCH' => 1,
+                         'AC_DEFUN' => 1,
++                        'AC_PROG_LIBTOOL' => 1,
+                         '_LT_AC_LANG_CXX_CONFIG' => 1,
+-                        'AC_PROG_LIBTOOL' => 1,
++                        'AM_PROG_MKDIR_P' => 1,
+                         'AC_FUNC_STAT' => 1,
+-                        'AM_PROG_MKDIR_P' => 1,
+                         'AC_FUNC_WAIT3' => 1,
++                        'AM_AUTOMAKE_VERSION' => 1,
++                        'AC_FUNC_LSTAT' => 1,
+                         'AC_STRUCT_TM' => 1,
+-                        'AC_FUNC_LSTAT' => 1,
+-                        'AM_AUTOMAKE_VERSION' => 1,
++                        'AC_CHECK_HEADERS' => 1,
+                         'AC_FUNC_STRTOD' => 1,
+-                        'AC_CHECK_HEADERS' => 1,
+                         'AM_MISSING_PROG' => 1,
+                         'AC_FUNC_STRNLEN' => 1,
+                         'AC_LIBTOOL_PROG_LD_HARDCODE_LIBPATH' => 1,
+@@ -519,28 +519,28 @@
+                         'AM_SANITY_CHECK' => 1,
+                         'AC_LIBTOOL_PROG_COMPILER_PIC' => 1,
+                         'AC_LIBTOOL_LANG_GCJ_CONFIG' => 1,
++                        'AC_LIBTOOL_SYS_GLOBAL_SYMBOL_PIPE' => 1,
+                         '_LT_AC_CHECK_DLFCN' => 1,
+-                        'AC_LIBTOOL_SYS_GLOBAL_SYMBOL_PIPE' => 1,
+                         '_AM_PROG_TAR' => 1,
+                         'AC_LIBTOOL_GCJ' => 1,
+                         'AC_PROG_GCC_TRADITIONAL' => 1,
+                         'AC_LIBSOURCE' => 1,
+                         'AC_STRUCT_ST_BLOCKS' => 1,
++                        '_LT_AC_LANG_F77' => 1,
+                         'AC_LIBTOOL_CONFIG' => 1,
+-                        '_LT_AC_LANG_F77' => 1,
++                        'AC_PROG_MAKE_SET' => 1,
+                         'AC_CONFIG_AUX_DIR' => 1,
+-                        'AC_PROG_MAKE_SET' => 1,
+                         'sinclude' => 1,
+                         'AM_DISABLE_SHARED' => 1,
++                        '_LT_AC_LANG_CXX' => 1,
+                         'AM_PROG_LIBTOOL' => 1,
+-                        '_LT_AC_LANG_CXX' => 1,
++                        '_LT_AC_FILE_LTDLL_C' => 1,
+                         'AM_PROG_LD' => 1,
+-                        '_LT_AC_FILE_LTDLL_C' => 1,
+                         'AC_FUNC_STRERROR_R' => 1,
++                        'AC_DECL_SYS_SIGLIST' => 1,
+                         'AC_FUNC_FORK' => 1,
+-                        'AC_DECL_SYS_SIGLIST' => 1,
++                        'AU_DEFUN' => 1,
+                         'AC_FUNC_VPRINTF' => 1,
+-                        'AU_DEFUN' => 1,
+                         'AC_PROG_NM' => 1,
+                         'AC_LIBTOOL_DLOPEN' => 1,
+                         'AM_PATH_CPPUNIT' => 1,
+@@ -553,10 +553,10 @@
+                         'AC_FUNC_ALLOCA' => 1,
+                         '_AM_SET_OPTION' => 1,
+                         'AC_CANONICAL_HOST' => 1,
++                        'AC_LIBTOOL_PROG_CC_C_O' => 1,
++                        'AC_LIBTOOL_LANG_CXX_CONFIG' => 1,
++                        'gl_TIMESPEC' => 1,
+                         'AC_PROG_RANLIB' => 1,
+-                        'gl_TIMESPEC' => 1,
+-                        'AC_LIBTOOL_LANG_CXX_CONFIG' => 1,
+-                        'AC_LIBTOOL_PROG_CC_C_O' => 1,
+                         'AC_FUNC_SETPGRP' => 1,
+                         'AC_CONFIG_SUBDIRS' => 1,
+                         'AC_FUNC_MMAP' => 1,
+@@ -568,44 +568,44 @@
+                         'AC_FUNC_UTIME_NULL' => 1,
+                         'AC_FUNC_SELECT_ARGTYPES' => 1,
+                         '_LT_AC_LANG_GCJ' => 1,
++                        'AC_FUNC_STRFTIME' => 1,
+                         'AC_HEADER_STAT' => 1,
+-                        'AC_FUNC_STRFTIME' => 1,
+                         'AC_C_INLINE' => 1,
+                         'AC_LIBTOOL_RC' => 1,
++                        '_LT_AC_PROG_ECHO_BACKSLASH' => 1,
+                         'AC_DISABLE_FAST_INSTALL' => 1,
+-                        '_LT_AC_PROG_ECHO_BACKSLASH' => 1,
+                         'AC_CONFIG_FILES' => 1,
++                        '_LT_AC_TRY_DLOPEN_SELF' => 1,
++                        '_LT_AC_SYS_LIBPATH_AIX' => 1,
+                         'include' => 1,
+-                        '_LT_AC_SYS_LIBPATH_AIX' => 1,
+-                        '_LT_AC_TRY_DLOPEN_SELF' => 1,
+                         'LT_AC_PROG_SED' => 1,
+                         'AM_ENABLE_SHARED' => 1,
+                         'gl_CHECK_TYPE_STRUCT_TIMESPEC' => 1,
+                         'AM_GNU_GETTEXT' => 1,
+                         '_LT_AC_LANG_GCJ_CONFIG' => 1,
++                        'AC_ENABLE_SHARED' => 1,
++                        'AC_CHECK_LIB' => 1,
+                         'AC_FUNC_OBSTACK' => 1,
+-                        'AC_CHECK_LIB' => 1,
+-                        'AC_ENABLE_SHARED' => 1,
+                         'AC_FUNC_MALLOC' => 1,
+                         'AC_FUNC_GETGROUPS' => 1,
+                         'AC_FUNC_GETLOADAVG' => 1,
++                        'AC_LIBTOOL_SYS_HARD_LINK_LOCKS' => 1,
++                        'AC_ENABLE_STATIC' => 1,
+                         'AC_FUNC_FSEEKO' => 1,
+-                        'AC_ENABLE_STATIC' => 1,
+-                        'AC_LIBTOOL_SYS_HARD_LINK_LOCKS' => 1,
++                        '_LT_AC_TAGVAR' => 1,
+                         'AM_PROG_CC_C_O' => 1,
+-                        '_LT_AC_TAGVAR' => 1,
+                         'AC_LIBTOOL_LANG_F77_CONFIG' => 1,
++                        'AM_CONDITIONAL' => 1,
+                         'AC_FUNC_MKTIME' => 1,
+-                        'AM_CONDITIONAL' => 1,
+                         'AC_HEADER_SYS_WAIT' => 1,
++                        'AC_FUNC_MEMCMP' => 1,
+                         'AC_PROG_LN_S' => 1,
+-                        'AC_FUNC_MEMCMP' => 1,
++                        'AM_PROG_INSTALL_SH' => 1,
+                         'm4_include' => 1,
+-                        'AM_PROG_INSTALL_SH' => 1,
++                        'AC_PROG_EGREP' => 1,
+                         'AC_HEADER_DIRENT' => 1,
+-                        'AC_PROG_EGREP' => 1,
++                        'AC_PATH_MAGIC' => 1,
+                         '_AC_AM_CONFIG_HEADER_HOOK' => 1,
+-                        'AC_PATH_MAGIC' => 1,
+                         'AM_MAKE_INCLUDE' => 1,
+                         '_LT_AC_TAGCONFIG' => 1,
+                         'm4_pattern_forbid' => 1,
+@@ -616,44 +616,44 @@
+                         'AC_LIBTOOL_WIN32_DLL' => 1,
+                         'AC_PROG_LD_RELOAD_FLAG' => 1,
+                         'AC_HEADER_TIME' => 1,
++                        'AM_MISSING_HAS_RUN' => 1,
++                        'AC_FUNC_GETMNTENT' => 1,
+                         'AC_TYPE_MODE_T' => 1,
+-                        'AC_FUNC_GETMNTENT' => 1,
+-                        'AM_MISSING_HAS_RUN' => 1,
++                        'AC_LIBTOOL_DLOPEN_SELF' => 1,
+                         'm4_sinclude' => 1,
+-                        'AC_LIBTOOL_DLOPEN_SELF' => 1,
+                         'AC_PATH_X' => 1,
+                         'AC_LIBTOOL_PROG_LD_SHLIBS' => 1,
+                         'AC_HEADER_STDC' => 1,
+                         'AC_LIBTOOL_LINKER_OPTION' => 1,
++                        'LT_AC_PROG_RC' => 1,
+                         'AC_LIBTOOL_CXX' => 1,
+-                        'LT_AC_PROG_RC' => 1,
+                         'LT_AC_PROG_GCJ' => 1,
+                         'AC_FUNC_ERROR_AT_LINE' => 1,
++                        'AM_DISABLE_STATIC' => 1,
++                        '_LT_AC_PROG_CXXCPP' => 1,
+                         'AM_DEP_TRACK' => 1,
+-                        '_LT_AC_PROG_CXXCPP' => 1,
+-                        'AM_DISABLE_STATIC' => 1,
++                        '_AC_PROG_LIBTOOL' => 1,
+                         'AC_FUNC_MBRTOWC' => 1,
+-                        '_AC_PROG_LIBTOOL' => 1,
+                         'AC_TYPE_SIGNAL' => 1,
++                        '_AM_IF_OPTION' => 1,
+                         'AC_TYPE_UID_T' => 1,
+-                        '_AM_IF_OPTION' => 1,
+                         'AC_PATH_TOOL_PREFIX' => 1,
++                        'm4_pattern_allow' => 1,
+                         'AC_LIBTOOL_F77' => 1,
+-                        'm4_pattern_allow' => 1,
+                         'AM_SET_LEADING_DOT' => 1,
+                         'AC_DEFINE_TRACE_LITERAL' => 1,
+                         '_AM_DEPENDENCIES' => 1,
+                         'AC_LIBTOOL_LANG_C_CONFIG' => 1,
++                        '_LT_AC_SYS_COMPILER' => 1,
+                         'AC_PROG_CC' => 1,
+-                        '_LT_AC_SYS_COMPILER' => 1,
+                         'AM_PROG_NM' => 1,
+                         'AC_FUNC_STRCOLL' => 1,
+                         'AC_PROG_YACC' => 1,
+                         'AC_LIBLTDL_CONVENIENCE' => 1,
+                         'AC_DEPLIBS_CHECK_METHOD' => 1,
++                        'AC_FUNC_CHOWN' => 1,
++                        'AC_LIBLTDL_INSTALLABLE' => 1,
+                         'AM_SET_CURRENT_AUTOMAKE_VERSION' => 1,
+-                        'AC_LIBLTDL_INSTALLABLE' => 1,
+-                        'AC_FUNC_CHOWN' => 1,
+                         'AC_LIBTOOL_SYS_DYNAMIC_LINKER' => 1,
+                         'AC_FUNC_GETPGRP' => 1,
+                         'AM_INIT_AUTOMAKE' => 1,
+@@ -664,26 +664,26 @@
+                         '_LT_AC_LOCK' => 1,
+                         '_LT_AC_LANG_RC_CONFIG' => 1,
+                         'AC_PROG_CPP' => 1,
++                        'AC_C_CONST' => 1,
++                        'AC_PROG_LEX' => 1,
+                         'AC_TYPE_PID_T' => 1,
+-                        'AC_PROG_LEX' => 1,
+-                        'AC_C_CONST' => 1,
+                         'AC_LIBTOOL_POSTDEP_PREDEP' => 1,
+                         'AC_FUNC_SETVBUF_REVERSED' => 1,
++                        'AM_AUX_DIR_EXPAND' => 1,
+                         'AC_PROG_INSTALL' => 1,
+-                        'AM_AUX_DIR_EXPAND' => 1,
++                        '_LT_AC_LANG_F77_CONFIG' => 1,
+                         'AC_LIBTOOL_PROG_COMPILER_NO_RTTI' => 1,
+-                        '_LT_AC_LANG_F77_CONFIG' => 1,
+                         '_AM_SET_OPTIONS' => 1,
++                        '_AM_OUTPUT_DEPENDENCY_COMMANDS' => 1,
+                         'AM_RUN_LOG' => 1,
+-                        '_AM_OUTPUT_DEPENDENCY_COMMANDS' => 1,
+                         'AC_LIBTOOL_PICMODE' => 1,
+                         'AH_OUTPUT' => 1,
+                         'AC_CHECK_LIBM' => 1,
+                         'AC_LIBTOOL_SYS_LIB_STRIP' => 1,
+                         '_AM_MANGLE_OPTION' => 1,
+                         'AC_CANONICAL_SYSTEM' => 1,
++                        'AC_LIBTOOL_SYS_MAX_CMD_LEN' => 1,
+                         'AC_CONFIG_HEADERS' => 1,
+-                        'AC_LIBTOOL_SYS_MAX_CMD_LEN' => 1,
+                         'AM_SET_DEPDIR' => 1,
+                         'AC_CHECK_FUNCS' => 1
+                       }
+@@ -721,22 +721,22 @@
+                       {
+                         'AM_ENABLE_STATIC' => 1,
+                         'AC_LIBTOOL_LANG_RC_CONFIG' => 1,
++                        'AC_TYPE_OFF_T' => 1,
+                         'AC_C_VOLATILE' => 1,
+-                        'AC_TYPE_OFF_T' => 1,
++                        'AC_FUNC_CLOSEDIR_VOID' => 1,
+                         '_LT_AC_SHELL_INIT' => 1,
+-                        'AC_FUNC_CLOSEDIR_VOID' => 1,
+                         'AC_REPLACE_FNMATCH' => 1,
+                         'AC_DEFUN' => 1,
++                        '_LT_AC_LANG_CXX_CONFIG' => 1,
+                         'AC_PROG_LIBTOOL' => 1,
+-                        '_LT_AC_LANG_CXX_CONFIG' => 1,
++                        'AC_FUNC_STAT' => 1,
+                         'AM_PROG_MKDIR_P' => 1,
+-                        'AC_FUNC_STAT' => 1,
+                         'AC_FUNC_WAIT3' => 1,
++                        'AC_STRUCT_TM' => 1,
++                        'AC_FUNC_LSTAT' => 1,
+                         'AM_AUTOMAKE_VERSION' => 1,
+-                        'AC_FUNC_LSTAT' => 1,
+-                        'AC_STRUCT_TM' => 1,
++                        'AC_FUNC_STRTOD' => 1,
+                         'AC_CHECK_HEADERS' => 1,
+-                        'AC_FUNC_STRTOD' => 1,
+                         'AM_MISSING_PROG' => 1,
+                         'AC_FUNC_STRNLEN' => 1,
+                         'AC_LIBTOOL_PROG_LD_HARDCODE_LIBPATH' => 1,
+@@ -751,28 +751,28 @@
+                         'AM_SANITY_CHECK' => 1,
+                         'AC_LIBTOOL_PROG_COMPILER_PIC' => 1,
+                         'AC_LIBTOOL_LANG_GCJ_CONFIG' => 1,
++                        '_LT_AC_CHECK_DLFCN' => 1,
+                         'AC_LIBTOOL_SYS_GLOBAL_SYMBOL_PIPE' => 1,
+-                        '_LT_AC_CHECK_DLFCN' => 1,
+                         '_AM_PROG_TAR' => 1,
+                         'AC_LIBTOOL_GCJ' => 1,
+                         'AC_PROG_GCC_TRADITIONAL' => 1,
+                         'AC_LIBSOURCE' => 1,
+                         'AC_STRUCT_ST_BLOCKS' => 1,
++                        'AC_LIBTOOL_CONFIG' => 1,
+                         '_LT_AC_LANG_F77' => 1,
+-                        'AC_LIBTOOL_CONFIG' => 1,
++                        'AC_CONFIG_AUX_DIR' => 1,
+                         'AC_PROG_MAKE_SET' => 1,
+-                        'AC_CONFIG_AUX_DIR' => 1,
+                         'sinclude' => 1,
+                         'AM_DISABLE_SHARED' => 1,
++                        'AM_PROG_LIBTOOL' => 1,
+                         '_LT_AC_LANG_CXX' => 1,
+-                        'AM_PROG_LIBTOOL' => 1,
++                        'AM_PROG_LD' => 1,
+                         '_LT_AC_FILE_LTDLL_C' => 1,
+-                        'AM_PROG_LD' => 1,
+                         'AC_FUNC_STRERROR_R' => 1,
++                        'AC_FUNC_FORK' => 1,
+                         'AC_DECL_SYS_SIGLIST' => 1,
+-                        'AC_FUNC_FORK' => 1,
++                        'AC_FUNC_VPRINTF' => 1,
+                         'AU_DEFUN' => 1,
+-                        'AC_FUNC_VPRINTF' => 1,
+                         'AC_PROG_NM' => 1,
+                         'AC_LIBTOOL_DLOPEN' => 1,
+                         'AM_PATH_CPPUNIT' => 1,
+@@ -785,10 +785,10 @@
+                         'AC_FUNC_ALLOCA' => 1,
+                         '_AM_SET_OPTION' => 1,
+                         'AC_CANONICAL_HOST' => 1,
++                        'AC_PROG_RANLIB' => 1,
++                        'gl_TIMESPEC' => 1,
++                        'AC_LIBTOOL_LANG_CXX_CONFIG' => 1,
+                         'AC_LIBTOOL_PROG_CC_C_O' => 1,
+-                        'AC_LIBTOOL_LANG_CXX_CONFIG' => 1,
+-                        'gl_TIMESPEC' => 1,
+-                        'AC_PROG_RANLIB' => 1,
+                         'AC_FUNC_SETPGRP' => 1,
+                         'AC_CONFIG_SUBDIRS' => 1,
+                         'AC_FUNC_MMAP' => 1,
+@@ -800,44 +800,44 @@
+                         'AC_FUNC_UTIME_NULL' => 1,
+                         'AC_FUNC_SELECT_ARGTYPES' => 1,
+                         '_LT_AC_LANG_GCJ' => 1,
++                        'AC_HEADER_STAT' => 1,
+                         'AC_FUNC_STRFTIME' => 1,
+-                        'AC_HEADER_STAT' => 1,
+                         'AC_C_INLINE' => 1,
+                         'AC_LIBTOOL_RC' => 1,
++                        'AC_DISABLE_FAST_INSTALL' => 1,
+                         '_LT_AC_PROG_ECHO_BACKSLASH' => 1,
+-                        'AC_DISABLE_FAST_INSTALL' => 1,
+                         'AC_CONFIG_FILES' => 1,
++                        'include' => 1,
++                        '_LT_AC_SYS_LIBPATH_AIX' => 1,
+                         '_LT_AC_TRY_DLOPEN_SELF' => 1,
+-                        '_LT_AC_SYS_LIBPATH_AIX' => 1,
+-                        'include' => 1,
+                         'LT_AC_PROG_SED' => 1,
+                         'AM_ENABLE_SHARED' => 1,
+                         'gl_CHECK_TYPE_STRUCT_TIMESPEC' => 1,
+                         'AM_GNU_GETTEXT' => 1,
+                         '_LT_AC_LANG_GCJ_CONFIG' => 1,
++                        'AC_FUNC_OBSTACK' => 1,
++                        'AC_CHECK_LIB' => 1,
+                         'AC_ENABLE_SHARED' => 1,
+-                        'AC_CHECK_LIB' => 1,
+-                        'AC_FUNC_OBSTACK' => 1,
+                         'AC_FUNC_MALLOC' => 1,
+                         'AC_FUNC_GETGROUPS' => 1,
+                         'AC_FUNC_GETLOADAVG' => 1,
++                        'AC_FUNC_FSEEKO' => 1,
++                        'AC_ENABLE_STATIC' => 1,
+                         'AC_LIBTOOL_SYS_HARD_LINK_LOCKS' => 1,
+-                        'AC_ENABLE_STATIC' => 1,
+-                        'AC_FUNC_FSEEKO' => 1,
++                        'AM_PROG_CC_C_O' => 1,
+                         '_LT_AC_TAGVAR' => 1,
+-                        'AM_PROG_CC_C_O' => 1,
+                         'AC_LIBTOOL_LANG_F77_CONFIG' => 1,
++                        'AC_FUNC_MKTIME' => 1,
+                         'AM_CONDITIONAL' => 1,
+-                        'AC_FUNC_MKTIME' => 1,
+                         'AC_HEADER_SYS_WAIT' => 1,
++                        'AC_PROG_LN_S' => 1,
+                         'AC_FUNC_MEMCMP' => 1,
+-                        'AC_PROG_LN_S' => 1,
++                        'm4_include' => 1,
+                         'AM_PROG_INSTALL_SH' => 1,
+-                        'm4_include' => 1,
++                        'AC_HEADER_DIRENT' => 1,
+                         'AC_PROG_EGREP' => 1,
+-                        'AC_HEADER_DIRENT' => 1,
++                        '_AC_AM_CONFIG_HEADER_HOOK' => 1,
+                         'AC_PATH_MAGIC' => 1,
+-                        '_AC_AM_CONFIG_HEADER_HOOK' => 1,
+                         'AM_MAKE_INCLUDE' => 1,
+                         '_LT_AC_TAGCONFIG' => 1,
+                         'm4_pattern_forbid' => 1,
+@@ -848,45 +848,45 @@
+                         'AC_LIBTOOL_WIN32_DLL' => 1,
+                         'AC_PROG_LD_RELOAD_FLAG' => 1,
+                         'AC_HEADER_TIME' => 1,
++                        'AC_TYPE_MODE_T' => 1,
++                        'AC_FUNC_GETMNTENT' => 1,
+                         'AM_MISSING_HAS_RUN' => 1,
+-                        'AC_FUNC_GETMNTENT' => 1,
+-                        'AC_TYPE_MODE_T' => 1,
++                        'm4_sinclude' => 1,
+                         'AC_LIBTOOL_DLOPEN_SELF' => 1,
+-                        'm4_sinclude' => 1,
+                         'AC_PATH_X' => 1,
+                         'AC_LIBTOOL_PROG_LD_SHLIBS' => 1,
+                         'AC_HEADER_STDC' => 1,
+                         'AC_LIBTOOL_LINKER_OPTION' => 1,
++                        'AC_LIBTOOL_CXX' => 1,
+                         'LT_AC_PROG_RC' => 1,
+-                        'AC_LIBTOOL_CXX' => 1,
++                        'LT_AC_PROG_GCJ' => 1,
+                         'gl_USE_SYSTEM_EXTENSIONS' => 1,
+-                        'LT_AC_PROG_GCJ' => 1,
+                         'AC_FUNC_ERROR_AT_LINE' => 1,
++                        'AM_DEP_TRACK' => 1,
++                        '_LT_AC_PROG_CXXCPP' => 1,
+                         'AM_DISABLE_STATIC' => 1,
+-                        '_LT_AC_PROG_CXXCPP' => 1,
+-                        'AM_DEP_TRACK' => 1,
++                        'AC_FUNC_MBRTOWC' => 1,
+                         '_AC_PROG_LIBTOOL' => 1,
+-                        'AC_FUNC_MBRTOWC' => 1,
+                         'AC_TYPE_SIGNAL' => 1,
++                        'AC_TYPE_UID_T' => 1,
+                         '_AM_IF_OPTION' => 1,
+-                        'AC_TYPE_UID_T' => 1,
+                         'AC_PATH_TOOL_PREFIX' => 1,
++                        'AC_LIBTOOL_F77' => 1,
+                         'm4_pattern_allow' => 1,
+-                        'AC_LIBTOOL_F77' => 1,
+                         'AM_SET_LEADING_DOT' => 1,
+                         'AC_DEFINE_TRACE_LITERAL' => 1,
+                         '_AM_DEPENDENCIES' => 1,
+                         'AC_LIBTOOL_LANG_C_CONFIG' => 1,
++                        'AC_PROG_CC' => 1,
+                         '_LT_AC_SYS_COMPILER' => 1,
+-                        'AC_PROG_CC' => 1,
+                         'AM_PROG_NM' => 1,
+                         'AC_FUNC_STRCOLL' => 1,
+                         'AC_PROG_YACC' => 1,
+                         'AC_LIBLTDL_CONVENIENCE' => 1,
+                         'AC_DEPLIBS_CHECK_METHOD' => 1,
++                        'AM_SET_CURRENT_AUTOMAKE_VERSION' => 1,
++                        'AC_LIBLTDL_INSTALLABLE' => 1,
+                         'AC_FUNC_CHOWN' => 1,
+-                        'AC_LIBLTDL_INSTALLABLE' => 1,
+-                        'AM_SET_CURRENT_AUTOMAKE_VERSION' => 1,
+                         'AC_LIBTOOL_SYS_DYNAMIC_LINKER' => 1,
+                         'AC_FUNC_GETPGRP' => 1,
+                         'AM_INIT_AUTOMAKE' => 1,
+@@ -897,26 +897,26 @@
+                         '_LT_AC_LOCK' => 1,
+                         '_LT_AC_LANG_RC_CONFIG' => 1,
+                         'AC_PROG_CPP' => 1,
++                        'AC_TYPE_PID_T' => 1,
++                        'AC_PROG_LEX' => 1,
+                         'AC_C_CONST' => 1,
+-                        'AC_PROG_LEX' => 1,
+-                        'AC_TYPE_PID_T' => 1,
+                         'AC_LIBTOOL_POSTDEP_PREDEP' => 1,
+                         'AC_FUNC_SETVBUF_REVERSED' => 1,
++                        'AC_PROG_INSTALL' => 1,
+                         'AM_AUX_DIR_EXPAND' => 1,
+-                        'AC_PROG_INSTALL' => 1,
++                        'AC_LIBTOOL_PROG_COMPILER_NO_RTTI' => 1,
+                         '_LT_AC_LANG_F77_CONFIG' => 1,
+-                        'AC_LIBTOOL_PROG_COMPILER_NO_RTTI' => 1,
+                         '_AM_SET_OPTIONS' => 1,
++                        'AM_RUN_LOG' => 1,
+                         '_AM_OUTPUT_DEPENDENCY_COMMANDS' => 1,
+-                        'AM_RUN_LOG' => 1,
+                         'AC_LIBTOOL_PICMODE' => 1,
+                         'AH_OUTPUT' => 1,
+                         'AC_CHECK_LIBM' => 1,
+                         'AC_LIBTOOL_SYS_LIB_STRIP' => 1,
+                         '_AM_MANGLE_OPTION' => 1,
+                         'AC_CANONICAL_SYSTEM' => 1,
++                        'AC_CONFIG_HEADERS' => 1,
+                         'AC_LIBTOOL_SYS_MAX_CMD_LEN' => 1,
+-                        'AC_CONFIG_HEADERS' => 1,
+                         'AM_SET_DEPDIR' => 1,
+                         'AC_CHECK_FUNCS' => 1
+                       }
+@@ -956,29 +956,29 @@
+                         'AC_C_CHECK_TYPE_STRUCT_TIMESPEC' => 1,
+                         'AM_ENABLE_STATIC' => 1,
+                         'AC_LIBTOOL_LANG_RC_CONFIG' => 1,
++                        'AC_TYPE_OFF_T' => 1,
+                         'AC_C_VOLATILE' => 1,
+-                        'AC_TYPE_OFF_T' => 1,
++                        'AC_FUNC_CLOSEDIR_VOID' => 1,
+                         '_LT_AC_SHELL_INIT' => 1,
+-                        'AC_FUNC_CLOSEDIR_VOID' => 1,
+                         'AC_REPLACE_FNMATCH' => 1,
+                         'AC_DEFUN' => 1,
++                        '_LT_AC_LANG_CXX_CONFIG' => 1,
+                         'AC_PROG_LIBTOOL' => 1,
+-                        '_LT_AC_LANG_CXX_CONFIG' => 1,
++                        'AC_FUNC_STAT' => 1,
+                         'AM_PROG_MKDIR_P' => 1,
+-                        'AC_FUNC_STAT' => 1,
+                         'AC_FUNC_WAIT3' => 1,
++                        'AC_STRUCT_TM' => 1,
++                        'AC_FUNC_LSTAT' => 1,
+                         'AM_AUTOMAKE_VERSION' => 1,
+-                        'AC_FUNC_LSTAT' => 1,
+-                        'AC_STRUCT_TM' => 1,
++                        'AC_FUNC_STRTOD' => 1,
+                         'AC_CHECK_HEADERS' => 1,
+-                        'AC_FUNC_STRTOD' => 1,
+                         'AM_MISSING_PROG' => 1,
+                         'AC_FUNC_STRNLEN' => 1,
+                         'AC_LIBTOOL_PROG_LD_HARDCODE_LIBPATH' => 1,
+                         'AC_PROG_CXX' => 1,
+                         '_LT_AC_LANG_C_CONFIG' => 1,
++                        'AC_FUNC_LSTAT_FOLLOWS_SLASHED_SYMLINK' => 1,
+                         'AC_C_LONG_LONG' => 1,
+-                        'AC_FUNC_LSTAT_FOLLOWS_SLASHED_SYMLINK' => 1,
+                         'AM_PROG_INSTALL_STRIP' => 1,
+                         'AC_PROG_AWK' => 1,
+                         '_m4_warn' => 1,
+@@ -987,46 +987,46 @@
+                         'AM_SANITY_CHECK' => 1,
+                         'AC_LIBTOOL_PROG_COMPILER_PIC' => 1,
+                         'AC_LIBTOOL_LANG_GCJ_CONFIG' => 1,
++                        '_LT_AC_CHECK_DLFCN' => 1,
+                         'AC_LIBTOOL_SYS_GLOBAL_SYMBOL_PIPE' => 1,
+-                        '_LT_AC_CHECK_DLFCN' => 1,
+                         '_AM_PROG_TAR' => 1,
+                         'AC_LIBTOOL_GCJ' => 1,
+                         'AC_PROG_GCC_TRADITIONAL' => 1,
+                         'AC_LIBSOURCE' => 1,
+                         'AC_STRUCT_ST_BLOCKS' => 1,
++                        'AC_LIBTOOL_CONFIG' => 1,
+                         '_LT_AC_LANG_F77' => 1,
+-                        'AC_LIBTOOL_CONFIG' => 1,
++                        'AC_CONFIG_AUX_DIR' => 1,
++                        'AC_PROG_MAKE_SET' => 1,
+                         'AC_C_TIMESPEC' => 1,
+-                        'AC_PROG_MAKE_SET' => 1,
+-                        'AC_CONFIG_AUX_DIR' => 1,
++                        'sinclude' => 1,
+                         'AX_CHECK_HEADER_STDINT_X' => 1,
+-                        'sinclude' => 1,
+                         'AM_DISABLE_SHARED' => 1,
+                         'AX_CHECK_HEADER_STDINT_U' => 1,
++                        'AM_PROG_LIBTOOL' => 1,
+                         '_LT_AC_LANG_CXX' => 1,
+-                        'AM_PROG_LIBTOOL' => 1,
++                        'AM_PROG_LD' => 1,
+                         '_LT_AC_FILE_LTDLL_C' => 1,
+-                        'AM_PROG_LD' => 1,
+                         'AC_FUNC_STRERROR_R' => 1,
++                        'AC_FUNC_FORK' => 1,
+                         'AC_DECL_SYS_SIGLIST' => 1,
+-                        'AC_FUNC_FORK' => 1,
++                        'AC_FUNC_VPRINTF' => 1,
+                         'AU_DEFUN' => 1,
+-                        'AC_FUNC_VPRINTF' => 1,
+                         'AC_PROG_NM' => 1,
+                         'AC_LIBTOOL_DLOPEN' => 1,
+                         'AC_PROG_LD' => 1,
+                         'AM_PATH_CPPUNIT' => 1,
++                        'AC_PROG_LD_GNU' => 1,
+                         'AC_ENABLE_FAST_INSTALL' => 1,
+-                        'AC_PROG_LD_GNU' => 1,
++                        'AC_INIT' => 1,
+                         'AC_STRUCT_TIMEZONE' => 1,
+-                        'AC_INIT' => 1,
++                        'AC_SUBST' => 1,
+                         'AC_FUNC_ALLOCA' => 1,
+-                        'AC_SUBST' => 1,
+                         '_AM_SET_OPTION' => 1,
+                         'AC_CANONICAL_HOST' => 1,
++                        'AC_PROG_RANLIB' => 1,
++                        'AC_LIBTOOL_LANG_CXX_CONFIG' => 1,
+                         'AC_LIBTOOL_PROG_CC_C_O' => 1,
+-                        'AC_LIBTOOL_LANG_CXX_CONFIG' => 1,
+-                        'AC_PROG_RANLIB' => 1,
+                         'AC_FUNC_SETPGRP' => 1,
+                         'AC_CONFIG_SUBDIRS' => 1,
+                         'AC_FUNC_MMAP' => 1,
+@@ -1038,94 +1038,94 @@
+                         'AC_FUNC_UTIME_NULL' => 1,
+                         'AC_FUNC_SELECT_ARGTYPES' => 1,
+                         '_LT_AC_LANG_GCJ' => 1,
++                        'AC_HEADER_STAT' => 1,
+                         'AC_FUNC_STRFTIME' => 1,
+-                        'AC_HEADER_STAT' => 1,
+                         'AC_C_INLINE' => 1,
+                         'AC_LIBTOOL_RC' => 1,
++                        'AC_DISABLE_FAST_INSTALL' => 1,
+                         '_LT_AC_PROG_ECHO_BACKSLASH' => 1,
+-                        'AC_DISABLE_FAST_INSTALL' => 1,
+                         'AC_CONFIG_FILES' => 1,
++                        'include' => 1,
++                        '_LT_AC_SYS_LIBPATH_AIX' => 1,
+                         '_LT_AC_TRY_DLOPEN_SELF' => 1,
+-                        '_LT_AC_SYS_LIBPATH_AIX' => 1,
+-                        'include' => 1,
+                         'LT_AC_PROG_SED' => 1,
+                         'AM_ENABLE_SHARED' => 1,
+                         'AM_GNU_GETTEXT' => 1,
+                         '_LT_AC_LANG_GCJ_CONFIG' => 1,
++                        'AC_FUNC_OBSTACK' => 1,
++                        'AC_CHECK_LIB' => 1,
+                         'AC_ENABLE_SHARED' => 1,
+-                        'AC_CHECK_LIB' => 1,
+-                        'AC_FUNC_OBSTACK' => 1,
+                         'AC_FUNC_MALLOC' => 1,
+                         'AC_FUNC_GETGROUPS' => 1,
+                         'AC_FUNC_GETLOADAVG' => 1,
++                        'AC_FUNC_FSEEKO' => 1,
++                        'AC_ENABLE_STATIC' => 1,
+                         'AC_LIBTOOL_SYS_HARD_LINK_LOCKS' => 1,
+-                        'AC_ENABLE_STATIC' => 1,
+-                        'AC_FUNC_FSEEKO' => 1,
++                        'AM_PROG_CC_C_O' => 1,
+                         '_LT_AC_TAGVAR' => 1,
+-                        'AM_PROG_CC_C_O' => 1,
+                         'AC_LIBTOOL_LANG_F77_CONFIG' => 1,
++                        'AC_FUNC_MKTIME' => 1,
++                        'AX_CHECK_HEADER_STDINT_O' => 1,
+                         'AM_CONDITIONAL' => 1,
+-                        'AX_CHECK_HEADER_STDINT_O' => 1,
+-                        'AC_FUNC_MKTIME' => 1,
+                         'AC_HEADER_SYS_WAIT' => 1,
++                        'AC_PROG_LN_S' => 1,
+                         'AC_FUNC_MEMCMP' => 1,
+-                        'AC_PROG_LN_S' => 1,
++                        'm4_include' => 1,
+                         'AM_PROG_INSTALL_SH' => 1,
+-                        'm4_include' => 1,
++                        'AC_HEADER_DIRENT' => 1,
+                         'AC_PROG_EGREP' => 1,
+-                        'AC_HEADER_DIRENT' => 1,
++                        '_AC_AM_CONFIG_HEADER_HOOK' => 1,
+                         'AC_PATH_MAGIC' => 1,
+-                        '_AC_AM_CONFIG_HEADER_HOOK' => 1,
+                         'AM_MAKE_INCLUDE' => 1,
+                         '_LT_AC_TAGCONFIG' => 1,
+                         'm4_pattern_forbid' => 1,
+                         'AC_CONFIG_LIBOBJ_DIR' => 1,
+                         'AC_LIBTOOL_COMPILER_OPTION' => 1,
+                         'AC_DISABLE_SHARED' => 1,
++                        'AC_LIBTOOL_SETUP' => 1,
+                         'AC_LIBTOOL_WIN32_DLL' => 1,
+-                        'AC_LIBTOOL_SETUP' => 1,
+                         'AC_PROG_LD_RELOAD_FLAG' => 1,
+                         'AC_HEADER_TIME' => 1,
++                        'AC_TYPE_MODE_T' => 1,
++                        'AC_FUNC_GETMNTENT' => 1,
+                         'AM_MISSING_HAS_RUN' => 1,
+-                        'AC_FUNC_GETMNTENT' => 1,
+-                        'AC_TYPE_MODE_T' => 1,
++                        'm4_sinclude' => 1,
+                         'AC_LIBTOOL_DLOPEN_SELF' => 1,
+-                        'm4_sinclude' => 1,
+                         'AC_PATH_X' => 1,
+                         'AC_LIBTOOL_PROG_LD_SHLIBS' => 1,
+                         'AC_HEADER_STDC' => 1,
+                         'AC_LIBTOOL_LINKER_OPTION' => 1,
++                        'LT_AC_PROG_RC' => 1,
+                         'AC_LIBTOOL_CXX' => 1,
+-                        'LT_AC_PROG_RC' => 1,
+                         'LT_AC_PROG_GCJ' => 1,
+                         'AC_FUNC_ERROR_AT_LINE' => 1,
++                        'AM_DEP_TRACK' => 1,
++                        '_LT_AC_PROG_CXXCPP' => 1,
+                         'AM_DISABLE_STATIC' => 1,
+-                        '_LT_AC_PROG_CXXCPP' => 1,
+-                        'AM_DEP_TRACK' => 1,
++                        'AC_FUNC_MBRTOWC' => 1,
+                         '_AC_PROG_LIBTOOL' => 1,
+-                        'AC_FUNC_MBRTOWC' => 1,
+                         'AC_TYPE_SIGNAL' => 1,
++                        'AC_TYPE_UID_T' => 1,
++                        '_AM_IF_OPTION' => 1,
+                         'AX_CREATE_STDINT_H' => 1,
+-                        '_AM_IF_OPTION' => 1,
+-                        'AC_TYPE_UID_T' => 1,
+                         'AC_PATH_TOOL_PREFIX' => 1,
++                        'AC_LIBTOOL_F77' => 1,
+                         'm4_pattern_allow' => 1,
+-                        'AC_LIBTOOL_F77' => 1,
+                         'AM_SET_LEADING_DOT' => 1,
+                         'AC_DEFINE_TRACE_LITERAL' => 1,
+                         '_AM_DEPENDENCIES' => 1,
+                         'AC_LIBTOOL_LANG_C_CONFIG' => 1,
++                        'AC_PROG_CC' => 1,
+                         '_LT_AC_SYS_COMPILER' => 1,
+-                        'AC_PROG_CC' => 1,
+                         'AM_PROG_NM' => 1,
+                         'AC_FUNC_STRCOLL' => 1,
+                         'AC_PROG_YACC' => 1,
+                         'AC_LIBLTDL_CONVENIENCE' => 1,
++                        'AC_DEPLIBS_CHECK_METHOD' => 1,
+                         'AX_CHECK_DATA_MODEL' => 1,
+-                        'AC_DEPLIBS_CHECK_METHOD' => 1,
++                        'AM_SET_CURRENT_AUTOMAKE_VERSION' => 1,
++                        'AC_LIBLTDL_INSTALLABLE' => 1,
+                         'AC_FUNC_CHOWN' => 1,
+-                        'AC_LIBLTDL_INSTALLABLE' => 1,
+-                        'AM_SET_CURRENT_AUTOMAKE_VERSION' => 1,
+                         'AC_LIBTOOL_SYS_DYNAMIC_LINKER' => 1,
+                         'AC_FUNC_GETPGRP' => 1,
+                         'AM_INIT_AUTOMAKE' => 1,
+@@ -1136,26 +1136,26 @@
+                         '_LT_AC_LOCK' => 1,
+                         '_LT_AC_LANG_RC_CONFIG' => 1,
+                         'AC_PROG_CPP' => 1,
++                        'AC_TYPE_PID_T' => 1,
++                        'AC_PROG_LEX' => 1,
+                         'AC_C_CONST' => 1,
+-                        'AC_PROG_LEX' => 1,
+-                        'AC_TYPE_PID_T' => 1,
+                         'AC_LIBTOOL_POSTDEP_PREDEP' => 1,
+                         'AC_FUNC_SETVBUF_REVERSED' => 1,
++                        'AC_PROG_INSTALL' => 1,
+                         'AM_AUX_DIR_EXPAND' => 1,
+-                        'AC_PROG_INSTALL' => 1,
++                        'AC_LIBTOOL_PROG_COMPILER_NO_RTTI' => 1,
+                         '_LT_AC_LANG_F77_CONFIG' => 1,
+-                        'AC_LIBTOOL_PROG_COMPILER_NO_RTTI' => 1,
+                         '_AM_SET_OPTIONS' => 1,
++                        'AM_RUN_LOG' => 1,
+                         '_AM_OUTPUT_DEPENDENCY_COMMANDS' => 1,
+-                        'AM_RUN_LOG' => 1,
+                         'AC_LIBTOOL_PICMODE' => 1,
+                         'AH_OUTPUT' => 1,
+                         'AC_CHECK_LIBM' => 1,
+                         'AC_LIBTOOL_SYS_LIB_STRIP' => 1,
+                         '_AM_MANGLE_OPTION' => 1,
+                         'AC_CANONICAL_SYSTEM' => 1,
++                        'AC_CONFIG_HEADERS' => 1,
+                         'AC_LIBTOOL_SYS_MAX_CMD_LEN' => 1,
+-                        'AC_CONFIG_HEADERS' => 1,
+                         'AM_SET_DEPDIR' => 1,
+                         'AC_CHECK_FUNCS' => 1
+                       }
+@@ -1195,29 +1195,29 @@
+                         'AC_C_CHECK_TYPE_STRUCT_TIMESPEC' => 1,
+                         'AM_ENABLE_STATIC' => 1,
+                         'AC_LIBTOOL_LANG_RC_CONFIG' => 1,
++                        'AC_TYPE_OFF_T' => 1,
+                         'AC_C_VOLATILE' => 1,
+-                        'AC_TYPE_OFF_T' => 1,
++                        'AC_FUNC_CLOSEDIR_VOID' => 1,
+                         '_LT_AC_SHELL_INIT' => 1,
+-                        'AC_FUNC_CLOSEDIR_VOID' => 1,
+                         'AC_REPLACE_FNMATCH' => 1,
+                         'AC_DEFUN' => 1,
++                        '_LT_AC_LANG_CXX_CONFIG' => 1,
+                         'AC_PROG_LIBTOOL' => 1,
+-                        '_LT_AC_LANG_CXX_CONFIG' => 1,
++                        'AC_FUNC_STAT' => 1,
+                         'AM_PROG_MKDIR_P' => 1,
+-                        'AC_FUNC_STAT' => 1,
+                         'AC_FUNC_WAIT3' => 1,
++                        'AC_STRUCT_TM' => 1,
++                        'AC_FUNC_LSTAT' => 1,
+                         'AM_AUTOMAKE_VERSION' => 1,
+-                        'AC_FUNC_LSTAT' => 1,
+-                        'AC_STRUCT_TM' => 1,
++                        'AC_FUNC_STRTOD' => 1,
+                         'AC_CHECK_HEADERS' => 1,
+-                        'AC_FUNC_STRTOD' => 1,
+                         'AM_MISSING_PROG' => 1,
+                         'AC_FUNC_STRNLEN' => 1,
+                         'AC_LIBTOOL_PROG_LD_HARDCODE_LIBPATH' => 1,
+                         'AC_PROG_CXX' => 1,
+                         '_LT_AC_LANG_C_CONFIG' => 1,
++                        'AC_FUNC_LSTAT_FOLLOWS_SLASHED_SYMLINK' => 1,
+                         'AC_C_LONG_LONG' => 1,
+-                        'AC_FUNC_LSTAT_FOLLOWS_SLASHED_SYMLINK' => 1,
+                         'AM_PROG_INSTALL_STRIP' => 1,
+                         'AC_PROG_AWK' => 1,
+                         '_m4_warn' => 1,
+@@ -1226,47 +1226,47 @@
+                         'AM_SANITY_CHECK' => 1,
+                         'AC_LIBTOOL_PROG_COMPILER_PIC' => 1,
+                         'AC_LIBTOOL_LANG_GCJ_CONFIG' => 1,
++                        'AC_LIBTOOL_SYS_GLOBAL_SYMBOL_PIPE' => 1,
+                         '_LT_AC_CHECK_DLFCN' => 1,
+-                        'AC_LIBTOOL_SYS_GLOBAL_SYMBOL_PIPE' => 1,
+                         '_AM_PROG_TAR' => 1,
+                         'AC_LIBTOOL_GCJ' => 1,
+                         'AC_PROG_GCC_TRADITIONAL' => 1,
+                         'AC_LIBSOURCE' => 1,
+                         'AC_STRUCT_ST_BLOCKS' => 1,
++                        'AC_LIBTOOL_CONFIG' => 1,
+                         '_LT_AC_LANG_F77' => 1,
+-                        'AC_LIBTOOL_CONFIG' => 1,
++                        'AC_CONFIG_AUX_DIR' => 1,
++                        'AC_PROG_MAKE_SET' => 1,
+                         'AC_C_TIMESPEC' => 1,
+-                        'AC_PROG_MAKE_SET' => 1,
+-                        'AC_CONFIG_AUX_DIR' => 1,
++                        'sinclude' => 1,
+                         'AX_CHECK_HEADER_STDINT_X' => 1,
+-                        'sinclude' => 1,
+                         'AM_DISABLE_SHARED' => 1,
+                         'AX_CHECK_HEADER_STDINT_U' => 1,
++                        'AM_PROG_LIBTOOL' => 1,
+                         '_LT_AC_LANG_CXX' => 1,
+-                        'AM_PROG_LIBTOOL' => 1,
++                        'AM_PROG_LD' => 1,
+                         '_LT_AC_FILE_LTDLL_C' => 1,
+-                        'AM_PROG_LD' => 1,
+                         'AC_FUNC_STRERROR_R' => 1,
++                        'AC_FUNC_FORK' => 1,
+                         'AC_DECL_SYS_SIGLIST' => 1,
+-                        'AC_FUNC_FORK' => 1,
++                        'AC_FUNC_VPRINTF' => 1,
+                         'AU_DEFUN' => 1,
+-                        'AC_FUNC_VPRINTF' => 1,
+                         'AC_PROG_NM' => 1,
+                         'AC_LIBTOOL_DLOPEN' => 1,
+                         'AC_PROG_LD' => 1,
+                         'AM_PATH_CPPUNIT' => 1,
++                        'AC_PROG_LD_GNU' => 1,
+                         'AC_ENABLE_FAST_INSTALL' => 1,
+-                        'AC_PROG_LD_GNU' => 1,
++                        'AC_INIT' => 1,
+                         'AC_STRUCT_TIMEZONE' => 1,
+-                        'AC_INIT' => 1,
++                        'AC_SUBST' => 1,
+                         'AC_FUNC_ALLOCA' => 1,
+-                        'AC_SUBST' => 1,
+                         '_AM_SET_OPTION' => 1,
+                         'AC_CANONICAL_HOST' => 1,
+                         '_LT_LINKER_BOILERPLATE' => 1,
++                        'AC_PROG_RANLIB' => 1,
++                        'AC_LIBTOOL_LANG_CXX_CONFIG' => 1,
+                         'AC_LIBTOOL_PROG_CC_C_O' => 1,
+-                        'AC_LIBTOOL_LANG_CXX_CONFIG' => 1,
+-                        'AC_PROG_RANLIB' => 1,
+                         'AC_FUNC_SETPGRP' => 1,
+                         'AC_CONFIG_SUBDIRS' => 1,
+                         'AC_FUNC_MMAP' => 1,
+@@ -1278,95 +1278,95 @@
+                         'AC_FUNC_UTIME_NULL' => 1,
+                         'AC_FUNC_SELECT_ARGTYPES' => 1,
+                         '_LT_AC_LANG_GCJ' => 1,
++                        'AC_HEADER_STAT' => 1,
+                         'AC_FUNC_STRFTIME' => 1,
+-                        'AC_HEADER_STAT' => 1,
+                         'AC_C_INLINE' => 1,
+                         'AC_LIBTOOL_RC' => 1,
++                        'AC_DISABLE_FAST_INSTALL' => 1,
+                         '_LT_AC_PROG_ECHO_BACKSLASH' => 1,
+-                        'AC_DISABLE_FAST_INSTALL' => 1,
+                         'AC_CONFIG_FILES' => 1,
++                        'include' => 1,
++                        '_LT_AC_SYS_LIBPATH_AIX' => 1,
+                         '_LT_AC_TRY_DLOPEN_SELF' => 1,
+-                        '_LT_AC_SYS_LIBPATH_AIX' => 1,
+-                        'include' => 1,
+                         'LT_AC_PROG_SED' => 1,
+                         'AM_ENABLE_SHARED' => 1,
+                         'AM_GNU_GETTEXT' => 1,
+                         '_LT_AC_LANG_GCJ_CONFIG' => 1,
++                        'AC_FUNC_OBSTACK' => 1,
++                        'AC_CHECK_LIB' => 1,
+                         'AC_ENABLE_SHARED' => 1,
+-                        'AC_CHECK_LIB' => 1,
+-                        'AC_FUNC_OBSTACK' => 1,
+                         'AC_FUNC_MALLOC' => 1,
+                         'AC_FUNC_GETGROUPS' => 1,
+                         'AC_FUNC_GETLOADAVG' => 1,
++                        'AC_FUNC_FSEEKO' => 1,
++                        'AC_LIBTOOL_SYS_HARD_LINK_LOCKS' => 1,
+                         'AC_ENABLE_STATIC' => 1,
+-                        'AC_LIBTOOL_SYS_HARD_LINK_LOCKS' => 1,
+-                        'AC_FUNC_FSEEKO' => 1,
++                        'AM_PROG_CC_C_O' => 1,
+                         '_LT_AC_TAGVAR' => 1,
+-                        'AM_PROG_CC_C_O' => 1,
+                         'AC_LIBTOOL_LANG_F77_CONFIG' => 1,
++                        'AC_FUNC_MKTIME' => 1,
++                        'AX_CHECK_HEADER_STDINT_O' => 1,
+                         'AM_CONDITIONAL' => 1,
+-                        'AX_CHECK_HEADER_STDINT_O' => 1,
+-                        'AC_FUNC_MKTIME' => 1,
+                         'AC_HEADER_SYS_WAIT' => 1,
++                        'AC_PROG_LN_S' => 1,
+                         'AC_FUNC_MEMCMP' => 1,
+-                        'AC_PROG_LN_S' => 1,
++                        'm4_include' => 1,
+                         'AM_PROG_INSTALL_SH' => 1,
+-                        'm4_include' => 1,
++                        'AC_HEADER_DIRENT' => 1,
+                         'AC_PROG_EGREP' => 1,
+-                        'AC_HEADER_DIRENT' => 1,
++                        '_AC_AM_CONFIG_HEADER_HOOK' => 1,
+                         'AC_PATH_MAGIC' => 1,
+-                        '_AC_AM_CONFIG_HEADER_HOOK' => 1,
+                         'AM_MAKE_INCLUDE' => 1,
+                         '_LT_AC_TAGCONFIG' => 1,
+                         'm4_pattern_forbid' => 1,
++                        'AC_CONFIG_LIBOBJ_DIR' => 1,
+                         'AC_LIBTOOL_COMPILER_OPTION' => 1,
+-                        'AC_CONFIG_LIBOBJ_DIR' => 1,
+                         'AC_DISABLE_SHARED' => 1,
+                         '_LT_COMPILER_BOILERPLATE' => 1,
++                        'AC_LIBTOOL_SETUP' => 1,
+                         'AC_LIBTOOL_WIN32_DLL' => 1,
+-                        'AC_LIBTOOL_SETUP' => 1,
+                         'AC_PROG_LD_RELOAD_FLAG' => 1,
+                         'AC_HEADER_TIME' => 1,
++                        'AC_TYPE_MODE_T' => 1,
++                        'AC_FUNC_GETMNTENT' => 1,
+                         'AM_MISSING_HAS_RUN' => 1,
+-                        'AC_FUNC_GETMNTENT' => 1,
+-                        'AC_TYPE_MODE_T' => 1,
++                        'm4_sinclude' => 1,
+                         'AC_LIBTOOL_DLOPEN_SELF' => 1,
+-                        'm4_sinclude' => 1,
+                         'AC_PATH_X' => 1,
+                         'AC_LIBTOOL_PROG_LD_SHLIBS' => 1,
+                         'AC_HEADER_STDC' => 1,
+                         'AC_LIBTOOL_LINKER_OPTION' => 1,
++                        'LT_AC_PROG_RC' => 1,
+                         'AC_LIBTOOL_CXX' => 1,
+-                        'LT_AC_PROG_RC' => 1,
+                         'LT_AC_PROG_GCJ' => 1,
+                         'AC_FUNC_ERROR_AT_LINE' => 1,
++                        'AM_DEP_TRACK' => 1,
++                        '_LT_AC_PROG_CXXCPP' => 1,
+                         'AM_DISABLE_STATIC' => 1,
+-                        '_LT_AC_PROG_CXXCPP' => 1,
+-                        'AM_DEP_TRACK' => 1,
++                        'AC_FUNC_MBRTOWC' => 1,
+                         '_AC_PROG_LIBTOOL' => 1,
+-                        'AC_FUNC_MBRTOWC' => 1,
+                         'AC_TYPE_SIGNAL' => 1,
++                        'AC_TYPE_UID_T' => 1,
++                        '_AM_IF_OPTION' => 1,
+                         'AX_CREATE_STDINT_H' => 1,
+-                        '_AM_IF_OPTION' => 1,
+-                        'AC_TYPE_UID_T' => 1,
+                         'AC_PATH_TOOL_PREFIX' => 1,
++                        'AC_LIBTOOL_F77' => 1,
+                         'm4_pattern_allow' => 1,
+-                        'AC_LIBTOOL_F77' => 1,
+                         'AM_SET_LEADING_DOT' => 1,
+                         'AC_DEFINE_TRACE_LITERAL' => 1,
+                         '_AM_DEPENDENCIES' => 1,
+                         'AC_LIBTOOL_LANG_C_CONFIG' => 1,
++                        'AC_PROG_CC' => 1,
+                         '_LT_AC_SYS_COMPILER' => 1,
+-                        'AC_PROG_CC' => 1,
+                         'AM_PROG_NM' => 1,
+                         'AC_FUNC_STRCOLL' => 1,
+                         'AC_PROG_YACC' => 1,
+                         'AC_LIBLTDL_CONVENIENCE' => 1,
++                        'AC_DEPLIBS_CHECK_METHOD' => 1,
+                         'AX_CHECK_DATA_MODEL' => 1,
+-                        'AC_DEPLIBS_CHECK_METHOD' => 1,
++                        'AC_FUNC_CHOWN' => 1,
++                        'AM_SET_CURRENT_AUTOMAKE_VERSION' => 1,
+                         'AC_LIBLTDL_INSTALLABLE' => 1,
+-                        'AM_SET_CURRENT_AUTOMAKE_VERSION' => 1,
+-                        'AC_FUNC_CHOWN' => 1,
+                         'AC_LIBTOOL_SYS_DYNAMIC_LINKER' => 1,
+                         'AC_FUNC_GETPGRP' => 1,
+                         'AM_INIT_AUTOMAKE' => 1,
+@@ -1377,26 +1377,26 @@
+                         '_LT_AC_LOCK' => 1,
+                         '_LT_AC_LANG_RC_CONFIG' => 1,
+                         'AC_PROG_CPP' => 1,
++                        'AC_TYPE_PID_T' => 1,
++                        'AC_PROG_LEX' => 1,
+                         'AC_C_CONST' => 1,
+-                        'AC_PROG_LEX' => 1,
+-                        'AC_TYPE_PID_T' => 1,
+                         'AC_LIBTOOL_POSTDEP_PREDEP' => 1,
+                         'AC_FUNC_SETVBUF_REVERSED' => 1,
++                        'AC_PROG_INSTALL' => 1,
+                         'AM_AUX_DIR_EXPAND' => 1,
+-                        'AC_PROG_INSTALL' => 1,
++                        'AC_LIBTOOL_PROG_COMPILER_NO_RTTI' => 1,
+                         '_LT_AC_LANG_F77_CONFIG' => 1,
+-                        'AC_LIBTOOL_PROG_COMPILER_NO_RTTI' => 1,
+                         '_AM_SET_OPTIONS' => 1,
++                        'AM_RUN_LOG' => 1,
+                         '_AM_OUTPUT_DEPENDENCY_COMMANDS' => 1,
+-                        'AM_RUN_LOG' => 1,
+                         'AC_LIBTOOL_PICMODE' => 1,
+                         'AH_OUTPUT' => 1,
+                         'AC_CHECK_LIBM' => 1,
+                         'AC_LIBTOOL_SYS_LIB_STRIP' => 1,
+                         '_AM_MANGLE_OPTION' => 1,
+                         'AC_CANONICAL_SYSTEM' => 1,
++                        'AC_CONFIG_HEADERS' => 1,
+                         'AC_LIBTOOL_SYS_MAX_CMD_LEN' => 1,
+-                        'AC_CONFIG_HEADERS' => 1,
+                         'AM_SET_DEPDIR' => 1,
+                         '_LT_CC_BASENAME' => 1,
+                         'AC_CHECK_FUNCS' => 1
+@@ -1436,29 +1436,29 @@
+                         'AC_C_CHECK_TYPE_STRUCT_TIMESPEC' => 1,
+                         'AM_ENABLE_STATIC' => 1,
+                         'AC_LIBTOOL_LANG_RC_CONFIG' => 1,
++                        'AC_TYPE_OFF_T' => 1,
+                         'AC_C_VOLATILE' => 1,
+-                        'AC_TYPE_OFF_T' => 1,
++                        'AC_FUNC_CLOSEDIR_VOID' => 1,
+                         '_LT_AC_SHELL_INIT' => 1,
+-                        'AC_FUNC_CLOSEDIR_VOID' => 1,
+                         'AC_REPLACE_FNMATCH' => 1,
+                         'AC_DEFUN' => 1,
++                        '_LT_AC_LANG_CXX_CONFIG' => 1,
+                         'AC_PROG_LIBTOOL' => 1,
+-                        '_LT_AC_LANG_CXX_CONFIG' => 1,
++                        'AC_FUNC_STAT' => 1,
+                         'AM_PROG_MKDIR_P' => 1,
+-                        'AC_FUNC_STAT' => 1,
+                         'AC_FUNC_WAIT3' => 1,
++                        'AC_STRUCT_TM' => 1,
++                        'AC_FUNC_LSTAT' => 1,
+                         'AM_AUTOMAKE_VERSION' => 1,
+-                        'AC_FUNC_LSTAT' => 1,
+-                        'AC_STRUCT_TM' => 1,
++                        'AC_FUNC_STRTOD' => 1,
+                         'AC_CHECK_HEADERS' => 1,
+-                        'AC_FUNC_STRTOD' => 1,
+                         'AM_MISSING_PROG' => 1,
+                         'AC_FUNC_STRNLEN' => 1,
+                         'AC_LIBTOOL_PROG_LD_HARDCODE_LIBPATH' => 1,
+                         'AC_PROG_CXX' => 1,
+                         '_LT_AC_LANG_C_CONFIG' => 1,
++                        'AC_FUNC_LSTAT_FOLLOWS_SLASHED_SYMLINK' => 1,
+                         'AC_C_LONG_LONG' => 1,
+-                        'AC_FUNC_LSTAT_FOLLOWS_SLASHED_SYMLINK' => 1,
+                         'AM_PROG_INSTALL_STRIP' => 1,
+                         'AC_PROG_AWK' => 1,
+                         '_m4_warn' => 1,
+@@ -1467,46 +1467,46 @@
+                         'AM_SANITY_CHECK' => 1,
+                         'AC_LIBTOOL_PROG_COMPILER_PIC' => 1,
+                         'AC_LIBTOOL_LANG_GCJ_CONFIG' => 1,
++                        'AC_LIBTOOL_SYS_GLOBAL_SYMBOL_PIPE' => 1,
+                         '_LT_AC_CHECK_DLFCN' => 1,
+-                        'AC_LIBTOOL_SYS_GLOBAL_SYMBOL_PIPE' => 1,
+                         '_AM_PROG_TAR' => 1,
+                         'AC_LIBTOOL_GCJ' => 1,
+                         'AC_PROG_GCC_TRADITIONAL' => 1,
+                         'AC_LIBSOURCE' => 1,
+                         'AC_STRUCT_ST_BLOCKS' => 1,
++                        'AC_LIBTOOL_CONFIG' => 1,
+                         '_LT_AC_LANG_F77' => 1,
+-                        'AC_LIBTOOL_CONFIG' => 1,
++                        'AC_CONFIG_AUX_DIR' => 1,
++                        'AC_PROG_MAKE_SET' => 1,
+                         'AC_C_TIMESPEC' => 1,
+-                        'AC_PROG_MAKE_SET' => 1,
+-                        'AC_CONFIG_AUX_DIR' => 1,
++                        'sinclude' => 1,
+                         'AX_CHECK_HEADER_STDINT_X' => 1,
+-                        'sinclude' => 1,
+                         'AM_DISABLE_SHARED' => 1,
+                         'AX_CHECK_HEADER_STDINT_U' => 1,
++                        'AM_PROG_LIBTOOL' => 1,
+                         '_LT_AC_LANG_CXX' => 1,
+-                        'AM_PROG_LIBTOOL' => 1,
++                        'AM_PROG_LD' => 1,
+                         '_LT_AC_FILE_LTDLL_C' => 1,
+-                        'AM_PROG_LD' => 1,
+                         'AC_FUNC_STRERROR_R' => 1,
++                        'AC_FUNC_FORK' => 1,
+                         'AC_DECL_SYS_SIGLIST' => 1,
+-                        'AC_FUNC_FORK' => 1,
++                        'AC_FUNC_VPRINTF' => 1,
+                         'AU_DEFUN' => 1,
+-                        'AC_FUNC_VPRINTF' => 1,
+                         'AC_PROG_NM' => 1,
+                         'AC_LIBTOOL_DLOPEN' => 1,
+                         'AC_PROG_LD' => 1,
+                         'AC_PROG_LD_GNU' => 1,
+                         'AC_ENABLE_FAST_INSTALL' => 1,
++                        'AC_INIT' => 1,
+                         'AC_STRUCT_TIMEZONE' => 1,
+-                        'AC_INIT' => 1,
++                        'AC_SUBST' => 1,
+                         'AC_FUNC_ALLOCA' => 1,
+-                        'AC_SUBST' => 1,
+                         '_AM_SET_OPTION' => 1,
+                         'AC_CANONICAL_HOST' => 1,
+                         '_LT_LINKER_BOILERPLATE' => 1,
++                        'AC_PROG_RANLIB' => 1,
++                        'AC_LIBTOOL_LANG_CXX_CONFIG' => 1,
+                         'AC_LIBTOOL_PROG_CC_C_O' => 1,
+-                        'AC_LIBTOOL_LANG_CXX_CONFIG' => 1,
+-                        'AC_PROG_RANLIB' => 1,
+                         'AC_FUNC_SETPGRP' => 1,
+                         'AC_CONFIG_SUBDIRS' => 1,
+                         'AC_FUNC_MMAP' => 1,
+@@ -1518,44 +1518,44 @@
+                         'AC_FUNC_UTIME_NULL' => 1,
+                         'AC_FUNC_SELECT_ARGTYPES' => 1,
+                         '_LT_AC_LANG_GCJ' => 1,
++                        'AC_HEADER_STAT' => 1,
+                         'AC_FUNC_STRFTIME' => 1,
+-                        'AC_HEADER_STAT' => 1,
+                         'AC_C_INLINE' => 1,
+                         'AC_LIBTOOL_RC' => 1,
++                        'AC_DISABLE_FAST_INSTALL' => 1,
+                         '_LT_AC_PROG_ECHO_BACKSLASH' => 1,
+-                        'AC_DISABLE_FAST_INSTALL' => 1,
+                         'AC_CONFIG_FILES' => 1,
++                        'include' => 1,
++                        '_LT_AC_SYS_LIBPATH_AIX' => 1,
+                         '_LT_AC_TRY_DLOPEN_SELF' => 1,
+-                        '_LT_AC_SYS_LIBPATH_AIX' => 1,
+-                        'include' => 1,
+                         'LT_AC_PROG_SED' => 1,
+                         'AM_ENABLE_SHARED' => 1,
+                         'AM_GNU_GETTEXT' => 1,
+                         '_LT_AC_LANG_GCJ_CONFIG' => 1,
++                        'AC_FUNC_OBSTACK' => 1,
++                        'AC_CHECK_LIB' => 1,
+                         'AC_ENABLE_SHARED' => 1,
+-                        'AC_CHECK_LIB' => 1,
+-                        'AC_FUNC_OBSTACK' => 1,
+                         'AC_FUNC_MALLOC' => 1,
+                         'AC_FUNC_GETGROUPS' => 1,
+                         'AC_FUNC_GETLOADAVG' => 1,
++                        'AC_FUNC_FSEEKO' => 1,
++                        'AC_ENABLE_STATIC' => 1,
+                         'AC_LIBTOOL_SYS_HARD_LINK_LOCKS' => 1,
+-                        'AC_ENABLE_STATIC' => 1,
+-                        'AC_FUNC_FSEEKO' => 1,
++                        'AM_PROG_CC_C_O' => 1,
+                         '_LT_AC_TAGVAR' => 1,
+-                        'AM_PROG_CC_C_O' => 1,
+                         'AC_LIBTOOL_LANG_F77_CONFIG' => 1,
++                        'AC_FUNC_MKTIME' => 1,
++                        'AX_CHECK_HEADER_STDINT_O' => 1,
+                         'AM_CONDITIONAL' => 1,
+-                        'AX_CHECK_HEADER_STDINT_O' => 1,
+-                        'AC_FUNC_MKTIME' => 1,
+                         'AC_HEADER_SYS_WAIT' => 1,
++                        'AC_PROG_LN_S' => 1,
+                         'AC_FUNC_MEMCMP' => 1,
+-                        'AC_PROG_LN_S' => 1,
++                        'm4_include' => 1,
+                         'AM_PROG_INSTALL_SH' => 1,
+-                        'm4_include' => 1,
++                        'AC_HEADER_DIRENT' => 1,
+                         'AC_PROG_EGREP' => 1,
+-                        'AC_HEADER_DIRENT' => 1,
++                        '_AC_AM_CONFIG_HEADER_HOOK' => 1,
+                         'AC_PATH_MAGIC' => 1,
+-                        '_AC_AM_CONFIG_HEADER_HOOK' => 1,
+                         'AM_MAKE_INCLUDE' => 1,
+                         '_LT_AC_TAGCONFIG' => 1,
+                         'm4_pattern_forbid' => 1,
+@@ -1563,50 +1563,50 @@
+                         'AC_LIBTOOL_COMPILER_OPTION' => 1,
+                         'AC_DISABLE_SHARED' => 1,
+                         '_LT_COMPILER_BOILERPLATE' => 1,
++                        'AC_LIBTOOL_SETUP' => 1,
+                         'AC_LIBTOOL_WIN32_DLL' => 1,
+-                        'AC_LIBTOOL_SETUP' => 1,
+                         'AC_PROG_LD_RELOAD_FLAG' => 1,
+                         'AC_HEADER_TIME' => 1,
++                        'AC_TYPE_MODE_T' => 1,
++                        'AC_FUNC_GETMNTENT' => 1,
+                         'AM_MISSING_HAS_RUN' => 1,
+-                        'AC_FUNC_GETMNTENT' => 1,
+-                        'AC_TYPE_MODE_T' => 1,
++                        'm4_sinclude' => 1,
+                         'AC_LIBTOOL_DLOPEN_SELF' => 1,
+-                        'm4_sinclude' => 1,
+                         'AC_PATH_X' => 1,
+                         'AC_LIBTOOL_PROG_LD_SHLIBS' => 1,
+                         'AC_HEADER_STDC' => 1,
+                         'AC_LIBTOOL_LINKER_OPTION' => 1,
++                        'LT_AC_PROG_RC' => 1,
+                         'AC_LIBTOOL_CXX' => 1,
+-                        'LT_AC_PROG_RC' => 1,
+                         'LT_AC_PROG_GCJ' => 1,
+                         'AC_FUNC_ERROR_AT_LINE' => 1,
++                        'AM_DEP_TRACK' => 1,
++                        '_LT_AC_PROG_CXXCPP' => 1,
+                         'AM_DISABLE_STATIC' => 1,
+-                        '_LT_AC_PROG_CXXCPP' => 1,
+-                        'AM_DEP_TRACK' => 1,
++                        'AC_FUNC_MBRTOWC' => 1,
+                         '_AC_PROG_LIBTOOL' => 1,
+-                        'AC_FUNC_MBRTOWC' => 1,
+                         'AC_TYPE_SIGNAL' => 1,
++                        'AC_TYPE_UID_T' => 1,
++                        '_AM_IF_OPTION' => 1,
+                         'AX_CREATE_STDINT_H' => 1,
+-                        '_AM_IF_OPTION' => 1,
+-                        'AC_TYPE_UID_T' => 1,
+                         'AC_PATH_TOOL_PREFIX' => 1,
++                        'AC_LIBTOOL_F77' => 1,
+                         'm4_pattern_allow' => 1,
+-                        'AC_LIBTOOL_F77' => 1,
+                         'AM_SET_LEADING_DOT' => 1,
+                         'AC_DEFINE_TRACE_LITERAL' => 1,
+                         '_AM_DEPENDENCIES' => 1,
+                         'AC_LIBTOOL_LANG_C_CONFIG' => 1,
++                        'AC_PROG_CC' => 1,
+                         '_LT_AC_SYS_COMPILER' => 1,
+-                        'AC_PROG_CC' => 1,
+                         'AM_PROG_NM' => 1,
+                         'AC_FUNC_STRCOLL' => 1,
+                         'AC_PROG_YACC' => 1,
+                         'AC_LIBLTDL_CONVENIENCE' => 1,
++                        'AC_DEPLIBS_CHECK_METHOD' => 1,
+                         'AX_CHECK_DATA_MODEL' => 1,
+-                        'AC_DEPLIBS_CHECK_METHOD' => 1,
++                        'AC_FUNC_CHOWN' => 1,
++                        'AM_SET_CURRENT_AUTOMAKE_VERSION' => 1,
+                         'AC_LIBLTDL_INSTALLABLE' => 1,
+-                        'AM_SET_CURRENT_AUTOMAKE_VERSION' => 1,
+-                        'AC_FUNC_CHOWN' => 1,
+                         'AC_LIBTOOL_SYS_DYNAMIC_LINKER' => 1,
+                         'AC_FUNC_GETPGRP' => 1,
+                         'AM_INIT_AUTOMAKE' => 1,
+@@ -1617,26 +1617,26 @@
+                         '_LT_AC_LOCK' => 1,
+                         '_LT_AC_LANG_RC_CONFIG' => 1,
+                         'AC_PROG_CPP' => 1,
++                        'AC_TYPE_PID_T' => 1,
++                        'AC_PROG_LEX' => 1,
+                         'AC_C_CONST' => 1,
+-                        'AC_PROG_LEX' => 1,
+-                        'AC_TYPE_PID_T' => 1,
+                         'AC_LIBTOOL_POSTDEP_PREDEP' => 1,
+                         'AC_FUNC_SETVBUF_REVERSED' => 1,
++                        'AC_PROG_INSTALL' => 1,
+                         'AM_AUX_DIR_EXPAND' => 1,
+-                        'AC_PROG_INSTALL' => 1,
++                        'AC_LIBTOOL_PROG_COMPILER_NO_RTTI' => 1,
+                         '_LT_AC_LANG_F77_CONFIG' => 1,
+-                        'AC_LIBTOOL_PROG_COMPILER_NO_RTTI' => 1,
+                         '_AM_SET_OPTIONS' => 1,
++                        'AM_RUN_LOG' => 1,
+                         '_AM_OUTPUT_DEPENDENCY_COMMANDS' => 1,
+-                        'AM_RUN_LOG' => 1,
+                         'AC_LIBTOOL_PICMODE' => 1,
+                         'AH_OUTPUT' => 1,
+                         'AC_CHECK_LIBM' => 1,
+                         'AC_LIBTOOL_SYS_LIB_STRIP' => 1,
+                         '_AM_MANGLE_OPTION' => 1,
+                         'AC_CANONICAL_SYSTEM' => 1,
++                        'AC_CONFIG_HEADERS' => 1,
+                         'AC_LIBTOOL_SYS_MAX_CMD_LEN' => 1,
+-                        'AC_CONFIG_HEADERS' => 1,
+                         'AM_SET_DEPDIR' => 1,
+                         '_LT_CC_BASENAME' => 1,
+                         'AC_CHECK_FUNCS' => 1
+@@ -1677,29 +1677,29 @@
+                         'AC_C_CHECK_TYPE_STRUCT_TIMESPEC' => 1,
+                         'AM_ENABLE_STATIC' => 1,
+                         'AC_LIBTOOL_LANG_RC_CONFIG' => 1,
++                        'AC_TYPE_OFF_T' => 1,
+                         'AC_C_VOLATILE' => 1,
+-                        'AC_TYPE_OFF_T' => 1,
++                        'AC_FUNC_CLOSEDIR_VOID' => 1,
+                         '_LT_AC_SHELL_INIT' => 1,
+-                        'AC_FUNC_CLOSEDIR_VOID' => 1,
+                         'AC_REPLACE_FNMATCH' => 1,
+                         'AC_DEFUN' => 1,
++                        '_LT_AC_LANG_CXX_CONFIG' => 1,
+                         'AC_PROG_LIBTOOL' => 1,
+-                        '_LT_AC_LANG_CXX_CONFIG' => 1,
++                        'AC_FUNC_STAT' => 1,
+                         'AM_PROG_MKDIR_P' => 1,
+-                        'AC_FUNC_STAT' => 1,
+                         'AC_FUNC_WAIT3' => 1,
++                        'AC_STRUCT_TM' => 1,
++                        'AC_FUNC_LSTAT' => 1,
+                         'AM_AUTOMAKE_VERSION' => 1,
+-                        'AC_FUNC_LSTAT' => 1,
+-                        'AC_STRUCT_TM' => 1,
++                        'AC_FUNC_STRTOD' => 1,
+                         'AC_CHECK_HEADERS' => 1,
+-                        'AC_FUNC_STRTOD' => 1,
+                         'AM_MISSING_PROG' => 1,
+                         'AC_FUNC_STRNLEN' => 1,
+                         'AC_LIBTOOL_PROG_LD_HARDCODE_LIBPATH' => 1,
+                         'AC_PROG_CXX' => 1,
+                         '_LT_AC_LANG_C_CONFIG' => 1,
++                        'AC_FUNC_LSTAT_FOLLOWS_SLASHED_SYMLINK' => 1,
+                         'AC_C_LONG_LONG' => 1,
+-                        'AC_FUNC_LSTAT_FOLLOWS_SLASHED_SYMLINK' => 1,
+                         'AM_PROG_INSTALL_STRIP' => 1,
+                         'AC_PROG_AWK' => 1,
+                         '_m4_warn' => 1,
+@@ -1708,47 +1708,47 @@
+                         'AM_SANITY_CHECK' => 1,
+                         'AC_LIBTOOL_PROG_COMPILER_PIC' => 1,
+                         'AC_LIBTOOL_LANG_GCJ_CONFIG' => 1,
++                        'AC_LIBTOOL_SYS_GLOBAL_SYMBOL_PIPE' => 1,
+                         '_LT_AC_CHECK_DLFCN' => 1,
+-                        'AC_LIBTOOL_SYS_GLOBAL_SYMBOL_PIPE' => 1,
+                         '_AM_PROG_TAR' => 1,
+                         'AC_LIBTOOL_GCJ' => 1,
+                         'AC_PROG_GCC_TRADITIONAL' => 1,
+                         'AC_LIBSOURCE' => 1,
+                         'AC_STRUCT_ST_BLOCKS' => 1,
++                        'AC_LIBTOOL_CONFIG' => 1,
+                         '_LT_AC_LANG_F77' => 1,
+-                        'AC_LIBTOOL_CONFIG' => 1,
++                        'AC_CONFIG_AUX_DIR' => 1,
++                        'AC_PROG_MAKE_SET' => 1,
+                         'AC_C_TIMESPEC' => 1,
+-                        'AC_PROG_MAKE_SET' => 1,
+-                        'AC_CONFIG_AUX_DIR' => 1,
++                        'sinclude' => 1,
+                         'AX_CHECK_HEADER_STDINT_X' => 1,
+-                        'sinclude' => 1,
+                         'AM_DISABLE_SHARED' => 1,
+                         'AX_CHECK_HEADER_STDINT_U' => 1,
++                        'AM_PROG_LIBTOOL' => 1,
+                         '_LT_AC_LANG_CXX' => 1,
+-                        'AM_PROG_LIBTOOL' => 1,
++                        'AM_PROG_LD' => 1,
+                         '_LT_AC_FILE_LTDLL_C' => 1,
+-                        'AM_PROG_LD' => 1,
+                         'AC_FUNC_STRERROR_R' => 1,
++                        'AC_FUNC_FORK' => 1,
+                         'AC_DECL_SYS_SIGLIST' => 1,
+-                        'AC_FUNC_FORK' => 1,
++                        'AC_FUNC_VPRINTF' => 1,
+                         'AU_DEFUN' => 1,
+-                        'AC_FUNC_VPRINTF' => 1,
+                         'AC_PROG_NM' => 1,
+                         'AC_LIBTOOL_DLOPEN' => 1,
+                         'AC_PROG_LD' => 1,
+                         'AM_PATH_CPPUNIT' => 1,
++                        'AC_PROG_LD_GNU' => 1,
+                         'AC_ENABLE_FAST_INSTALL' => 1,
+-                        'AC_PROG_LD_GNU' => 1,
++                        'AC_INIT' => 1,
+                         'AC_STRUCT_TIMEZONE' => 1,
+-                        'AC_INIT' => 1,
++                        'AC_SUBST' => 1,
+                         'AC_FUNC_ALLOCA' => 1,
+-                        'AC_SUBST' => 1,
+                         '_AM_SET_OPTION' => 1,
+                         'AC_CANONICAL_HOST' => 1,
+                         '_LT_LINKER_BOILERPLATE' => 1,
++                        'AC_PROG_RANLIB' => 1,
++                        'AC_LIBTOOL_LANG_CXX_CONFIG' => 1,
+                         'AC_LIBTOOL_PROG_CC_C_O' => 1,
+-                        'AC_LIBTOOL_LANG_CXX_CONFIG' => 1,
+-                        'AC_PROG_RANLIB' => 1,
+                         'AC_FUNC_SETPGRP' => 1,
+                         'AC_CONFIG_SUBDIRS' => 1,
+                         'AC_FUNC_MMAP' => 1,
+@@ -1760,95 +1760,95 @@
+                         'AC_FUNC_UTIME_NULL' => 1,
+                         'AC_FUNC_SELECT_ARGTYPES' => 1,
+                         '_LT_AC_LANG_GCJ' => 1,
++                        'AC_HEADER_STAT' => 1,
+                         'AC_FUNC_STRFTIME' => 1,
+-                        'AC_HEADER_STAT' => 1,
+                         'AC_C_INLINE' => 1,
+                         'AC_LIBTOOL_RC' => 1,
++                        'AC_DISABLE_FAST_INSTALL' => 1,
+                         '_LT_AC_PROG_ECHO_BACKSLASH' => 1,
+-                        'AC_DISABLE_FAST_INSTALL' => 1,
+                         'AC_CONFIG_FILES' => 1,
++                        'include' => 1,
++                        '_LT_AC_SYS_LIBPATH_AIX' => 1,
+                         '_LT_AC_TRY_DLOPEN_SELF' => 1,
+-                        '_LT_AC_SYS_LIBPATH_AIX' => 1,
+-                        'include' => 1,
+                         'LT_AC_PROG_SED' => 1,
+                         'AM_ENABLE_SHARED' => 1,
+                         'AM_GNU_GETTEXT' => 1,
+                         '_LT_AC_LANG_GCJ_CONFIG' => 1,
++                        'AC_FUNC_OBSTACK' => 1,
++                        'AC_CHECK_LIB' => 1,
+                         'AC_ENABLE_SHARED' => 1,
+-                        'AC_CHECK_LIB' => 1,
+-                        'AC_FUNC_OBSTACK' => 1,
+                         'AC_FUNC_MALLOC' => 1,
+                         'AC_FUNC_GETGROUPS' => 1,
+                         'AC_FUNC_GETLOADAVG' => 1,
++                        'AC_FUNC_FSEEKO' => 1,
++                        'AC_LIBTOOL_SYS_HARD_LINK_LOCKS' => 1,
+                         'AC_ENABLE_STATIC' => 1,
+-                        'AC_LIBTOOL_SYS_HARD_LINK_LOCKS' => 1,
+-                        'AC_FUNC_FSEEKO' => 1,
++                        'AM_PROG_CC_C_O' => 1,
+                         '_LT_AC_TAGVAR' => 1,
+-                        'AM_PROG_CC_C_O' => 1,
+                         'AC_LIBTOOL_LANG_F77_CONFIG' => 1,
++                        'AC_FUNC_MKTIME' => 1,
++                        'AX_CHECK_HEADER_STDINT_O' => 1,
+                         'AM_CONDITIONAL' => 1,
+-                        'AX_CHECK_HEADER_STDINT_O' => 1,
+-                        'AC_FUNC_MKTIME' => 1,
+                         'AC_HEADER_SYS_WAIT' => 1,
++                        'AC_PROG_LN_S' => 1,
+                         'AC_FUNC_MEMCMP' => 1,
+-                        'AC_PROG_LN_S' => 1,
++                        'm4_include' => 1,
+                         'AM_PROG_INSTALL_SH' => 1,
+-                        'm4_include' => 1,
++                        'AC_HEADER_DIRENT' => 1,
+                         'AC_PROG_EGREP' => 1,
+-                        'AC_HEADER_DIRENT' => 1,
++                        '_AC_AM_CONFIG_HEADER_HOOK' => 1,
+                         'AC_PATH_MAGIC' => 1,
+-                        '_AC_AM_CONFIG_HEADER_HOOK' => 1,
+                         'AM_MAKE_INCLUDE' => 1,
+                         '_LT_AC_TAGCONFIG' => 1,
+                         'm4_pattern_forbid' => 1,
++                        'AC_CONFIG_LIBOBJ_DIR' => 1,
+                         'AC_LIBTOOL_COMPILER_OPTION' => 1,
+-                        'AC_CONFIG_LIBOBJ_DIR' => 1,
+                         'AC_DISABLE_SHARED' => 1,
+                         '_LT_COMPILER_BOILERPLATE' => 1,
++                        'AC_LIBTOOL_SETUP' => 1,
+                         'AC_LIBTOOL_WIN32_DLL' => 1,
+-                        'AC_LIBTOOL_SETUP' => 1,
+                         'AC_PROG_LD_RELOAD_FLAG' => 1,
+                         'AC_HEADER_TIME' => 1,
++                        'AC_TYPE_MODE_T' => 1,
++                        'AC_FUNC_GETMNTENT' => 1,
+                         'AM_MISSING_HAS_RUN' => 1,
+-                        'AC_FUNC_GETMNTENT' => 1,
+-                        'AC_TYPE_MODE_T' => 1,
++                        'm4_sinclude' => 1,
+                         'AC_LIBTOOL_DLOPEN_SELF' => 1,
+-                        'm4_sinclude' => 1,
+                         'AC_PATH_X' => 1,
+                         'AC_LIBTOOL_PROG_LD_SHLIBS' => 1,
+                         'AC_HEADER_STDC' => 1,
+                         'AC_LIBTOOL_LINKER_OPTION' => 1,
++                        'LT_AC_PROG_RC' => 1,
+                         'AC_LIBTOOL_CXX' => 1,
+-                        'LT_AC_PROG_RC' => 1,
+                         'LT_AC_PROG_GCJ' => 1,
+                         'AC_FUNC_ERROR_AT_LINE' => 1,
++                        'AM_DEP_TRACK' => 1,
++                        '_LT_AC_PROG_CXXCPP' => 1,
+                         'AM_DISABLE_STATIC' => 1,
+-                        '_LT_AC_PROG_CXXCPP' => 1,
+-                        'AM_DEP_TRACK' => 1,
++                        'AC_FUNC_MBRTOWC' => 1,
+                         '_AC_PROG_LIBTOOL' => 1,
+-                        'AC_FUNC_MBRTOWC' => 1,
+                         'AC_TYPE_SIGNAL' => 1,
++                        'AC_TYPE_UID_T' => 1,
++                        '_AM_IF_OPTION' => 1,
+                         'AX_CREATE_STDINT_H' => 1,
+-                        '_AM_IF_OPTION' => 1,
+-                        'AC_TYPE_UID_T' => 1,
+                         'AC_PATH_TOOL_PREFIX' => 1,
++                        'AC_LIBTOOL_F77' => 1,
+                         'm4_pattern_allow' => 1,
+-                        'AC_LIBTOOL_F77' => 1,
+                         'AM_SET_LEADING_DOT' => 1,
+                         'AC_DEFINE_TRACE_LITERAL' => 1,
+                         '_AM_DEPENDENCIES' => 1,
+                         'AC_LIBTOOL_LANG_C_CONFIG' => 1,
++                        'AC_PROG_CC' => 1,
+                         '_LT_AC_SYS_COMPILER' => 1,
+-                        'AC_PROG_CC' => 1,
+                         'AM_PROG_NM' => 1,
+                         'AC_FUNC_STRCOLL' => 1,
+                         'AC_PROG_YACC' => 1,
+                         'AC_LIBLTDL_CONVENIENCE' => 1,
++                        'AC_DEPLIBS_CHECK_METHOD' => 1,
+                         'AX_CHECK_DATA_MODEL' => 1,
+-                        'AC_DEPLIBS_CHECK_METHOD' => 1,
++                        'AC_FUNC_CHOWN' => 1,
++                        'AM_SET_CURRENT_AUTOMAKE_VERSION' => 1,
+                         'AC_LIBLTDL_INSTALLABLE' => 1,
+-                        'AM_SET_CURRENT_AUTOMAKE_VERSION' => 1,
+-                        'AC_FUNC_CHOWN' => 1,
+                         'AC_LIBTOOL_SYS_DYNAMIC_LINKER' => 1,
+                         'AC_FUNC_GETPGRP' => 1,
+                         'AM_INIT_AUTOMAKE' => 1,
+@@ -1859,26 +1859,26 @@
+                         '_LT_AC_LOCK' => 1,
+                         '_LT_AC_LANG_RC_CONFIG' => 1,
+                         'AC_PROG_CPP' => 1,
++                        'AC_TYPE_PID_T' => 1,
++                        'AC_PROG_LEX' => 1,
+                         'AC_C_CONST' => 1,
+-                        'AC_PROG_LEX' => 1,
+-                        'AC_TYPE_PID_T' => 1,
+                         'AC_LIBTOOL_POSTDEP_PREDEP' => 1,
+                         'AC_FUNC_SETVBUF_REVERSED' => 1,
++                        'AC_PROG_INSTALL' => 1,
+                         'AM_AUX_DIR_EXPAND' => 1,
+-                        'AC_PROG_INSTALL' => 1,
++                        'AC_LIBTOOL_PROG_COMPILER_NO_RTTI' => 1,
+                         '_LT_AC_LANG_F77_CONFIG' => 1,
+-                        'AC_LIBTOOL_PROG_COMPILER_NO_RTTI' => 1,
+                         '_AM_SET_OPTIONS' => 1,
++                        'AM_RUN_LOG' => 1,
+                         '_AM_OUTPUT_DEPENDENCY_COMMANDS' => 1,
+-                        'AM_RUN_LOG' => 1,
+                         'AC_LIBTOOL_PICMODE' => 1,
+                         'AH_OUTPUT' => 1,
+                         'AC_CHECK_LIBM' => 1,
+                         'AC_LIBTOOL_SYS_LIB_STRIP' => 1,
+                         '_AM_MANGLE_OPTION' => 1,
+                         'AC_CANONICAL_SYSTEM' => 1,
++                        'AC_CONFIG_HEADERS' => 1,
+                         'AC_LIBTOOL_SYS_MAX_CMD_LEN' => 1,
+-                        'AC_CONFIG_HEADERS' => 1,
+                         'AM_SET_DEPDIR' => 1,
+                         '_LT_CC_BASENAME' => 1,
+                         'AC_CHECK_FUNCS' => 1
+
+Modified: trunk/test/TimeValueTest.h
+===================================================================
+--- trunk/test/TimeValueTest.h	2005-12-06 10:11:29 UTC (rev 17)
++++ trunk/test/TimeValueTest.h	2005-12-07 10:32:37 UTC (rev 18)
+@@ -21,28 +21,105 @@
+ 
+ #include <cppunit/extensions/HelperMacros.h>
+ #include <frog/TimeValue.h>
++#include <iostream>
+ 
+-#include <cstdio>
++using std::cout;
++using std::endl;
+ 
+ #ifdef HAVE_CONFIG_H
+ #include <config.h>
+ #endif
+ 
++using frog::util::TimeValue;
++
+ class TimeValueTest : public CppUnit::TestFixture
+ {
+-    CPPUNIT_TEST_SUITE(TimeValueTest);
++  CPPUNIT_TEST_SUITE(TimeValueTest);
+ 
+-    CPPUNIT_TEST(testConstructor1);
++  CPPUNIT_TEST(testConstructor1);
++  CPPUNIT_TEST(testConstructor2);
++  CPPUNIT_TEST(testConstructor3);
++  CPPUNIT_TEST(testSet1);
++  CPPUNIT_TEST(testSet2);
++  CPPUNIT_TEST(testSet3);
++  CPPUNIT_TEST(testSet4);
+ 
+-    CPPUNIT_TEST_SUITE_END();
+-    public:
+-        void testConstructor1()
+-        {
+-            TimeValue tv(10, 10);
+-            CPPUNIT_ASSERT(tv.sec() == 10 && tv.usec == 10);
+-            TimeValue tv1(100, 100);
+-            CPPUNIT_ASSERT(tv1.sec() == 100 && tv1.usec == 100);
+-            TimeValue tv2(1000, 1000);
+-            CPPUNIT_ASSERT(tv2.sec() == 1000 && tv2.usec == 1000);
+-        }
++  CPPUNIT_TEST_SUITE_END();
++
++  public:
++      void testConstructor1()
++      {
++          TimeValue tv(10, 10);
++          CPPUNIT_ASSERT((tv.sec() == 10 && tv.usec() == 10));
++
++          TimeValue tv1(100, 100);
++          CPPUNIT_ASSERT((tv1.sec() == 100 && tv1.usec() == 100));
++
++          TimeValue tv2(1000, 1000);
++          CPPUNIT_ASSERT((tv2.sec() == 1000 && tv2.usec() == 1000));
++      }
++
++      void testConstructor2()
++      {
++          struct timeval tmval;
++
++          tmval.tv_sec = 100;
++          tmval.tv_usec = 100;
++
++          TimeValue tv(tmval);
++          TimeValue tv2(100, 100);
++
++          CPPUNIT_ASSERT((tv2.sec() == tmval.tv_sec && tv2.usec() == tmval.tv_usec));
++      }
++
++      void testConstructor3()
++      {
++          struct timespec tmspec;
++
++          tmspec.tv_sec = 100;
++          tmspec.tv_nsec = 100;
++
++          TimeValue tv(tmspec);
++          TimeValue tv2(100, 100);
++
++          CPPUNIT_ASSERT((tv2.sec() == tmspec.tv_sec && tv2.usec() == tmspec.tv_nsec));
++      }
++
++      void testSet1()
++      {
++          TimeValue tv;
++          tv.set(1000);
++          CPPUNIT_ASSERT((tv.sec() == 1000 && tv.usec() == 0));
++      }
++
++      void testSet2()
++      {
++          TimeValue tv;
++          tv.set(1000, 1);
++          CPPUNIT_ASSERT((tv.sec() == 1000 && tv.usec() == 1));
++      }
++
++      void testSet3()
++      {
++          struct timeval tmval;
++          TimeValue tv;
++
++          tmval.tv_sec = 100;
++          tmval.tv_usec = 100;
++
++          tv.set(tmval);
++          CPPUNIT_ASSERT((tv.sec() == tmval.tv_sec && tv.usec() == tmval.tv_usec));
++      }
++
++      void testSet4()
++      {
++          struct timespec tmspec;
++          TimeValue tv;
++
++          tmspec.tv_sec = 100;
++          tmspec.tv_nsec = 1000;
++
++          tv.set(tmspec);
++          CPPUNIT_ASSERT((tv.sec() == tmspec.tv_sec && tv.usec() == (tmspec.tv_nsec/1000)));
++      }
+ };
+
+
+
+From janvier at berlios.de  Fri Dec 16 09:07:46 2005
+From: janvier at berlios.de (janvier at BerliOS)
+Date: Fri, 16 Dec 2005 09:07:46 +0100
+Subject: [frog-svn] r19 - in trunk: . src src/frog
+Message-ID: <200512160807.jBG87kMh008588@sheep.berlios.de>
+
+Author: janvier
+Date: 2005-12-16 09:07:26 +0100 (Fri, 16 Dec 2005)
+New Revision: 19
+
+Removed:
+   trunk/autom4te.cache/
+Modified:
+   trunk/ChangeLog
+   trunk/src/IPEndpoint.cpp
+   trunk/src/InetAddress.cpp
+   trunk/src/NetworkInterface.cpp
+   trunk/src/Object.cpp
+   trunk/src/frog/ApplicationException.h
+   trunk/src/frog/ArgumentNullException.h
+   trunk/src/frog/ArgumentOutOfBoundsException.h
+   trunk/src/frog/ArithmeticException.h
+   trunk/src/frog/DivideByZeroException.h
+   trunk/src/frog/Endpoint.h
+   trunk/src/frog/Exception.h
+   trunk/src/frog/FormatException.h
+   trunk/src/frog/IOException.h
+   trunk/src/frog/IllegalArgumentException.h
+   trunk/src/frog/InetAddress.h
+   trunk/src/frog/NotImplementedException.h
+   trunk/src/frog/NullPointerException.h
+   trunk/src/frog/OverflowException.h
+   trunk/src/frog/RuntimeException.h
+   trunk/src/frog/SocketException.h
+   trunk/src/frog/SystemException.h
+   trunk/src/frog/UnknownHostException.h
+Log:
+Fixed indentations on source and header files.
+
+
+Modified: trunk/ChangeLog
+===================================================================
+--- trunk/ChangeLog	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/ChangeLog	2005-12-16 08:07:26 UTC (rev 19)
+@@ -1,3 +1,7 @@
++2005-12-16  Janvier D. Anonical <janvier at users.berlios.de>
++
++    * Fixed ugly indentation on source and header files.
++
+ 2005-12-07  Janvier D. Anonical <janvier at users.berlios.de>
+ 
+     * Added more tests for TimeValue.
+
+Modified: trunk/src/IPEndpoint.cpp
+===================================================================
+--- trunk/src/IPEndpoint.cpp	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/IPEndpoint.cpp	2005-12-16 08:07:26 UTC (rev 19)
+@@ -29,11 +29,11 @@
+     namespace net
+     {
+         //--------------------------------------------------------------
+-        IPEndpoint::IPEndpoint(InetAddress& ipAddress, in_port_t portNo) throw()
+-            : address(ipAddress), port(portNo)
+-            {
+-                setAddressFamily(ipAddress.addressFamily);
+-            }
++        IPEndpoint::IPEndpoint(InetAddress& ipAddress, in_port_t portNo) throw() :
++          address(ipAddress), port(portNo)
++        {
++            setAddressFamily(ipAddress.addressFamily);
++        }
+ 
+         //--------------------------------------------------------------
+         IPEndpoint& IPEndpoint::operator=(const IPEndpoint& ep) throw()
+
+Modified: trunk/src/InetAddress.cpp
+===================================================================
+--- trunk/src/InetAddress.cpp	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/InetAddress.cpp	2005-12-16 08:07:26 UTC (rev 19)
+@@ -31,109 +31,103 @@
+     namespace net
+     {
+         //--------------------------------------------------------------
+-        InetAddress::InetAddress() throw() 
+-            : addressFamily(addressFamily_),
+-            ipv4Compatible(ipv4Compatible_),
+-            ipv4Compatible_(true),
+-            index_(0),
+-            addressFamily_(AddressFamily::Unspecified)
+-            {
+-                memset(address_, 0, sizeof(uint8_t) * MAX_ADDR_SIZE);
+-            }
++        InetAddress::InetAddress() throw() :
++          addressFamily(addressFamily_), ipv4Compatible(ipv4Compatible_),
++          ipv4Compatible_(true), index_(0), addressFamily_(AddressFamily::Unspecified)
++        {
++            memset(address_, 0, sizeof(uint8_t) * MAX_ADDR_SIZE);
++        }
+ 
+         //--------------------------------------------------------------
+-        InetAddress::InetAddress(const InetAddress& addr) throw()
+-            : addressFamily(addressFamily_), ipv4Compatible(ipv4Compatible_)
+-            {
+-                ::memcpy(address_, addr.address_, sizeof(uint8_t) * MAX_ADDR_SIZE);
+-                addressFamily_ = addr.addressFamily_;
+-                ipv4Compatible_ = addr.ipv4Compatible_;
+-                index_ = addr.index_;
+-            }
++        InetAddress::InetAddress(const InetAddress& addr) throw() :
++          addressFamily(addressFamily_), ipv4Compatible(ipv4Compatible_)
++        {
++            ::memcpy(address_, addr.address_, sizeof(uint8_t) * MAX_ADDR_SIZE);
++            addressFamily_ = addr.addressFamily_;
++            ipv4Compatible_ = addr.ipv4Compatible_;
++            index_ = addr.index_;
++        }
+ 
+         //--------------------------------------------------------------
+-        InetAddress::InetAddress(const std::string& ipAddress, uint32_t index)
+-            throw(sys::IllegalArgumentException)
+-            : addressFamily(addressFamily_), ipv4Compatible(ipv4Compatible_)
++        InetAddress::InetAddress(const std::string& ipAddress, uint32_t index) throw(sys::IllegalArgumentException) :
++          addressFamily(addressFamily_), ipv4Compatible(ipv4Compatible_)
++        {
++            // We know that it is not an IPv4 address if it contains
++            // a semicolon.
++            if(ipAddress.find(":") == std::string::npos)
+             {
+-                // We know that it is not an IPv4 address if it contains
+-                // a semicolon.
+-                if(ipAddress.find(":") == std::string::npos)
+-                {
+-                    struct in_addr inaddr;
+-                    int res;
++                struct in_addr inaddr;
++                int res;
+ #ifdef HAVE_INET_PTON
+-                    res = ::inet_pton(AF_INET, ipAddress.c_str(), &inaddr);
++                res = ::inet_pton(AF_INET, ipAddress.c_str(), &inaddr);
+ #else
+ #ifdef HAVE_INET_ATON
+-                    res = ::inet_aton(ipAddress.c_str(), &inaddr);
++                res = ::inet_aton(ipAddress.c_str(), &inaddr);
+ #else // No choice but to use inet_addr
+-                    if((inaddr = ::inet_addr(ipAddress.c_str())) == -1)
+-                    {
+-                        res = 0;
+-                    }
++                if((inaddr = ::inet_addr(ipAddress.c_str())) == -1)
++                {
++                    res = 0;
++                }
+ #endif
+ #endif
+-                    if(res < 0)
+-                    {
+-                        throw sys::IllegalArgumentException(strerror(errno));
+-                    }
+-                    else if(res == 0)
+-                    {
+-                        throw sys::IllegalArgumentException("IP address is not valid.");
+-                    }
+-
+-                    this->initIPv4(inaddr);
+-                    addressFamily_ = AddressFamily::InterNetwork;
+-                    ipv4Compatible_ = true;
++                if(res < 0)
++                {
++                    throw sys::IllegalArgumentException(strerror(errno));
+                 }
+-                else
++                else if(res == 0)
+                 {
++                    throw sys::IllegalArgumentException("IP address is not valid.");
++                }
++
++                this->initIPv4(inaddr);
++                addressFamily_ = AddressFamily::InterNetwork;
++                ipv4Compatible_ = true;
++            }
++            else
++            {
+ #ifdef HAVE_IPV6_SUPPORT
+-                    struct in6_addr in6addr;
++                struct in6_addr in6addr;
+ #ifdef HAVE_INET_PTON
+-                    int res = ::inet_pton(AF_INET6, ipAddress.c_str(), &in6addr);
++                int res = ::inet_pton(AF_INET6, ipAddress.c_str(), &in6addr);
+ #else
+ #error	enabling IPv6 support without a working inet_pton(); configure without IPv6 support
+ #endif
+-                    if(res < 0)
+-                    {
+-                        throw sys::IllegalArgumentException(strerror(errno));
+-                    }
+-                    else if(res == 0)
+-                    {
+-                        throw sys::IllegalArgumentException("IP address is not valid.");
+-                    }
++                if(res < 0)
++                {
++                    throw sys::IllegalArgumentException(strerror(errno));
++                }
++                else if(res == 0)
++                {
++                    throw sys::IllegalArgumentException("IP address is not valid.");
++                }
+ 
+-                    this->initIPv6(in6addr, index);
+-                    addressFamily_ = AddressFamily::InterNetworkV6;
+-                    ipv4Compatible_ = IN6_IS_ADDR_V4COMPAT(&in6addr);
++                this->initIPv6(in6addr, index);
++                addressFamily_ = AddressFamily::InterNetworkV6;
++                ipv4Compatible_ = IN6_IS_ADDR_V4COMPAT(&in6addr);
+ #else
+-                    throw sys::IllegalArgumentException("IP address is not valid.");
++                throw sys::IllegalArgumentException("IP address is not valid.");
+ #endif
+-                }
+             }
++        }
+ 
+         //--------------------------------------------------------------
+-        InetAddress::InetAddress(const struct in_addr& ipAddress)
+-            throw(sys::ArgumentOutOfBoundsException)
+-            : addressFamily(addressFamily_), ipv4Compatible(ipv4Compatible_)
+-            {
+-                this->initIPv4(ipAddress);
+-                addressFamily_ = AddressFamily::InterNetwork;
+-                ipv4Compatible_ = true;
+-            }
++        InetAddress::InetAddress(const struct in_addr& ipAddress) throw(sys::ArgumentOutOfBoundsException) :
++          addressFamily(addressFamily_), ipv4Compatible(ipv4Compatible_)
++        {
++            this->initIPv4(ipAddress);
++            addressFamily_ = AddressFamily::InterNetwork;
++            ipv4Compatible_ = true;
++        }
+ 
+         //--------------------------------------------------------------
+ #ifdef HAVE_IPV6_SUPPORT
+-        InetAddress::InetAddress(const struct in6_addr& ipAddress, uint32_t index)
+-            throw(sys::ArgumentOutOfBoundsException)
+-            : addressFamily(addressFamily_), ipv4Compatible(ipv4Compatible_)
+-            {
+-                this->initIPv6(ipAddress, index);
+-                addressFamily_ = AddressFamily::InterNetworkV6;
+-                ipv4Compatible_ = IN6_IS_ADDR_V4COMPAT(&ipAddress);
+-            }
++        InetAddress::InetAddress(const struct in6_addr& ipAddress, uint32_t index) throw(sys::ArgumentOutOfBoundsException) :
++          addressFamily(addressFamily_), ipv4Compatible(ipv4Compatible_)
++        {
++            this->initIPv6(ipAddress, index);
++            addressFamily_ = AddressFamily::InterNetworkV6;
++            ipv4Compatible_ = IN6_IS_ADDR_V4COMPAT(&ipAddress);
++        }
+ #endif
+ 
+         //--------------------------------------------------------------
+@@ -402,46 +396,44 @@
+         }
+ 
+         //--------------------------------------------------------------
+-        void InetAddress::initIPv4(const struct in_addr& ipAddress)
+-            throw(sys::ArgumentOutOfBoundsException)
++        void InetAddress::initIPv4(const struct in_addr& ipAddress) throw(sys::ArgumentOutOfBoundsException)
++        {
++            if(ipAddress.s_addr > 0xFFFFFFFFU)
+             {
+-                if(ipAddress.s_addr > 0xFFFFFFFFU)
+-                {
+-                    throw sys::ArgumentOutOfBoundsException("IP address is out of range.");
+-                }
++                throw sys::ArgumentOutOfBoundsException("IP address is out of range.");
++            }
+ 
+-                uint8_t addr[MAX_ADDR_SIZE];
+-                ::memset(addr, 0, sizeof(uint8_t) * MAX_ADDR_SIZE);
+-                ::memcpy(addr, &ipAddress.s_addr, sizeof(ipAddress.s_addr));
++            uint8_t addr[MAX_ADDR_SIZE];
++            ::memset(addr, 0, sizeof(uint8_t) * MAX_ADDR_SIZE);
++            ::memcpy(addr, &ipAddress.s_addr, sizeof(ipAddress.s_addr));
+ 
+ 
+-                ::memset(address_, 0, sizeof(uint8_t) * MAX_ADDR_SIZE);
+-                ::memcpy(address_ + IPV4_OFFSET, &ipAddress.s_addr, sizeof(ipAddress.s_addr));
++            ::memset(address_, 0, sizeof(uint8_t) * MAX_ADDR_SIZE);
++            ::memcpy(address_ + IPV4_OFFSET, &ipAddress.s_addr, sizeof(ipAddress.s_addr));
+ 
+-                index_ = 0;
+-            }
++            index_ = 0;
++        }
+ 
+         //--------------------------------------------------------------
+ #ifdef HAVE_IPV6_SUPPORT
+-        void InetAddress::initIPv6(const struct in6_addr& ipAddress, uint32_t index)
+-            throw(sys::ArgumentOutOfBoundsException)
++        void InetAddress::initIPv6(const struct in6_addr& ipAddress, uint32_t index) throw(sys::ArgumentOutOfBoundsException)
++        {
++            uint8_t addr[MAX_ADDR_SIZE];
++            ::memset(addr, 0, sizeof(uint8_t) * MAX_ADDR_SIZE);
++            ::memcpy(addr, &ipAddress.s6_addr, sizeof(ipAddress.s6_addr));
++
++            for(int i= 0; i < MAX_ADDR_SIZE; ++i)
+             {
+-                uint8_t addr[MAX_ADDR_SIZE];
+-                ::memset(addr, 0, sizeof(uint8_t) * MAX_ADDR_SIZE);
+-                ::memcpy(addr, &ipAddress.s6_addr, sizeof(ipAddress.s6_addr));
++                if(addr[i] > 255U)
++                    throw sys::ArgumentOutOfBoundsException("IP address is out of range.");
++            }
+ 
+-                for(int i= 0; i < MAX_ADDR_SIZE; ++i)
+-                {
+-                    if(addr[i] > 255U)
+-                        throw sys::ArgumentOutOfBoundsException("IP address is out of range.");
+-                }
+ 
++            ::memset(address_, 0, sizeof(uint8_t) * MAX_ADDR_SIZE);
++            ::memcpy(address_, &ipAddress.s6_addr, sizeof(ipAddress.s6_addr));
+ 
+-                ::memset(address_, 0, sizeof(uint8_t) * MAX_ADDR_SIZE);
+-                ::memcpy(address_, &ipAddress.s6_addr, sizeof(ipAddress.s6_addr));
+-
+-                index_ = index;
+-            }
++            index_ = index;
++        }
+ #endif
+ 
+         //--------------------------------------------------------------
+
+Modified: trunk/src/NetworkInterface.cpp
+===================================================================
+--- trunk/src/NetworkInterface.cpp	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/NetworkInterface.cpp	2005-12-16 08:07:26 UTC (rev 19)
+@@ -68,18 +68,16 @@
+ 
+ 
+         //--------------------------------------------------------------
+-        NetworkInterface NetworkInterface::getByInetAddress(const InetAddress& addr)
+-            throw(SocketException)
+-            {
+-                return NetworkInterface::find(&addr);
+-            }
++        NetworkInterface NetworkInterface::getByInetAddress(const InetAddress& addr) throw(SocketException)
++        {
++            return NetworkInterface::find(&addr);
++        }
+ 
+         //--------------------------------------------------------------
+-        NetworkInterface NetworkInterface::getByName(const std::string& intfaceName)
+-            throw(SocketException)
+-            {
+-                return NetworkInterface::find(NULL, intfaceName);
+-            }
++        NetworkInterface NetworkInterface::getByName(const std::string& intfaceName) throw(SocketException)
++        {
++            return NetworkInterface::find(NULL, intfaceName);
++        }
+ 
+         //--------------------------------------------------------------
+         NetworkInterface::~NetworkInterface() throw()
+@@ -87,14 +85,14 @@
+         }
+ 
+         //--------------------------------------------------------------
+-        NetworkInterface::NetworkInterface(const NetworkInterface& netInterface) throw()
+-            : name(name_), displayName(displayName_)
+-            {
+-                name_ = netInterface.name_;
+-                displayName_ = netInterface.displayName_;
+-                addressList_ = netInterface.addressList_;
+-                intfaceIndex_ = netInterface.intfaceIndex_;
+-            }
++        NetworkInterface::NetworkInterface(const NetworkInterface& netInterface) throw() :
++          name(name_), displayName(displayName_)
++        {
++            name_ = netInterface.name_;
++            displayName_ = netInterface.displayName_;
++            addressList_ = netInterface.addressList_;
++            intfaceIndex_ = netInterface.intfaceIndex_;
++        }
+ 
+         //--------------------------------------------------------------
+         NetworkInterface& NetworkInterface::operator=(const NetworkInterface& netInterface) throw()
+@@ -138,293 +136,292 @@
+         }
+ 
+         //--------------------------------------------------------------
+-        NetworkInterface NetworkInterface::find(const InetAddress* addr, const std::string name)
+-            throw(SocketException)
+-            {
++        NetworkInterface NetworkInterface::find(const InetAddress* addr, const std::string name) throw(SocketException)
++        {
+ #ifdef HAVE_IFADDRS_H
+-                NetworkInterface netInterface;
+-                struct ifaddrs* intfaceAddr;
++            NetworkInterface netInterface;
++            struct ifaddrs* intfaceAddr;
+ 
+-                if(::getifaddrs(&intfaceAddr) == -1)
++            if(::getifaddrs(&intfaceAddr) == -1)
++            {
++                throw SocketException(::strerror(errno));
++            }
++
++            InetAddress* addr_p      = NULL;
++            InetAddress* netmask_p   = NULL;
++            InetAddress* broadcast_p = NULL;
++            uint32_t interfaceIndex = 0;
++
++            while(intfaceAddr)
++            {
++                if((intfaceAddr->ifa_addr->sa_family != AF_INET) 
++#ifdef HAVE_IPV6_SUPPORT
++                        && (intfaceAddr->ifa_addr->sa_family != AF_INET6)
++#endif
++                        || ((intfaceAddr->ifa_flags & IFF_UP) == 0) // Ignore if interface is not up
++                        || (!(intfaceAddr->ifa_addr))) // Ignore if we do not have an IP address
+                 {
+-                    throw SocketException(::strerror(errno));
++                    intfaceAddr = intfaceAddr->ifa_next;
++                    continue;
+                 }
+ 
+-                InetAddress* addr_p      = NULL;
+-                InetAddress* netmask_p   = NULL;
+-                InetAddress* broadcast_p = NULL;
+-                uint32_t interfaceIndex = 0;
++                interfaceIndex = if_nametoindex(intfaceAddr->ifa_name);
+ 
+-                while(intfaceAddr)
++                if(intfaceAddr->ifa_addr->sa_family == AF_INET)
+                 {
+-                    if((intfaceAddr->ifa_addr->sa_family != AF_INET) 
+-#ifdef HAVE_IPV6_SUPPORT
+-                            && (intfaceAddr->ifa_addr->sa_family != AF_INET6)
+-#endif
+-                            || ((intfaceAddr->ifa_flags & IFF_UP) == 0) // Ignore if interface is not up
+-                            || (!(intfaceAddr->ifa_addr))) // Ignore if we do not have an IP address
+-                    {
+-                        intfaceAddr = intfaceAddr->ifa_next;
+-                        continue;
+-                    }
++                    struct sockaddr_in* sockaddr;
+ 
+-                    interfaceIndex = if_nametoindex(intfaceAddr->ifa_name);
++                    sockaddr = reinterpret_cast<struct sockaddr_in*>(intfaceAddr->ifa_addr);
++                    addr_p = new InetAddress(sockaddr->sin_addr);
+ 
+-                    if(intfaceAddr->ifa_addr->sa_family == AF_INET)
++                    if(intfaceAddr->ifa_netmask)
+                     {
+-                        struct sockaddr_in* sockaddr;
++                        sockaddr = reinterpret_cast<struct sockaddr_in*>(intfaceAddr->ifa_netmask);
++                        netmask_p = new InetAddress(sockaddr->sin_addr);
++                    }
+ 
+-                        sockaddr = reinterpret_cast<struct sockaddr_in*>(intfaceAddr->ifa_addr);
+-                        addr_p = new InetAddress(sockaddr->sin_addr);
+-
+-                        if(intfaceAddr->ifa_netmask)
+-                        {
+-                            sockaddr = reinterpret_cast<struct sockaddr_in*>(intfaceAddr->ifa_netmask);
+-                            netmask_p = new InetAddress(sockaddr->sin_addr);
+-                        }
+-
+-                        if(intfaceAddr->ifa_broadaddr)
+-                        {
+-                            sockaddr = reinterpret_cast<struct sockaddr_in*>(intfaceAddr->ifa_broadaddr);
+-                            broadcast_p = new InetAddress(sockaddr->sin_addr);
+-                        }
++                    if(intfaceAddr->ifa_broadaddr)
++                    {
++                        sockaddr = reinterpret_cast<struct sockaddr_in*>(intfaceAddr->ifa_broadaddr);
++                        broadcast_p = new InetAddress(sockaddr->sin_addr);
+                     }
++                }
+ #ifdef HAVE_IPV6_SUPPORT
+-                    else if(intfaceAddr->ifa_addr->sa_family == AF_INET6)
+-                    {
+-                        struct sockaddr_in6* sockaddr6;
++                else if(intfaceAddr->ifa_addr->sa_family == AF_INET6)
++                {
++                    struct sockaddr_in6* sockaddr6;
+ 
+-                        sockaddr6 = reinterpret_cast<struct sockaddr_in6*>(intfaceAddr->ifa_addr);
+-                        addr_p = new InetAddress(sockaddr6->sin6_addr, interfaceIndex);
++                    sockaddr6 = reinterpret_cast<struct sockaddr_in6*>(intfaceAddr->ifa_addr);
++                    addr_p = new InetAddress(sockaddr6->sin6_addr, interfaceIndex);
+ 
+-                        if(intfaceAddr->ifa_netmask)
+-                        {
+-                            sockaddr6 = reinterpret_cast<struct sockaddr_in6*>(intfaceAddr->ifa_netmask);
+-                            netmask_p = new InetAddress(sockaddr6->sin6_addr);
+-                        }
++                    if(intfaceAddr->ifa_netmask)
++                    {
++                        sockaddr6 = reinterpret_cast<struct sockaddr_in6*>(intfaceAddr->ifa_netmask);
++                        netmask_p = new InetAddress(sockaddr6->sin6_addr);
++                    }
+ 
+-                        if(intfaceAddr->ifa_broadaddr)
+-                        {
+-                            sockaddr6 = reinterpret_cast<struct sockaddr_in6*>(intfaceAddr->ifa_broadaddr);
+-                            broadcast_p = new InetAddress(sockaddr6->sin6_addr);
+-                        }
++                    if(intfaceAddr->ifa_broadaddr)
++                    {
++                        sockaddr6 = reinterpret_cast<struct sockaddr_in6*>(intfaceAddr->ifa_broadaddr);
++                        broadcast_p = new InetAddress(sockaddr6->sin6_addr);
+                     }
++                }
+ #endif
+ 
+-                    bool addrMatch = false;
+-                    bool nameMatch = false;
++                bool addrMatch = false;
++                bool nameMatch = false;
+ 
+-                    if(addr)
+-                        addrMatch = (*addr_p == *addr);
+-                    if(name.length() > 0)
+-                        nameMatch = (name == std::string(intfaceAddr->ifa_name));
++                if(addr)
++                    addrMatch = (*addr_p == *addr);
++                if(name.length() > 0)
++                    nameMatch = (name == std::string(intfaceAddr->ifa_name));
+ 
+-                    if(addrMatch || nameMatch)
+-                    {
+-                        netInterface.name_ = std::string(intfaceAddr->ifa_name);
+-                        netInterface.displayName_ = std::string(intfaceAddr->ifa_name);
++                if(addrMatch || nameMatch)
++                {
++                    netInterface.name_ = std::string(intfaceAddr->ifa_name);
++                    netInterface.displayName_ = std::string(intfaceAddr->ifa_name);
+ 
+-                        NetworkInterface::InterfaceAddress addrs;
+-                        memset(&addrs, 0, sizeof(NetworkInterface::InterfaceAddress));
++                    NetworkInterface::InterfaceAddress addrs;
++                    memset(&addrs, 0, sizeof(NetworkInterface::InterfaceAddress));
+ 
+-                        addrs.unicast = *addr_p;
++                    addrs.unicast = *addr_p;
+ 
+-                        if(netmask_p) 
+-                            addrs.netmask = *netmask_p;
+-                        if(broadcast_p)
+-                            addrs.broadcast = *broadcast_p;
++                    if(netmask_p) 
++                        addrs.netmask = *netmask_p;
++                    if(broadcast_p)
++                        addrs.broadcast = *broadcast_p;
+ 
+-                        netInterface.intfaceIndex_ = interfaceIndex;
++                    netInterface.intfaceIndex_ = interfaceIndex;
+ 
+-                        netInterface.addressList_.push_back(addrs);
+-                    }
++                    netInterface.addressList_.push_back(addrs);
++                }
+ 
+-                    if(addr_p)
+-                    {
+-                        delete addr_p;
+-                        addr_p = NULL;
+-                    }
++                if(addr_p)
++                {
++                    delete addr_p;
++                    addr_p = NULL;
++                }
+ 
+-                    if(netmask_p)
+-                    {
+-                        delete netmask_p;
+-                        netmask_p = NULL;
+-                    }
++                if(netmask_p)
++                {
++                    delete netmask_p;
++                    netmask_p = NULL;
++                }
+ 
+-                    if(broadcast_p)
+-                    {
+-                        delete broadcast_p;
+-                        broadcast_p = NULL;
+-                    }
+-
+-                    intfaceAddr = intfaceAddr->ifa_next;
++                if(broadcast_p)
++                {
++                    delete broadcast_p;
++                    broadcast_p = NULL;
+                 }
+ 
+-                ::freeifaddrs(intfaceAddr);
++                intfaceAddr = intfaceAddr->ifa_next;
++            }
+ 
+-                return netInterface;
++            ::freeifaddrs(intfaceAddr);
++
++            return netInterface;
+ #else
+-                // No ::getifaddrs()
+-                int sockfd;
+-                int len, lastLen, flags;
+-                char* buf = frog::nullptr;
+-                char* ptr = frog::nullptr;
+-                struct ifconf ifc;
+-                struct ifreq* ifr;
+-                struct ifreq ifrcopy;
+-                struct sockaddr_in* sinptr;
++            // No ::getifaddrs()
++            int sockfd;
++            int len, lastLen, flags;
++            char* buf = frog::nullptr;
++            char* ptr = frog::nullptr;
++            struct ifconf ifc;
++            struct ifreq* ifr;
++            struct ifreq ifrcopy;
++            struct sockaddr_in* sinptr;
+ 
+-                NetworkInterface netInterface;
+-                uint32_t interfaceIndex = 0;
++            NetworkInterface netInterface;
++            uint32_t interfaceIndex = 0;
+ 
+-                if((sockfd = ::socket(AF_INET, SOCK_DGRAM, 0)) == -1)
+-                {
+-                    throw SocketException(::strerror(errno));
+-                }
++            if((sockfd = ::socket(AF_INET, SOCK_DGRAM, 0)) == -1)
++            {
++                throw SocketException(::strerror(errno));
++            }
+ 
+-                lastLen = 0;
+-                len = 100 * sizeof(struct ifreq); // Initial buffer guess
+-                for(;;)
++            lastLen = 0;
++            len = 100 * sizeof(struct ifreq); // Initial buffer guess
++            for(;;)
++            {
++                buf = new char[len];
++                ifc.ifc_len = len;
++                ifc.ifc_buf = buf;
++                if(::ioctl(sockfd, SIOCGIFCONF, &ifc) < 0)
+                 {
+-                    buf = new char[len];
+-                    ifc.ifc_len = len;
+-                    ifc.ifc_buf = buf;
+-                    if(::ioctl(sockfd, SIOCGIFCONF, &ifc) < 0)
++                    if(errno != EINVAL || lastLen != 0)
+                     {
+-                        if(errno != EINVAL || lastLen != 0)
+-                        {
+-                            delete[] buf;
+-                            buf = frog::nullptr;
+-                            throw SocketException(::strerror(errno));
+-                        }
++                        delete[] buf;
++                        buf = frog::nullptr;
++                        throw SocketException(::strerror(errno));
+                     }
+-                    else
+-                    {
+-                        if(ifc.ifc_len == lastLen)
+-                            break; // Success, len has not changed
+-                        lastLen = ifc.ifc_len;
+-                    }
+-                    len  += 10 * sizeof(struct ifreq); // Increment
+-                    delete[] buf;
+-                    buf = frog::nullptr;
+                 }
++                else
++                {
++                    if(ifc.ifc_len == lastLen)
++                        break; // Success, len has not changed
++                    lastLen = ifc.ifc_len;
++                }
++                len  += 10 * sizeof(struct ifreq); // Increment
++                delete[] buf;
++                buf = frog::nullptr;
++            }
+ 
+-                InetAddress* addr_p = NULL;
+-                InetAddress* netmask_p = NULL;
+-                InetAddress* broadcast_p = NULL;
++            InetAddress* addr_p = NULL;
++            InetAddress* netmask_p = NULL;
++            InetAddress* broadcast_p = NULL;
+ 
+-                for(ptr = buf; ptr < buf + ifc.ifc_len; )
++            for(ptr = buf; ptr < buf + ifc.ifc_len; )
++            {
++                ifr = reinterpret_cast<struct ifreq*>(ptr);
++                switch(ifr->ifr_addr.sa_family)
+                 {
+-                    ifr = reinterpret_cast<struct ifreq*>(ptr);
+-                    switch(ifr->ifr_addr.sa_family)
+-                    {
+-                      case AF_INET:
+-                          len = sizeof(struct sockaddr);
+-                          break;
+-                      default:
+-                          break;
+-                    }
+-                    ptr += sizeof(ifr->ifr_name) + len; // For next one in buffer
++                  case AF_INET:
++                      len = sizeof(struct sockaddr);
++                      break;
++                  default:
++                      break;
++                }
++                ptr += sizeof(ifr->ifr_name) + len; // For next one in buffer
+ 
+-                    if(ifr->ifr_addr.sa_family != AF_INET)
+-                        continue;
++                if(ifr->ifr_addr.sa_family != AF_INET)
++                    continue;
+ 
+-                    ifrcopy = *ifr;
+-                    if((::ioctl(sockfd, SIOCGIFFLAGS, &ifrcopy)) == -1)
+-                    {
+-                        throw SocketException(::strerror(errno));
+-                    }
+-                    flags = ifrcopy.ifr_flags;
+-                    if((flags & IFF_UP) == 0)
+-                        continue; // Ignore if interface is not up
++                ifrcopy = *ifr;
++                if((::ioctl(sockfd, SIOCGIFFLAGS, &ifrcopy)) == -1)
++                {
++                    throw SocketException(::strerror(errno));
++                }
++                flags = ifrcopy.ifr_flags;
++                if((flags & IFF_UP) == 0)
++                    continue; // Ignore if interface is not up
+ 
+-                    sinptr = reinterpret_cast<struct sockaddr_in*>(&ifr->ifr_addr);
+-                    addr_p = new InetAddress(sinptr->sin_addr);
++                sinptr = reinterpret_cast<struct sockaddr_in*>(&ifr->ifr_addr);
++                addr_p = new InetAddress(sinptr->sin_addr);
+ 
+-                    if((::ioctl(sockfd, SIOCGIFNETMASK, &ifrcopy)) == -1)
+-                    {
+-                        throw SocketException(::strerror(errno));
+-                    }
++                if((::ioctl(sockfd, SIOCGIFNETMASK, &ifrcopy)) == -1)
++                {
++                    throw SocketException(::strerror(errno));
++                }
+ #if defined(__linux__)
+-                    sinptr = reinterpret_cast<struct sockaddr_in*>(&ifrcopy.ifr_netmask);
++                sinptr = reinterpret_cast<struct sockaddr_in*>(&ifrcopy.ifr_netmask);
+ #else
+-                    sinptr = reinterpret_cast<struct sockaddr_in*>(&ifrcopy.ifr_enaddr);
++                sinptr = reinterpret_cast<struct sockaddr_in*>(&ifrcopy.ifr_enaddr);
+ #endif
+-                    netmask_p = new InetAddress(sinptr->sin_addr);
++                netmask_p = new InetAddress(sinptr->sin_addr);
+ 
+-                    if(flags & IFF_BROADCAST)
++                if(flags & IFF_BROADCAST)
++                {
++                    if((::ioctl(sockfd, SIOCGIFBRDADDR, &ifrcopy)) == -1)
+                     {
+-                        if((::ioctl(sockfd, SIOCGIFBRDADDR, &ifrcopy)) == -1)
+-                        {
+-                            throw SocketException(::strerror(errno));
+-                        }
+-                        sinptr = reinterpret_cast<struct sockaddr_in*>(&ifrcopy.ifr_broadaddr);
+-                        broadcast_p = new InetAddress(sinptr->sin_addr);
+-                    }
+-
+-                    if((::ioctl(sockfd, SIOCGIFINDEX, &ifrcopy)) == -1)
+-                    {
+                         throw SocketException(::strerror(errno));
+                     }
++                    sinptr = reinterpret_cast<struct sockaddr_in*>(&ifrcopy.ifr_broadaddr);
++                    broadcast_p = new InetAddress(sinptr->sin_addr);
++                }
+ 
++                if((::ioctl(sockfd, SIOCGIFINDEX, &ifrcopy)) == -1)
++                {
++                    throw SocketException(::strerror(errno));
++                }
++
+ #if defined(__linux__)
+-                    interfaceIndex = ifrcopy.ifr_ifindex;
++                interfaceIndex = ifrcopy.ifr_ifindex;
+ #else
+-                    interfaceIndex = ifrcopy.ifr_index;
++                interfaceIndex = ifrcopy.ifr_index;
+ #endif
+ 
+-                    bool addrMatch = false;
+-                    bool nameMatch = false;
++                bool addrMatch = false;
++                bool nameMatch = false;
+ 
+-                    if(addr)
+-                        addrMatch = (*addr_p == *addr);
+-                    if(name.length() > 0)
+-                        nameMatch = (name == std::string(ifr->ifr_name));
++                if(addr)
++                    addrMatch = (*addr_p == *addr);
++                if(name.length() > 0)
++                    nameMatch = (name == std::string(ifr->ifr_name));
+ 
+-                    if(addrMatch || nameMatch)
+-                    {
+-                        netInterface.name_ = std::string(ifr->ifr_name);
+-                        netInterface.displayName_ = std::string(ifr->ifr_name);
++                if(addrMatch || nameMatch)
++                {
++                    netInterface.name_ = std::string(ifr->ifr_name);
++                    netInterface.displayName_ = std::string(ifr->ifr_name);
+ 
+-                        NetworkInterface::InterfaceAddress addrs;
+-                        memset(&addrs, 0, sizeof(NetworkInterface::InterfaceAddress));
++                    NetworkInterface::InterfaceAddress addrs;
++                    memset(&addrs, 0, sizeof(NetworkInterface::InterfaceAddress));
+ 
+-                        addrs.unicast = *addr_p;
++                    addrs.unicast = *addr_p;
+ 
+-                        if(netmask_p) 
+-                            addrs.netmask = *netmask_p;
+-                        if(broadcast_p)
+-                            addrs.broadcast = *broadcast_p;
++                    if(netmask_p) 
++                        addrs.netmask = *netmask_p;
++                    if(broadcast_p)
++                        addrs.broadcast = *broadcast_p;
+ 
+-                        netInterface.intfaceIndex_ = interfaceIndex;
++                    netInterface.intfaceIndex_ = interfaceIndex;
+ 
+-                        netInterface.addressList_.push_back(addrs);
+-                    }
++                    netInterface.addressList_.push_back(addrs);
++                }
+ 
+-                    if(addr_p)
+-                    {
+-                        delete addr_p;
+-                        addr_p =NULL;
+-                    }
++                if(addr_p)
++                {
++                    delete addr_p;
++                    addr_p =NULL;
++                }
+ 
+-                    if(netmask_p)
+-                    {
+-                        delete netmask_p;
+-                        netmask_p =NULL;
+-                    }
++                if(netmask_p)
++                {
++                    delete netmask_p;
++                    netmask_p =NULL;
++                }
+ 
+-                    if(broadcast_p)
+-                    {
+-                        delete broadcast_p;
+-                        broadcast_p =NULL;
+-                    }
++                if(broadcast_p)
++                {
++                    delete broadcast_p;
++                    broadcast_p =NULL;
+                 }
+-                delete[] buf;
+-                buf = frog::nullptr;
++            }
++            delete[] buf;
++            buf = frog::nullptr;
+ 
+-                return netInterface;
++            return netInterface;
+ #endif
+-            }
++        }
+ 
+         //--------------------------------------------------------------
+         std::vector<NetworkInterface> NetworkInterface::findAll() throw(SocketException)
+
+Modified: trunk/src/Object.cpp
+===================================================================
+--- trunk/src/Object.cpp	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/Object.cpp	2005-12-16 08:07:26 UTC (rev 19)
+@@ -27,10 +27,10 @@
+ namespace frog
+ {
+     //--------------------------------------------------------------
+-    Object::Object() throw()
+-        : hash_(0)
+-        {
+-        }
++    Object::Object() throw() :
++      hash_(0)
++    {
++    }
+ 
+     //--------------------------------------------------------------
+     Object::~Object() throw()
+
+Modified: trunk/src/frog/ApplicationException.h
+===================================================================
+--- trunk/src/frog/ApplicationException.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/ApplicationException.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -64,22 +64,22 @@
+               /**
+                * Constructs a new exception.
+                */
+-              explicit ApplicationException() throw()
+-                  : Exception("ApplicationException") {}
++              explicit ApplicationException() throw() :
++                Exception("ApplicationException") {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit ApplicationException(const std::string& description) throw()
+-                  : Exception(description) {}
++              explicit ApplicationException(const std::string& description) throw() :
++                Exception(description) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit ApplicationException(const char* description) throw()
+-                  : Exception(description) {}
++              explicit ApplicationException(const char* description) throw() :
++                Exception(description) {}
+               /**
+                * Does nothing.
+                */
+
+Modified: trunk/src/frog/ArgumentNullException.h
+===================================================================
+--- trunk/src/frog/ArgumentNullException.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/ArgumentNullException.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -60,24 +60,22 @@
+               /**
+                * Constructs a new exception.
+                */
+-              explicit ArgumentNullException() throw()
+-                  : IllegalArgumentException("ArgumentNullException") {}
++              explicit ArgumentNullException() throw() :
++                IllegalArgumentException("ArgumentNullException") {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit ArgumentNullException(const std::string& description)
+-                  throw()
+-                  : IllegalArgumentException(description) {}
++              explicit ArgumentNullException(const std::string& description) throw() :
++                IllegalArgumentException(description) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit ArgumentNullException(const char* description)
+-                  throw()
+-                  : IllegalArgumentException(description) {}
++              explicit ArgumentNullException(const char* description) throw() :
++                IllegalArgumentException(description) {}
+               /**
+                * Does nothing.
+                */
+
+Modified: trunk/src/frog/ArgumentOutOfBoundsException.h
+===================================================================
+--- trunk/src/frog/ArgumentOutOfBoundsException.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/ArgumentOutOfBoundsException.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -60,24 +60,22 @@
+               /**
+                * Constructs a new exception.
+                */
+-              explicit ArgumentOutOfBoundsException() throw()
+-                  : IllegalArgumentException("ArgumentOutOfBoundsException") {}
++              explicit ArgumentOutOfBoundsException() throw() :
++                IllegalArgumentException("ArgumentOutOfBoundsException") {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit ArgumentOutOfBoundsException(const std::string& description)
+-                  throw()
+-                  : IllegalArgumentException(description) {}
++              explicit ArgumentOutOfBoundsException(const std::string& description) throw() :
++                IllegalArgumentException(description) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit ArgumentOutOfBoundsException(const char* description)
+-                  throw()
+-                  : IllegalArgumentException(description) {}
++              explicit ArgumentOutOfBoundsException(const char* description) throw() :
++                IllegalArgumentException(description) {}
+ 
+               /**
+                * Does nothing.
+
+Modified: trunk/src/frog/ArithmeticException.h
+===================================================================
+--- trunk/src/frog/ArithmeticException.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/ArithmeticException.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -60,22 +60,22 @@
+               /**
+                * Constructs a new exception.
+                */
+-              explicit ArithmeticException() throw()
+-                  : SystemException("ArithmeticException") {}
++              explicit ArithmeticException() throw() :
++                SystemException("ArithmeticException") {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit ArithmeticException(const std::string& description) throw()
+-                  : SystemException(description) {}
++              explicit ArithmeticException(const std::string& description) throw() :
++                SystemException(description) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit ArithmeticException(const char* description) throw()
+-                  : SystemException(description) {}
++              explicit ArithmeticException(const char* description) throw() :
++                SystemException(description) {}
+               /**
+                * Does nothing.
+                */
+
+Modified: trunk/src/frog/DivideByZeroException.h
+===================================================================
+--- trunk/src/frog/DivideByZeroException.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/DivideByZeroException.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -56,22 +56,22 @@
+               /**
+                * Constructs a new exception.
+                */
+-              explicit DivideByZeroException() throw()
+-                  : ArithmeticException("DivideByZeroException") {}
++              explicit DivideByZeroException() throw() :
++                ArithmeticException("DivideByZeroException") {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit DivideByZeroException(const std::string& description) throw()
+-                  : ArithmeticException(description) {}
++              explicit DivideByZeroException(const std::string& description) throw() :
++                ArithmeticException(description) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit DivideByZeroException(const char* description) throw()
+-                  : ArithmeticException(description) {}
++              explicit DivideByZeroException(const char* description) throw() :
++                ArithmeticException(description) {}
+               /**
+                * Does nothing.
+                */
+
+Modified: trunk/src/frog/Endpoint.h
+===================================================================
+--- trunk/src/frog/Endpoint.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/Endpoint.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -75,8 +75,9 @@
+                * Default constructor. The address family is set
+                * to AddressFamily::Unspecified.
+                */
+-              Endpoint() : addressFamily(addressFamily_),
+-                           addressFamily_(AddressFamily::Unspecified) { }
++              Endpoint() :
++                addressFamily(addressFamily_),
++                addressFamily_(AddressFamily::Unspecified) { }
+ 
+               /**
+                * Sets the address family.
+
+Modified: trunk/src/frog/Exception.h
+===================================================================
+--- trunk/src/frog/Exception.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/Exception.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -85,22 +85,21 @@
+               /**
+                * Constructs a new exception.
+                */
+-              explicit Exception() throw()
+-                  : description_("Exception") {}
++              explicit Exception() throw() : description_("Exception") {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit Exception(const std::string& description) throw()
+-                  : description_(description) {}
++              explicit Exception(const std::string& description) throw() :
++                description_(description) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit Exception(const char* description) throw()
+-                  : description_(std::string(description)) {}
++              explicit Exception(const char* description) throw() :
++                description_(std::string(description)) {}
+ 
+               /**
+                * Does nothing.
+
+Modified: trunk/src/frog/FormatException.h
+===================================================================
+--- trunk/src/frog/FormatException.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/FormatException.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -57,22 +57,21 @@
+               /**
+                * Constructs a new exception.
+                */
+-              explicit FormatException() throw()
+-                  : RuntimeException("FormatException") {}
++              explicit FormatException() throw() : RuntimeException("FormatException") {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit FormatException(const std::string& description) throw()
+-                  : RuntimeException(description) {}
++              explicit FormatException(const std::string& description) throw() :
++                RuntimeException(description) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit FormatException(const char* description) throw()
+-                  : RuntimeException(description) {}
++              explicit FormatException(const char* description) throw() :
++                RuntimeException(description) {}
+               /**
+                * Does nothing.
+                */
+
+Modified: trunk/src/frog/IOException.h
+===================================================================
+--- trunk/src/frog/IOException.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/IOException.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -63,22 +63,21 @@
+               /**
+                * Constructs a new exception.
+                */
+-              explicit IOException() throw()
+-                  : SystemException("IOException") {}
++              explicit IOException() throw() : SystemException("IOException") {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit IOException(const std::string& description) throw()
+-                  : SystemException(description) {}
++              explicit IOException(const std::string& description) throw() :
++                SystemException(description) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit IOException(const char* description) throw()
+-                  : SystemException(description) {}
++              explicit IOException(const char* description) throw() :
++                SystemException(description) {}
+               /**
+                * Does nothing.
+                */
+
+Modified: trunk/src/frog/IllegalArgumentException.h
+===================================================================
+--- trunk/src/frog/IllegalArgumentException.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/IllegalArgumentException.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -61,22 +61,22 @@
+               /**
+                * Constructs a new exception.
+                */
+-              explicit IllegalArgumentException() throw()
+-                  : RuntimeException("IllegalArgumentException") {}
++              explicit IllegalArgumentException() throw() :
++                RuntimeException("IllegalArgumentException") {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit IllegalArgumentException(const std::string& description) throw()
+-                  : RuntimeException(description) {}
++              explicit IllegalArgumentException(const std::string& description) throw() :
++                RuntimeException(description) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit IllegalArgumentException(const char* description) throw()
+-                  : RuntimeException(description) {}
++              explicit IllegalArgumentException(const char* description) throw() :
++                RuntimeException(description) {}
+               /**
+                * Does nothing.
+                */
+
+Modified: trunk/src/frog/InetAddress.h
+===================================================================
+--- trunk/src/frog/InetAddress.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/InetAddress.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -87,7 +87,8 @@
+                * @exception frog::sys::ArgumentOutOfBoundsException Thrown when
+                * the IP address is out of range.
+                */
+-              InetAddress(const struct in_addr& ipAddress) throw(sys::ArgumentOutOfBoundsException);
++              InetAddress(const struct in_addr& ipAddress)
++                  throw(sys::ArgumentOutOfBoundsException);
+ 
+ #ifdef HAVE_IPV6_SUPPORT
+               /**
+@@ -98,7 +99,8 @@
+                * @exception frog::sys::ArgumentOutOfBoundsException Thrown when
+                * the IP address is out of range.
+                */
+-              InetAddress(const struct in6_addr& ipAddress, uint32_t index = 0) throw(sys::ArgumentOutOfBoundsException);
++              InetAddress(const struct in6_addr& ipAddress, uint32_t index = 0)
++                  throw(sys::ArgumentOutOfBoundsException);
+ #endif
+ 
+               /**
+
+Modified: trunk/src/frog/NotImplementedException.h
+===================================================================
+--- trunk/src/frog/NotImplementedException.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/NotImplementedException.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -57,22 +57,22 @@
+               /**
+                * Constructs a new exception.
+                */
+-              explicit NotImplementedException() throw()
+-                  : SystemException("NotImplementedException") {}
++              explicit NotImplementedException() throw() :
++                SystemException("NotImplementedException") {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit NotImplementedException(const std::string& description) throw()
+-                  : SystemException(description) {}
++              explicit NotImplementedException(const std::string& description) throw() :
++                SystemException(description) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit NotImplementedException(const char* description) throw()
+-                  : SystemException(description) {}
++              explicit NotImplementedException(const char* description) throw() :
++                SystemException(description) {}
+               /**
+                * Does nothing.
+                */
+
+Modified: trunk/src/frog/NullPointerException.h
+===================================================================
+--- trunk/src/frog/NullPointerException.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/NullPointerException.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -56,22 +56,22 @@
+               /**
+                * Constructs a new exception.
+                */
+-              explicit NullPointerException() throw()
+-                  : RuntimeException("NullPointerException") {}
++              explicit NullPointerException() throw() :
++                RuntimeException("NullPointerException") {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit NullPointerException(const std::string& description) throw()
+-                  : RuntimeException(description) {}
++              explicit NullPointerException(const std::string& description) throw() :
++                RuntimeException(description) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit NullPointerException(const char* description) throw()
+-                  : RuntimeException(description) {}
++              explicit NullPointerException(const char* description) throw() :
++                RuntimeException(description) {}
+               /**
+                * Does nothing.
+                */
+
+Modified: trunk/src/frog/OverflowException.h
+===================================================================
+--- trunk/src/frog/OverflowException.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/OverflowException.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -56,22 +56,22 @@
+               /**
+                * Constructs a new exception.
+                */
+-              explicit OverflowException() throw()
+-                  : ArithmeticException("OverflowException") {}
++              explicit OverflowException() throw() :
++                ArithmeticException("OverflowException") {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit OverflowException(const std::string& description) throw()
+-                  : ArithmeticException(description) {}
++              explicit OverflowException(const std::string& description) throw() :
++                ArithmeticException(description) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit OverflowException(const char* description) throw()
+-                  : ArithmeticException(description) {}
++              explicit OverflowException(const char* description) throw() :
++                ArithmeticException(description) {}
+ 
+               /**
+                * Does nothing.
+
+Modified: trunk/src/frog/RuntimeException.h
+===================================================================
+--- trunk/src/frog/RuntimeException.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/RuntimeException.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -61,22 +61,22 @@
+               /**
+                * Constructs a new exception.
+                */
+-              explicit RuntimeException() throw()
+-                  : SystemException("RuntimeException") {}
++              explicit RuntimeException() throw() :
++                SystemException("RuntimeException") {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit RuntimeException(const std::string& description) throw()
+-                  : SystemException(description) {}
++              explicit RuntimeException(const std::string& description) throw() :
++                SystemException(description) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit RuntimeException(const char* description) throw()
+-                  : SystemException(description) {}
++              explicit RuntimeException(const char* description) throw() :
++                SystemException(description) {}
+               /**
+                * Does nothing.
+                */
+
+Modified: trunk/src/frog/SocketException.h
+===================================================================
+--- trunk/src/frog/SocketException.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/SocketException.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -58,22 +58,22 @@
+               /**
+                * Constructs a new exception.
+                */
+-              explicit SocketException() throw()
+-                  : sys::IOException("SocketException") {}
++              explicit SocketException() throw() :
++                sys::IOException("SocketException") {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit SocketException(const std::string& description) throw()
+-                  : sys::IOException(description) {}
++              explicit SocketException(const std::string& description) throw() :
++                sys::IOException(description) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit SocketException(const char* description) throw()
+-                  : sys::IOException(description) {}
++              explicit SocketException(const char* description) throw() :
++                sys::IOException(description) {}
+               /**
+                * Does nothing.
+                */
+
+Modified: trunk/src/frog/SystemException.h
+===================================================================
+--- trunk/src/frog/SystemException.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/SystemException.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -68,22 +68,22 @@
+               /**
+                * Constructs a new exception.
+                */
+-              explicit SystemException() throw()
+-                  : Exception("SystemException") {}
++              explicit SystemException() throw() :
++                Exception("SystemException") {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit SystemException(const std::string& description) throw()
+-                  : Exception(description) {}
++              explicit SystemException(const std::string& description) throw() :
++                Exception(description) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit SystemException(const char* description) throw()
+-                  : Exception(description) {}
++              explicit SystemException(const char* description) throw() :
++                Exception(description) {}
+               /**
+                * Does nothing.
+                */
+
+Modified: trunk/src/frog/UnknownHostException.h
+===================================================================
+--- trunk/src/frog/UnknownHostException.h	2005-12-07 10:32:37 UTC (rev 18)
++++ trunk/src/frog/UnknownHostException.h	2005-12-16 08:07:26 UTC (rev 19)
+@@ -58,22 +58,22 @@
+               /**
+                * Constructs a new exception.
+                */
+-              explicit UnknownHostException() throw()
+-                  : sys::IOException("UnknownHostException") {}
++              explicit UnknownHostException() throw() :
++                sys::IOException("UnknownHostException") {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit UnknownHostException(const std::string& description) throw()
+-                  : sys::IOException(description) {}
++              explicit UnknownHostException(const std::string& description) throw() :
++                sys::IOException(description) {}
+ 
+               /**
+                * Constructs a new exception with the specified description.
+                * @param[in] description The description of this exception
+                */
+-              explicit UnknownHostException(const char* description) throw()
+-                  : sys::IOException(description) {}
++              explicit UnknownHostException(const char* description) throw() :
++                sys::IOException(description) {}
+               /**
+                * Does nothing.
+                */
+
+
+
